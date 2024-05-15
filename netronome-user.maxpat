@@ -399,7 +399,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 244.0, 377.219761446185885, 85.0, 30.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 256.333235999999943, 9.358254551883533, 234.0, 30.0 ],
+					"presentation_rect" : [ 112.333235999999943, 9.358254551883533, 216.0, 30.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Play", "Stop" ],
@@ -831,7 +831,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 513.33352800000057, 606.219761446185885, 103.916764000000285, 27.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 10.333235999999943, 9.358254551883533, 244.0, 28.808398999999952 ],
+					"presentation_rect" : [ 10.333235999999943, 9.358254551883533, 100.0, 28.808398999999952 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "val1", "val2" ],
@@ -1586,8 +1586,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 852.916764000000285, 151.533301499999936, 90.0, 20.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 330.333235999999943, 40.166653551883485, 160.0, 20.0 ],
 					"text" : "user data",
 					"textjustification" : 1
 				}
@@ -3336,9 +3334,7 @@
 					"maxclass" : "dict.view",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 749.916764000000285, 183.533301499999936, 204.0, 234.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 330.333235999999943, 62.166653551883428, 160.0, 198.366647948116508 ]
+					"patching_rect" : [ 749.916764000000285, 183.533301499999936, 204.0, 234.0 ]
 				}
 
 			}
@@ -3618,7 +3614,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 964.916764000000285, 41.808398999999952, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 3.0, 4.358254551883533, 494.0, 263.0 ],
+					"presentation_rect" : [ 3.0, 4.358254551883533, 332.0, 263.0 ],
 					"proportion" : 0.5
 				}
 
