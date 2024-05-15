@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 686.0, -968.0, 1024.0, 892.0 ],
+		"rect" : [ 849.0, -914.0, 1024.0, 892.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,101 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-93",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 417.0, 384.0, 35.0, 22.0 ],
+					"text" : "clear"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-81",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 224.0, 260.0, 333.0, 22.0 ],
+					"text" : "sprintf replace Netronome_data::Master::transport_status %s"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-69",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 191.0, 196.0, 267.0, 22.0 ],
+					"patching_rect" : [ 191.0, 132.0, 267.0, 22.0 ],
 					"text" : "sprintf replace Netronome_data::Master::bpm %f"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.0, 1.0, 0.0, 1.0 ],
+					"id" : "obj-80",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 224.0, 284.0, 139.0, 22.0 ],
+					"text" : "s Netronome_master_UI"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.0, 1.0, 0.0, 1.0 ],
+					"id" : "obj-79",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 559.0, 284.0, 217.0, 22.0 ],
+					"text" : "s Netronome_master_transport_control"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-78",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 191.0, 184.0, 70.0, 22.0 ],
+					"text" : "loadmess 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-77",
+					"maxclass" : "live.tab",
+					"multiline" : 0,
+					"num_lines_patching" : 1,
+					"num_lines_presentation" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "float" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 191.0, 208.0, 85.0, 30.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_enum" : [ "Play", "Stop" ],
+							"parameter_longname" : "live.tab",
+							"parameter_mmax" : 1,
+							"parameter_shortname" : "live.tab",
+							"parameter_type" : 2,
+							"parameter_unitstyle" : 9
+						}
+
+					}
+,
+					"varname" : "live.tab"
 				}
 
 			}
@@ -58,7 +146,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 191.0, 172.0, 137.0, 22.0 ],
+					"patching_rect" : [ 191.0, 383.0, 137.0, 22.0 ],
 					"text" : "r Netronome_master_UI"
 				}
 
@@ -70,7 +158,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 191.0, 129.0, 139.0, 22.0 ],
+					"patching_rect" : [ 191.0, 156.0, 139.0, 22.0 ],
 					"text" : "s Netronome_master_UI"
 				}
 
@@ -94,7 +182,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 332.0, 129.0, 161.0, 22.0 ],
+					"patching_rect" : [ 460.0, 156.0, 161.0, 22.0 ],
 					"text" : "s Netronome_master_tempo"
 				}
 
@@ -378,7 +466,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 12.0, 172.0, 175.0, 22.0 ],
+					"patching_rect" : [ 12.0, 383.0, 175.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -395,34 +483,12 @@
 					"bgcolor" : [ 1.0, 0.0, 0.0, 1.0 ],
 					"fontface" : 1,
 					"id" : "obj-55",
-					"linecount" : 4,
+					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 382.0, 276.0, 157.0, 62.0 ],
-					"text" : "- PRESETS/config saves\n- add users\n-- user list with pop-ups\n- master controls"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-22",
-					"lockeddragscroll" : 0,
-					"lockedsize" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "netronome-user.maxpat",
-					"numinlets" : 0,
-					"numoutlets" : 0,
-					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 450.0, 572.0, 498.0, 271.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 12.0, 158.0, 498.0, 243.0 ],
-					"viewvisibility" : 1
+					"patching_rect" : [ 437.0, 482.0, 157.0, 75.0 ],
+					"text" : "- PRESETS/config saves\n- add users\n-- user list with pop-ups\n- master controls\n- mater metronome"
 				}
 
 			}
@@ -432,7 +498,7 @@
 					"maxclass" : "dict.view",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 253.0, 279.0, 199.0 ],
+					"patching_rect" : [ 12.0, 441.0, 279.0, 199.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 12.0, 454.0, 279.0, 199.0 ]
 				}
@@ -446,7 +512,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 4,
 					"outlettype" : [ "dictionary", "", "", "" ],
-					"patching_rect" : [ 12.0, 229.0, 120.0, 22.0 ],
+					"patching_rect" : [ 12.0, 417.0, 120.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"embed" : 0,
 						"parameter_enable" : 0,
@@ -490,7 +556,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 518.0, 137.0, 35.0, 22.0 ],
+					"patching_rect" : [ 487.0, 128.0, 35.0, 22.0 ],
 					"text" : "dac~"
 				}
 
@@ -503,7 +569,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 518.0, 17.0, 107.0, 22.0 ],
+					"patching_rect" : [ 487.0, 16.0, 107.0, 22.0 ],
 					"text" : "r user_metronome"
 				}
 
@@ -526,7 +592,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 42.0, 85.0, 285.0, 165.0 ],
+						"rect" : [ 42.0, 85.0, 285.0, 245.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -705,7 +771,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 518.0, 91.0, 213.0, 22.0 ],
+					"patching_rect" : [ 487.0, 90.0, 213.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -724,7 +790,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 639.0, 17.0, 81.0, 22.0 ],
+					"patching_rect" : [ 608.0, 16.0, 81.0, 22.0 ],
 					"text" : "loadmess -70"
 				}
 
@@ -737,7 +803,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 639.0, 41.0, 92.0, 48.0 ],
+					"patching_rect" : [ 608.0, 40.0, 92.0, 48.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 465.666764000000057, 105.341700499999888, 77.0, 48.0 ],
 					"saved_attribute_attributes" : 					{
@@ -915,7 +981,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-60", 0 ],
-					"midpoints" : [ 200.5, 121.5, 341.5, 121.5 ],
+					"midpoints" : [ 200.5, 121.5, 469.5, 121.5 ],
 					"order" : 0,
 					"source" : [ "obj-59", 0 ]
 				}
@@ -923,7 +989,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-66", 0 ],
+					"destination" : [ "obj-69", 0 ],
 					"order" : 1,
 					"source" : [ "obj-59", 0 ]
 				}
@@ -938,16 +1004,54 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-69", 0 ],
+					"destination" : [ "obj-11", 0 ],
+					"midpoints" : [ 200.5, 410.5, 21.5, 410.5 ],
 					"source" : [ "obj-67", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
-					"midpoints" : [ 200.5, 224.0, 21.5, 224.0 ],
+					"destination" : [ "obj-66", 0 ],
 					"source" : [ "obj-69", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-79", 0 ],
+					"midpoints" : [ 233.5, 244.0, 568.5, 244.0 ],
+					"order" : 0,
+					"source" : [ "obj-77", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-81", 0 ],
+					"order" : 1,
+					"source" : [ "obj-77", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-77", 0 ],
+					"source" : [ "obj-78", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-80", 0 ],
+					"source" : [ "obj-81", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"source" : [ "obj-93", 0 ]
 				}
 
 			}
@@ -955,11 +1059,7 @@
 		"parameters" : 		{
 			"obj-109" : [ "live.dial", "metronome volume", 0 ],
 			"obj-2" : [ "live.text[2]", "live.text[2]", 0 ],
-			"obj-22::obj-12" : [ "live.tab", "live.tab", 0 ],
-			"obj-22::obj-21" : [ "live.gain~", "gain", 0 ],
-			"obj-22::obj-23" : [ "live.text[5]", "live.text[2]", 0 ],
-			"obj-22::obj-51" : [ "live.text", "live.text", 0 ],
-			"obj-22::obj-54" : [ "live.text[1]", "live.text[1]", 0 ],
+			"obj-77" : [ "live.tab", "live.tab", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
 					"index" : 0,
@@ -969,24 +1069,10 @@
 
 			}
 ,
-			"parameter_overrides" : 			{
-				"obj-22::obj-23" : 				{
-					"parameter_longname" : "live.text[5]"
-				}
-
-			}
-,
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "netronome-user.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 
