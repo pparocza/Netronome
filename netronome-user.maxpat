@@ -714,7 +714,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+					"items" : "Off",
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -2270,7 +2270,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 4.0, 199.175046948116403, 107.0, 22.0 ],
+					"patching_rect" : [ 4.0, 175.533301499999936, 107.0, 22.0 ],
 					"text" : "s #0-user_data_UI"
 				}
 
@@ -2282,7 +2282,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 4.0, 175.175046948116403, 190.0, 22.0 ],
+					"patching_rect" : [ 4.0, 151.533301499999936, 190.0, 22.0 ],
 					"text" : "sprintf replace user_data::hash %i"
 				}
 
@@ -2293,21 +2293,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 4.0, 127.533301499999936, 58.0, 22.0 ],
-					"text" : "loadbang"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-93",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
-					"patching_rect" : [ 4.0, 151.175046948116403, 86.0, 22.0 ],
-					"text" : "random 32767"
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 4.0, 127.533301499999936, 77.0, 22.0 ],
+					"text" : "loadmess #0"
 				}
 
 			}
@@ -3120,13 +3108,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-100", 0 ],
-					"source" : [ "obj-93", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-93", 0 ],
 					"source" : [ "obj-99", 0 ]
 				}
 
