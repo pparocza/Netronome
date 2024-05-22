@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 218.0, 141.0, 336.0, 784.0 ],
+		"rect" : [ 8.0, 63.0, 336.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -59,18 +59,6 @@
 					"outlettype" : [ "bang", "bang" ],
 					"patching_rect" : [ 772.666666666666515, 768.0, 32.0, 22.0 ],
 					"text" : "t b b"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-72",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 232.0, 337.0, 196.0, 22.0 ],
-					"text" : "remove Netronome_data::channels"
 				}
 
 			}
@@ -625,7 +613,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1071.0, 116.0, 732.0, 648.0 ],
+						"rect" : [ 2038.0, 312.0, 1058.0, 648.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1774,7 +1762,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 275.5, 71.0, 160.0, 20.0 ],
+					"patching_rect" : [ 275.5, 71.0, 53.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 3.0, 50.0, 328.0, 20.0 ],
 					"text" : "bpm",
@@ -2578,13 +2566,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-66", 0 ],
 					"source" : [ "obj-69", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-72", 0 ]
 				}
 
 			}
