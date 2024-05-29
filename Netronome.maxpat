@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 204.0, 293.0, 840.0, 460.0 ],
+		"rect" : [ 37.0, 190.0, 835.0, 422.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,41 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "textbutton",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1001.0, 13.0, 134.0, 21.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 0.75, 372.770789262970879, 819.0, 27.0 ],
+					"text" : "Browse Digiscores"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgmode" : 0,
+					"border" : 0,
+					"clickthrough" : 0,
+					"enablehscroll" : 0,
+					"enablevscroll" : 0,
+					"id" : "obj-20",
+					"lockeddragscroll" : 0,
+					"lockedsize" : 0,
+					"maxclass" : "bpatcher",
+					"name" : "netronome-browser.maxpat",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"offset" : [ 0.0, 0.0 ],
+					"patching_rect" : [ 1001.0, 36.0, 112.0, 153.0 ],
+					"viewvisibility" : 1
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontface" : 1,
 					"id" : "obj-2",
@@ -5480,6 +5515,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-20", 0 ],
+					"source" : [ "obj-23", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
 					"source" : [ "obj-26", 0 ]
 				}
@@ -5611,7 +5653,7 @@
 		"parameters" : 		{
 			"obj-1" : [ "live.text[8]", "live.text[8]", 0 ],
 			"obj-166" : [ "live.tab[4]", "live.tab[4]", 0 ],
-			"obj-18::obj-154" : [ "live.text[7]", "live.text", 0 ],
+			"obj-18::obj-154" : [ "live.text[4]", "live.text", 0 ],
 			"obj-19" : [ "live.tab[6]", "live.tab[4]", 0 ],
 			"obj-77" : [ "live.tab", "live.tab", 0 ],
 			"parameterbanks" : 			{
@@ -5623,18 +5665,18 @@
 
 			}
 ,
-			"parameter_overrides" : 			{
-				"obj-18::obj-154" : 				{
-					"parameter_longname" : "live.text[7]"
-				}
-
-			}
-,
 			"inherited_shortname" : 1
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "latency-calculator.maxpat",
+				"bootpath" : "~/Desktop/Netronome/Netronome",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "netronome-browser.maxpat",
 				"bootpath" : "~/Desktop/Netronome/Netronome",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
