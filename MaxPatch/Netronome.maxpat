@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 37.0, 190.0, 835.0, 422.0 ],
+		"rect" : [ 182.0, 181.0, 836.0, 411.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -68,7 +68,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 1001.0, 36.0, 112.0, 153.0 ],
+					"patching_rect" : [ 1001.0, 35.0, 112.0, 153.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -128,7 +128,7 @@
 					"lockeddragscroll" : 0,
 					"lockedsize" : 0,
 					"maxclass" : "bpatcher",
-					"name" : "latency-calculator.maxpat",
+					"name" : "netronome-latency-calculator.maxpat",
 					"numinlets" : 0,
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
@@ -908,7 +908,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1477.0, -1006.0, 430.0, 192.0 ],
+						"rect" : [ 2390.0, 433.0, 530.0, 162.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4874,7 +4874,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Play", "Stop" ],
-							"parameter_longname" : "live.tab",
+							"parameter_longname" : "live.tab[2]",
 							"parameter_mmax" : 1,
 							"parameter_shortname" : "live.tab",
 							"parameter_type" : 2,
@@ -5515,13 +5515,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-20", 0 ],
-					"source" : [ "obj-23", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
 					"source" : [ "obj-26", 0 ]
 				}
@@ -5653,9 +5646,9 @@
 		"parameters" : 		{
 			"obj-1" : [ "live.text[8]", "live.text[8]", 0 ],
 			"obj-166" : [ "live.tab[4]", "live.tab[4]", 0 ],
-			"obj-18::obj-154" : [ "live.text[4]", "live.text", 0 ],
+			"obj-18::obj-154" : [ "live.text[6]", "live.text", 0 ],
 			"obj-19" : [ "live.tab[6]", "live.tab[4]", 0 ],
-			"obj-77" : [ "live.tab", "live.tab", 0 ],
+			"obj-77" : [ "live.tab[2]", "live.tab", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
 					"index" : 0,
@@ -5665,20 +5658,27 @@
 
 			}
 ,
+			"parameter_overrides" : 			{
+				"obj-18::obj-154" : 				{
+					"parameter_longname" : "live.text[6]"
+				}
+
+			}
+,
 			"inherited_shortname" : 1
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "latency-calculator.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome",
-				"patcherrelativepath" : ".",
+				"name" : "netronome-browser.maxpat",
+				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch/bpatchers",
+				"patcherrelativepath" : "./bpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "netronome-browser.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome",
-				"patcherrelativepath" : ".",
+				"name" : "netronome-latency-calculator.maxpat",
+				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch/bpatchers",
+				"patcherrelativepath" : "./bpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
