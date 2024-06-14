@@ -153,7 +153,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 656.0, 101.0, 341.0, 554.0 ],
+						"rect" : [ 869.0, 474.0, 341.0, 554.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -292,14 +292,15 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-18",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 884.916764000000171, 958.166602338017469, 65.0, 22.0 ],
+									"patching_rect" : [ 884.916764000000171, 958.166602338017469, 65.0, 36.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 253.0, 467.337085724108647, 79.0, 22.0 ],
-									"text" : "500."
+									"text" : "109.291667"
 								}
 
 							}
@@ -352,7 +353,8 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 840.916764000000398, 889.166602338017469, 65.0, 22.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 172.0, 467.337085724108647, 79.0, 22.0 ]
+									"presentation_rect" : [ 172.0, 467.337085724108647, 79.0, 22.0 ],
+									"text" : "7.354167"
 								}
 
 							}
@@ -394,7 +396,7 @@
 									"patching_rect" : [ 840.916764000000398, 834.37888629915517, 78.0, 22.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 91.0, 467.337085724108647, 79.0, 22.0 ],
-									"text" : "500."
+									"text" : "116.645833"
 								}
 
 							}
@@ -2400,7 +2402,8 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 840.916764000000398, 764.399899000000005, 72.0, 22.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 8.0, 467.33708572410842, 79.0, 22.0 ]
+									"presentation_rect" : [ 8.0, 467.33708572410842, 79.0, 22.0 ],
+									"text" : "383.354167"
 								}
 
 							}
@@ -5086,7 +5089,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 841.0, -577.0, 378.0, 297.0 ],
+										"rect" : [ 841.0, 51.0, 378.0, 297.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -5313,8 +5316,8 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 48.44857231762694, 143.0, 60.0, 22.0 ],
-													"text" : "cycle~ 10"
+													"patching_rect" : [ 48.44857231762694, 143.0, 53.0, 22.0 ],
+													"text" : "cycle~ 2"
 												}
 
 											}
