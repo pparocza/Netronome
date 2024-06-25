@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 990.0, -989.0, 501.0, 411.0 ],
+		"rect" : [ 441.0, 183.0, 501.0, 411.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -5648,8 +5648,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 189.0, 65.0, 83.0, 22.0 ],
-					"text" : "loadmess 120"
+					"patching_rect" : [ 189.0, 65.0, 77.0, 22.0 ],
+					"text" : "loadmess 60"
 				}
 
 			}
@@ -6383,12 +6383,6 @@
 			"obj-1" : [ "live.text[8]", "live.text[8]", 0 ],
 			"obj-166" : [ "live.tab[4]", "live.tab[4]", 0 ],
 			"obj-19" : [ "live.tab[6]", "live.tab[4]", 0 ],
-			"obj-5::obj-4::obj-1::obj-12" : [ "live.tab", "live.tab", 0 ],
-			"obj-5::obj-4::obj-1::obj-23" : [ "live.text[2]", "live.text[2]", 0 ],
-			"obj-5::obj-4::obj-1::obj-49" : [ "live.text[1]", "live.text[1]", 0 ],
-			"obj-5::obj-4::obj-1::obj-51" : [ "live.text", "live.text", 0 ],
-			"obj-5::obj-4::obj-1::obj-71" : [ "live.text[11]", "live.text[11]", 0 ],
-			"obj-5::obj-4::obj-1::obj-82" : [ "live.gain~", " ", 0 ],
 			"obj-77" : [ "live.tab[2]", "live.tab", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
@@ -6402,14 +6396,7 @@
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "netronome-channel.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch//bpatchers",
-				"patcherrelativepath" : ".//bpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 
