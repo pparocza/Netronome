@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 442.0, -1025.0, 774.0, 250.0 ],
+		"rect" : [ 9.0, -889.0, 774.0, 250.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -2070,8 +2070,8 @@
 																	"numinlets" : 1,
 																	"numoutlets" : 1,
 																	"outlettype" : [ "" ],
-																	"patching_rect" : [ 582.0, 34.0, 293.0, 22.0 ],
-																	"text" : "sprintf replace Netronome_master_transport::units %f"
+																	"patching_rect" : [ 582.0, 34.0, 292.0, 22.0 ],
+																	"text" : "sprintf replace Netronome_master_transport::ticks %f"
 																}
 
 															}
@@ -7476,7 +7476,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-108", 3 ],
-					"midpoints" : [ 238.5, 282.5, 150.5, 282.5 ],
+					"midpoints" : [ 238.5, 280.5, 150.5, 280.5 ],
 					"source" : [ "obj-172", 0 ]
 				}
 
@@ -7602,8 +7602,8 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "netronome-channel.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch//bpatchers",
-				"patcherrelativepath" : ".//bpatchers",
+				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch/bpatchers",
+				"patcherrelativepath" : "./bpatchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
