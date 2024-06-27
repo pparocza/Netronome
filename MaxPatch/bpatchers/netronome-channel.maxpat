@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1296.0, 254.0, 346.0, 166.0 ],
+		"rect" : [ 436.0, -487.0, 346.0, 166.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -153,7 +153,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 546.0, -917.0, 340.0, 482.0 ],
+						"rect" : [ 442.0, -1024.0, 340.0, 482.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -2626,7 +2626,7 @@
 														}
 ,
 														"classnamespace" : "box",
-														"rect" : [ 456.0, 220.0, 361.0, 123.0 ],
+														"rect" : [ 1238.0, 57.0, 361.0, 123.0 ],
 														"bglocked" : 0,
 														"openinpresentation" : 0,
 														"default_fontsize" : 12.0,
@@ -2824,7 +2824,7 @@
 																		}
 ,
 																		"classnamespace" : "box",
-																		"rect" : [ 533.0, -722.0, 373.0, 297.0 ],
+																		"rect" : [ 314.0, 501.0, 373.0, 297.0 ],
 																		"bglocked" : 0,
 																		"openinpresentation" : 0,
 																		"default_fontsize" : 12.0,
@@ -6214,7 +6214,7 @@
 														}
 ,
 														"classnamespace" : "box",
-														"rect" : [ 724.0, 308.0, 402.0, 294.0 ],
+														"rect" : [ 833.0, 57.0, 402.0, 294.0 ],
 														"bglocked" : 0,
 														"openinpresentation" : 1,
 														"default_fontsize" : 12.0,
@@ -6242,6 +6242,7 @@
 														"style" : "",
 														"subpatcher_template" : "Default Max 7",
 														"assistshowspatchername" : 0,
+														"visible" : 1,
 														"boxes" : [ 															{
 																"box" : 																{
 																	"id" : "obj-12",
