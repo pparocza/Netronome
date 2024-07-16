@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 41.0, -1009.0, 346.0, 164.0 ],
+		"rect" : [ 1023.0, -544.0, 346.0, 164.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -153,7 +153,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 76.0, -661.0, 356.0, 273.0 ],
+						"rect" : [ 600.0, -981.0, 356.0, 273.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -181,7 +181,6 @@
 						"style" : "",
 						"subpatcher_template" : "Default Max 7",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-21",
@@ -3759,6 +3758,7 @@
 										"style" : "",
 										"subpatcher_template" : "Default Max 7",
 										"assistshowspatchername" : 0,
+										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-118",
@@ -4000,7 +4000,7 @@
 																		}
 ,
 																		"classnamespace" : "box",
-																		"rect" : [ 616.0, -727.0, 410.0, 197.0 ],
+																		"rect" : [ 616.0, -727.0, 449.0, 176.0 ],
 																		"bglocked" : 0,
 																		"openinpresentation" : 0,
 																		"default_fontsize" : 12.0,
@@ -4190,16 +4190,10 @@
 																								}
 
 																							}
- ],
-																						"bgfillcolor_type" : "gradient",
-																						"bgfillcolor_color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
-																						"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																						"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																						"bgfillcolor_angle" : 270.0,
-																						"bgfillcolor_proportion" : 0.39
+ ]
 																					}
 ,
-																					"patching_rect" : [ 39.666666666666629, 53.176178999999991, 113.0, 22.0 ],
+																					"patching_rect" : [ 263.666666666666629, 50.176178999999991, 113.0, 22.0 ],
 																					"saved_object_attributes" : 																					{
 																						"description" : "",
 																						"digest" : "",
@@ -4216,10 +4210,10 @@
 																					"id" : "obj-11",
 																					"maxclass" : "newobj",
 																					"numinlets" : 2,
-																					"numoutlets" : 1,
-																					"outlettype" : [ "" ],
-																					"patching_rect" : [ 2.666666666666629, 88.770789262970879, 32.0, 22.0 ],
-																					"text" : "gate"
+																					"numoutlets" : 2,
+																					"outlettype" : [ "", "" ],
+																					"patching_rect" : [ 2.666666666666629, 83.770789262970879, 256.0, 22.0 ],
+																					"text" : "gate 2"
 																				}
 
 																			}
@@ -4230,7 +4224,7 @@
 																					"numinlets" : 1,
 																					"numoutlets" : 2,
 																					"outlettype" : [ "", "bang" ],
-																					"patching_rect" : [ 15.666666666666629, 29.176178999999991, 43.0, 22.0 ],
+																					"patching_rect" : [ 239.666666666666629, 26.176178999999991, 43.0, 22.0 ],
 																					"text" : "t s b"
 																				}
 
@@ -4521,16 +4515,10 @@
 																								}
 
 																							}
- ],
-																						"bgfillcolor_type" : "gradient",
-																						"bgfillcolor_color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
-																						"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																						"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																						"bgfillcolor_angle" : 270.0,
-																						"bgfillcolor_proportion" : 0.39
+ ]
 																					}
 ,
-																					"patching_rect" : [ 239.666666666666629, 128.176178999999991, 167.0, 22.0 ],
+																					"patching_rect" : [ 239.666666666666629, 107.770789262970879, 167.0, 22.0 ],
 																					"saved_object_attributes" : 																					{
 																						"description" : "",
 																						"digest" : "",
@@ -4560,7 +4548,7 @@
 																						}
 ,
 																						"classnamespace" : "box",
-																						"rect" : [ 1144.0, 319.0, 642.0, 386.0 ],
+																						"rect" : [ 1144.0, 319.0, 642.0, 388.0 ],
 																						"bglocked" : 0,
 																						"openinpresentation" : 0,
 																						"default_fontsize" : 12.0,
@@ -4731,13 +4719,7 @@
 																												}
 
 																											}
- ],
-																										"bgfillcolor_type" : "gradient",
-																										"bgfillcolor_color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
-																										"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																										"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-																										"bgfillcolor_angle" : 270.0,
-																										"bgfillcolor_proportion" : 0.39
+ ]
 																									}
 ,
 																									"patching_rect" : [ 146.0, 153.911910262958145, 119.0, 22.0 ],
@@ -5109,7 +5091,7 @@
  ]
 																					}
 ,
-																					"patching_rect" : [ 2.666666666666629, 128.176178999999991, 235.0, 22.0 ],
+																					"patching_rect" : [ 2.666666666666629, 107.770789262970879, 235.0, 22.0 ],
 																					"saved_object_attributes" : 																					{
 																						"description" : "",
 																						"digest" : "",
@@ -5129,7 +5111,7 @@
 																					"numinlets" : 0,
 																					"numoutlets" : 1,
 																					"outlettype" : [ "" ],
-																					"patching_rect" : [ 15.666666666666629, 5.176178999999991, 205.0, 22.0 ],
+																					"patching_rect" : [ 239.666666666666629, 2.176178999999991, 205.0, 22.0 ],
 																					"text" : "r Netronome_master_transport_state"
 																				}
 
@@ -5142,7 +5124,7 @@
 																					"maxclass" : "outlet",
 																					"numinlets" : 1,
 																					"numoutlets" : 0,
-																					"patching_rect" : [ 2.666666666666629, 164.17617947408371, 30.0, 30.0 ]
+																					"patching_rect" : [ 2.666666666666629, 143.770789737054599, 30.0, 30.0 ]
 																				}
 
 																			}
@@ -5164,7 +5146,6 @@
 , 																			{
 																				"patchline" : 																				{
 																					"destination" : [ "obj-132", 0 ],
-																					"order" : 1,
 																					"source" : [ "obj-11", 0 ]
 																				}
 
@@ -5172,9 +5153,7 @@
 , 																			{
 																				"patchline" : 																				{
 																					"destination" : [ "obj-4", 0 ],
-																					"midpoints" : [ 12.166666666666629, 118.973484131485435, 249.166666666666629, 118.973484131485435 ],
-																					"order" : 0,
-																					"source" : [ "obj-11", 0 ]
+																					"source" : [ "obj-11", 1 ]
 																				}
 
 																			}
@@ -5188,7 +5167,7 @@
 , 																			{
 																				"patchline" : 																				{
 																					"destination" : [ "obj-11", 0 ],
-																					"midpoints" : [ 49.166666666666629, 81.473484131485435, 12.166666666666629, 81.473484131485435 ],
+																					"midpoints" : [ 273.166666666666629, 76.473484131485435, 12.166666666666629, 76.473484131485435 ],
 																					"source" : [ "obj-15", 0 ]
 																				}
 
@@ -5196,7 +5175,7 @@
 , 																			{
 																				"patchline" : 																				{
 																					"destination" : [ "obj-92", 0 ],
-																					"midpoints" : [ 249.166666666666629, 156.67617923704185, 12.166666666666629, 156.67617923704185 ],
+																					"midpoints" : [ 249.166666666666629, 136.270789500012739, 12.166666666666629, 136.270789500012739 ],
 																					"source" : [ "obj-4", 0 ]
 																				}
 
@@ -5481,7 +5460,7 @@
 																		}
 ,
 																		"classnamespace" : "box",
-																		"rect" : [ 762.0, -457.0, 316.0, 111.0 ],
+																		"rect" : [ 1049.0, -377.0, 316.0, 111.0 ],
 																		"bglocked" : 0,
 																		"openinpresentation" : 0,
 																		"default_fontsize" : 12.0,
