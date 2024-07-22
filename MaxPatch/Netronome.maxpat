@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 447.0, -1020.0, 1010.0, 289.0 ],
+		"rect" : [ 802.0, -1018.0, 1010.0, 289.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -150,7 +150,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1268.0, -568.0, 459.0, 184.0 ],
+						"rect" : [ 239.0, -241.0, 459.0, 184.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -178,6 +178,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -1350,7 +1351,7 @@
 													"patching_rect" : [ 464.750097333333997, 194.854871577825293, 185.0, 22.0 ],
 													"presentation" : 1,
 													"presentation_rect" : [ 94.416764000000285, 53.354871577825293, 156.916763999999716, 20.0 ],
-													"text" : "latency-config-001",
+													"text" : "max-jack-roundtrip",
 													"textjustification" : 1
 												}
 
