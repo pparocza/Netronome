@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 803.0, -760.0, 1010.0, 289.0 ],
+		"rect" : [ 447.0, -1020.0, 1010.0, 289.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -150,7 +150,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1453.0, -524.0, 459.0, 184.0 ],
+						"rect" : [ 1268.0, -568.0, 459.0, 184.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -178,6 +178,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -1350,7 +1351,7 @@
 													"patching_rect" : [ 464.750097333333997, 194.854871577825293, 185.0, 22.0 ],
 													"presentation" : 1,
 													"presentation_rect" : [ 94.416764000000285, 53.354871577825293, 156.916763999999716, 20.0 ],
-													"text" : "latency-config-001",
+													"text" : "max-jack-roundtrip",
 													"textjustification" : 1
 												}
 
@@ -7370,44 +7371,6 @@
 												}
 
 											}
-, 											{
-												"box" : 												{
-													"bgmode" : 0,
-													"border" : 0,
-													"clickthrough" : 0,
-													"enablehscroll" : 0,
-													"enablevscroll" : 0,
-													"id" : "obj-4",
-													"lockeddragscroll" : 0,
-													"lockedsize" : 0,
-													"maxclass" : "bpatcher",
-													"name" : "netronome-channel.maxpat",
-													"numinlets" : 0,
-													"numoutlets" : 0,
-													"offset" : [ 0.0, 0.0 ],
-													"viewvisibility" : 1
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"bgmode" : 0,
-													"border" : 0,
-													"clickthrough" : 0,
-													"enablehscroll" : 0,
-													"enablevscroll" : 0,
-													"id" : "obj-44",
-													"lockeddragscroll" : 0,
-													"lockedsize" : 0,
-													"maxclass" : "bpatcher",
-													"name" : "netronome-channel.maxpat",
-													"numinlets" : 0,
-													"numoutlets" : 0,
-													"offset" : [ 0.0, 0.0 ],
-													"viewvisibility" : 1
-												}
-
-											}
  ],
 										"lines" : [ 											{
 												"patchline" : 												{
@@ -11791,7 +11754,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-38",
@@ -14681,7 +14643,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 1045.0, -1027.0, 256.0, 133.0 ],
+										"rect" : [ 451.0, -1020.0, 256.0, 133.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -14709,7 +14671,6 @@
 										"style" : "",
 										"subpatcher_template" : "",
 										"assistshowspatchername" : 0,
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-1",
@@ -15357,7 +15318,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.numbox[1]",
+							"parameter_longname" : "live.numbox[2]",
 							"parameter_shortname" : "live.numbox",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
@@ -15748,20 +15709,12 @@
  ],
 		"parameters" : 		{
 			"obj-1" : [ "live.text[8]", "live.text[8]", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-12" : [ "live.tab", "live.tab", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-126" : [ "live.numbox[2]", "live.numbox", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-2" : [ "live.text[4]", "live.text[2]", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-23" : [ "live.text[2]", "live.text[2]", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-26" : [ "live.gain~[4]", " ", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-51" : [ "live.text", "live.text", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-6" : [ "live.text[3]", "live.text[2]", 0 ],
-			"obj-108::obj-5::obj-44::obj-1::obj-82" : [ "live.gain~", " ", 0 ],
 			"obj-10::obj-9::obj-49" : [ "live.text[1]", "live.text[1]", 0 ],
 			"obj-166" : [ "live.tab[4]", "live.tab[4]", 0 ],
 			"obj-19" : [ "live.tab[6]", "live.tab[4]", 0 ],
 			"obj-25" : [ "live.dial", "Metronome Volume", 0 ],
 			"obj-44" : [ "live.tab[7]", "live.tab", 0 ],
-			"obj-59" : [ "live.numbox[1]", "live.numbox", 0 ],
+			"obj-59" : [ "live.numbox[2]", "live.numbox", 0 ],
 			"obj-77" : [ "live.tab[2]", "live.tab", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
@@ -15772,24 +15725,10 @@
 
 			}
 ,
-			"parameter_overrides" : 			{
-				"obj-108::obj-5::obj-44::obj-1::obj-126" : 				{
-					"parameter_longname" : "live.numbox[2]"
-				}
-
-			}
-,
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "netronome-channel.maxpat",
-				"bootpath" : "~/Desktop/Netronome/Netronome/MaxPatch//bpatchers",
-				"patcherrelativepath" : ".//bpatchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 
