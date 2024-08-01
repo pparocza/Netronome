@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 935.0, -485.0, 291.0, 146.0 ],
+		"rect" : [ 1265.0, -787.0, 291.0, 146.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -286,7 +286,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 9.0, -679.0, 683.0, 549.0 ],
+						"rect" : [ 8.0, -885.0, 955.0, 719.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -314,7 +314,6 @@
 						"style" : "",
 						"subpatcher_template" : "Default Max 7",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-6",
@@ -654,7 +653,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 1598.0, -246.0, 265.0, 126.0 ],
+										"rect" : [ 724.0, -390.0, 265.0, 126.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -760,7 +759,7 @@
 														}
 ,
 														"classnamespace" : "box",
-														"rect" : [ 246.0, 357.0, 496.0, 142.0 ],
+														"rect" : [ 84.0, -970.0, 574.0, 141.0 ],
 														"bglocked" : 0,
 														"openinpresentation" : 0,
 														"default_fontsize" : 12.0,
@@ -819,7 +818,7 @@
 																	"numinlets" : 2,
 																	"numoutlets" : 1,
 																	"outlettype" : [ "" ],
-																	"patching_rect" : [ 236.0, 57.0, 39.0, 22.0 ],
+																	"patching_rect" : [ 279.5, 57.0, 39.0, 22.0 ],
 																	"text" : "Circle"
 																}
 
@@ -843,8 +842,8 @@
 																	"numinlets" : 3,
 																	"numoutlets" : 3,
 																	"outlettype" : [ "bang", "bang", "" ],
-																	"patching_rect" : [ 1.0, 33.0, 489.0, 22.0 ],
-																	"text" : "sel https://openprocessing.org/sketch/2312556 https://openprocessing.org/sketch/2317426"
+																	"patching_rect" : [ 1.0, 33.0, 570.0, 22.0 ],
+																	"text" : "sel https://openprocessing.org/sketch/2312556/embed https://openprocessing.org/sketch/2317426/embed"
 																}
 
 															}
@@ -900,7 +899,7 @@
 , 															{
 																"patchline" : 																{
 																	"destination" : [ "obj-10", 0 ],
-																	"midpoints" : [ 245.5, 85.0, 10.5, 85.0 ],
+																	"midpoints" : [ 289.0, 85.0, 10.5, 85.0 ],
 																	"source" : [ "obj-9", 0 ]
 																}
 
@@ -1216,7 +1215,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 2.0, 198.0, 569.0, 422.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 0.0, 0.0, 678.0, 544.0 ],
+									"presentation_rect" : [ 0.0, 0.0, 950.0, 714.0 ],
 									"rendermode" : 0,
 									"url" : "#1"
 								}
@@ -1229,7 +1228,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 102.5, 88.0, 56.0, 22.0 ],
+									"patching_rect" : [ 102.5, 87.0, 56.0, 22.0 ],
 									"text" : "metro 10"
 								}
 
