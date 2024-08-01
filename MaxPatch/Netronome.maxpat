@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 6.0, -1026.0, 1008.0, 288.0 ],
+		"rect" : [ 134.0, -967.0, 1008.0, 288.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -79,7 +79,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 756.75, 409.770789262970879, 25.0, 80.0 ],
+					"patching_rect" : [ 281.0, 11.5, 36.0, 47.5 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 170.0, 133.520789262970879, 155.5, 38.0 ],
 					"proportion" : 0.5
@@ -102,7 +102,7 @@
 					"presentation_rect" : [ 174.5, 178.770789262970879, 146.75, 56.5 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_enum" : [ "New Node Graph", "New Circle Score" ],
+							"parameter_enum" : [ "Launch Node Graph", "Launch Circle Score" ],
 							"parameter_longname" : "live.tab[3]",
 							"parameter_mmax" : 1,
 							"parameter_shortname" : "live.tab[3]",
