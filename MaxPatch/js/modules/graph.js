@@ -1,6 +1,6 @@
 class Graph {
     constructor(arr) {
-				this.steps = 0;
+        this.steps = 0;
         this.nodes = [];
         this.numNodes = arr.length + 1;
         this.adjacencyList = []; // an array of arrays that stores each node's neighbors

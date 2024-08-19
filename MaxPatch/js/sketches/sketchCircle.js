@@ -1,4 +1,4 @@
-var socket = io.connect($OP.getEchoServerURL(2312556));
+var socket = io.connect($OP.getEchoServerURL(2324761));
 let metronome;
 var showOuterRing = true;
 var showTopText = true;
@@ -15,7 +15,8 @@ const buttonWidth = 20;
 const buttonHeight = 20;
 const buttonGap = 10;
 
-function setup() {
+function setup()
+{
     createCanvas(1280, 1000);
 
     // initialize metronome
@@ -28,6 +29,8 @@ function setup() {
     socket.on('refreshCircle', refreshCircle);
     socket.on('joinIn', someoneJoined);
     socket.on('changeMetronome', changeMetronome);
+
+    socket.emit('requestCreateNode');
 }
 
 function draw() {
