@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 31.0, -998.0, 1008.0, 288.0 ],
+		"rect" : [ 86.0, -967.0, 1008.0, 291.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -176,7 +176,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Latency Calculator", "Latency Calculator" ],
-							"parameter_longname" : "live.text[3]",
+							"parameter_longname" : "live.text[5]",
 							"parameter_mmax" : 1,
 							"parameter_shortname" : "live.text[2]",
 							"parameter_type" : 2
@@ -826,7 +826,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 11.0, 405.0, 265.0, 229.0 ],
+										"rect" : [ 754.0, -437.0, 265.0, 229.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 1,
 										"default_fontsize" : 12.0,
@@ -4953,7 +4953,7 @@
 , 															{
 																"box" : 																{
 																	"id" : "obj-121",
-																	"items" : "Off",
+																	"items" : [ "Off", ",", 1, "Left Output", ",", 2, "Right Output" ],
 																	"maxclass" : "umenu",
 																	"numinlets" : 1,
 																	"numoutlets" : 3,
@@ -5656,7 +5656,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"items" : [ "Off", ",", 1, "Output 0", ",", 2, "Output 1" ],
+					"items" : [ "Off", ",", 1, "Left Output", ",", 2, "Right Output" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -9531,25 +9531,6 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "bang" ],
 													"patching_rect" : [ 2.0, 2.0, 30.0, 30.0 ]
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"bgmode" : 0,
-													"border" : 0,
-													"clickthrough" : 0,
-													"enablehscroll" : 0,
-													"enablevscroll" : 0,
-													"id" : "obj-4",
-													"lockeddragscroll" : 0,
-													"lockedsize" : 0,
-													"maxclass" : "bpatcher",
-													"name" : "netronome-channel.maxpat",
-													"numinlets" : 0,
-													"numoutlets" : 0,
-													"offset" : [ 0.0, 0.0 ],
-													"viewvisibility" : 1
 												}
 
 											}
@@ -17062,7 +17043,7 @@
 		"parameters" : 		{
 			"obj-108::obj-4" : [ "live.text[11]", "live.text[8]", 0 ],
 			"obj-166" : [ "live.tab[4]", "live.tab[4]", 0 ],
-			"obj-18" : [ "live.text[3]", "live.text[2]", 0 ],
+			"obj-18" : [ "live.text[5]", "live.text[2]", 0 ],
 			"obj-25" : [ "live.dial", "Metronome Volume", 0 ],
 			"obj-29" : [ "live.tab[3]", "live.tab[3]", 0 ],
 			"obj-36::obj-10::obj-9::obj-49" : [ "live.text[1]", "live.text[1]", 0 ],
