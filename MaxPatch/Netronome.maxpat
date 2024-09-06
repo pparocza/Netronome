@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 113.0, -863.0, 1447.0, 256.0 ],
+		"rect" : [ 63.0, -896.0, 1447.0, 256.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -12207,7 +12207,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-60",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -13403,7 +13403,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -25287,7 +25287,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-60",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -26483,7 +26483,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -27213,7 +27213,7 @@
 										"NTM_channel_input" : [ 0 ],
 										"NTM_channel_input_gain" : [ 0.0 ],
 										"NTM_channel_latency_config" : [ 0 ],
-										"NTM_channel_name" : [ "ch2" ],
+										"NTM_channel_name" : [ "test" ],
 										"NTM_channel_output" : [ 0 ],
 										"NTM_channel_output_gain" : [ 0.0 ],
 										"NTM_channel_passthrough" : [ 0.0 ],
@@ -38367,7 +38367,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-60",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -39563,7 +39563,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -39673,7 +39673,7 @@
 									"patching_rect" : [ 4.416764000000285, 89.441411603766909, 101.0, 18.641745448116467 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 81.0, 9.614051239421542, 147.583235999999715, 20.0 ],
-									"text" : "ch2",
+									"text" : "test",
 									"textjustification" : 1,
 									"varname" : "NTM_channel_name"
 								}
@@ -51447,7 +51447,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-60",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -52643,7 +52643,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -57379,7 +57379,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-131",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -57394,7 +57394,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-121",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -58488,7 +58488,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+					"items" : "Off",
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
