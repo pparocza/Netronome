@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 63.0, -896.0, 1447.0, 256.0 ],
+		"rect" : [ 216.0, -951.0, 1447.0, 256.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"patching_rect" : [ 1156.125, 440.125, 29.5, 22.0 ],
+					"text" : "+ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-33",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1454.0, 123.0, 89.0, 22.0 ],
+					"text" : "storagewindow"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-188",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -63,7 +87,7 @@
 					"patching_rect" : [ 1054.624999999999773, 75.0, 96.0, 23.5 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 271.4375, 162.26039463148544, 101.0, 22.0 ],
-					"text" : "test2",
+					"text" : "test3",
 					"textjustification" : 1,
 					"varname" : "textedit"
 				}
@@ -72,7 +96,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-88",
-					"items" : [ "test", ",", "test2", ",", "test2" ],
+					"items" : [ "test", ",", "test2", ",", "test3" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -327,7 +351,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1156.125, 440.125, 233.0, 22.0 ],
+					"patching_rect" : [ 1188.125, 440.125, 233.0, 22.0 ],
 					"text" : "v NTM_main_preset_umenu_selection_int"
 				}
 
@@ -972,10 +996,10 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1279.125, 249.0, 148.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"client_rect" : [ 4, 44, 358, 172 ],
+						"client_rect" : [ 8, 65, 761, 547 ],
 						"parameter_enable" : 0,
 						"parameter_mappable" : 0,
-						"storage_rect" : [ 583, 69, 1034, 197 ]
+						"storage_rect" : [ 512, 189, 1503, 772 ]
 					}
 ,
 					"text" : "pattrstorage NTM_presets",
@@ -14492,7 +14516,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 805.583235999999715, 182.083156999999687, 182.0, 22.0 ],
+									"patching_rect" : [ 805.583235999999715, 182.083156999999687, 183.0, 22.0 ],
 									"text" : "r #0-input_recording_progress"
 								}
 
@@ -14505,7 +14529,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 636.583235999999715, 182.083157051883404, 179.0, 22.0 ],
+									"patching_rect" : [ 636.583235999999715, 182.083157051883404, 180.0, 22.0 ],
 									"text" : "r #0-input_playback_progress"
 								}
 
@@ -14860,7 +14884,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 4.416764000000285, 207.569621624999513, 153.0, 22.0 ],
+									"patching_rect" : [ 4.416764000000285, 207.569621624999513, 154.0, 22.0 ],
 									"text" : "s #0-passthrough_toggle"
 								}
 
@@ -21399,7 +21423,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 4,
 									"outlettype" : [ "dictionary", "", "", "" ],
-									"patching_rect" : [ 146.583235999999715, 111.762284379708859, 130.0, 22.0 ],
+									"patching_rect" : [ 146.583235999999715, 111.762284379708859, 131.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 0,
 										"parameter_enable" : 0,
@@ -24032,7 +24056,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 392.583235999999715, 54.083157051883518, 78.0, 22.0 ],
+									"patching_rect" : [ 392.583235999999715, 54.083157051883518, 79.0, 22.0 ],
 									"text" : "s #0-io_list"
 								}
 
@@ -26576,7 +26600,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 4.416764000000285, 134.083157051883404, 136.0, 22.0 ],
+									"patching_rect" : [ 4.416764000000285, 134.083157051883404, 137.0, 22.0 ],
 									"text" : "s #0-channel-data_UI"
 								}
 
@@ -26792,7 +26816,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 471.583235999999715, 182.083157051883404, 175.0, 22.0 ],
+									"patching_rect" : [ 471.583235999999715, 182.083157051883404, 176.0, 22.0 ],
 									"text" : "loadmess set #0-input_buffer"
 								}
 
@@ -27213,11 +27237,11 @@
 										"NTM_channel_input" : [ 0 ],
 										"NTM_channel_input_gain" : [ 0.0 ],
 										"NTM_channel_latency_config" : [ 0 ],
-										"NTM_channel_name" : [ "test" ],
+										"NTM_channel_name" : [ "ch2" ],
 										"NTM_channel_output" : [ 0 ],
 										"NTM_channel_output_gain" : [ 0.0 ],
 										"NTM_channel_passthrough" : [ 0.0 ],
-										"NTM_channel_quantize" : [ 1.0 ],
+										"NTM_channel_quantize" : [ 0.0 ],
 										"NTM_channel_sync_to_master" : [ 1.0 ]
 									}
 ,
@@ -39673,7 +39697,7 @@
 									"patching_rect" : [ 4.416764000000285, 89.441411603766909, 101.0, 18.641745448116467 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 81.0, 9.614051239421542, 147.583235999999715, 20.0 ],
-									"text" : "test",
+									"text" : "ch2",
 									"textjustification" : 1,
 									"varname" : "NTM_channel_name"
 								}
@@ -40293,7 +40317,7 @@
 										"NTM_channel_input" : [ 0 ],
 										"NTM_channel_input_gain" : [ 0.0 ],
 										"NTM_channel_latency_config" : [ 0 ],
-										"NTM_channel_name" : [ "ch 1" ],
+										"NTM_channel_name" : [ "myfirstchannel" ],
 										"NTM_channel_output" : [ 0 ],
 										"NTM_channel_output_gain" : [ 0.0 ],
 										"NTM_channel_passthrough" : [ 0.0 ],
@@ -52753,7 +52777,7 @@
 									"patching_rect" : [ 4.416764000000285, 89.441411603766909, 101.0, 18.641745448116467 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 81.0, 9.614051239421542, 147.583235999999715, 20.0 ],
-									"text" : "ch 1",
+									"text" : "myfirstchannel",
 									"textjustification" : 1,
 									"varname" : "NTM_channel_name"
 								}
@@ -69796,6 +69820,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-34", 0 ],
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-93", 0 ],
 					"source" : [ "obj-34", 0 ]
 				}
@@ -69833,6 +69864,14 @@
 					"midpoints" : [ 1064.124999999999773, 58.25, 617.125, 58.25 ],
 					"order" : 3,
 					"source" : [ "obj-35", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-34", 0 ],
+					"midpoints" : [ 1165.625, 469.5, 1148.125, 469.5, 1148.125, 238.0, 1288.625, 238.0 ],
+					"source" : [ "obj-36", 0 ]
 				}
 
 			}
@@ -69973,16 +70012,16 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-158", 0 ],
-					"order" : 1,
+					"midpoints" : [ 1165.625, 435.3125, 1197.625, 435.3125 ],
+					"order" : 0,
 					"source" : [ "obj-88", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-34", 0 ],
-					"midpoints" : [ 1165.625, 434.125, 1146.125, 434.125, 1146.125, 239.0, 1288.625, 239.0 ],
-					"order" : 0,
+					"destination" : [ "obj-36", 0 ],
+					"order" : 1,
 					"source" : [ "obj-88", 0 ]
 				}
 
