@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 173.0, -1016.0, 571.0, 561.0 ],
+		"rect" : [ 301.0, -931.0, 571.0, 561.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -7307,7 +7307,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 216.416764000000285, 248.083157103767235, 263.0, 22.0 ],
+									"patching_rect" : [ 216.416764000000285, 248.083157103767235, 264.0, 22.0 ],
 									"text" : "r #0-from-JackTrip_buffer_playback_progress"
 								}
 
@@ -7319,14 +7319,14 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 2.416764000000285, 248.083157103767235, 222.0, 22.0 ],
+									"patching_rect" : [ 2.416764000000285, 248.083157103767235, 223.0, 22.0 ],
 									"text" : "loadmess set #0-from-JackTrip_buffer"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1138-from-JackTrip_buffer",
+									"buffername" : "1003-from-JackTrip_buffer",
 									"id" : "obj-18",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -7364,7 +7364,7 @@
 									"patching_rect" : [ 2.416764000000285, 34.762284327825284, 101.0, 18.641745448116467 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 5.500000000000227, 6.79167824472313, 199.666471999999203, 20.0 ],
-									"text" : "#0",
+									"text" : "From JackTrip-2",
 									"textjustification" : 1,
 									"varname" : "NTM_channel_name"
 								}
@@ -7406,7 +7406,7 @@
 									"patching_rect" : [ 130.250292000000854, 2.404029724058034, 56.0, 22.0 ],
 									"restore" : 									{
 										"NTM_channel_input" : [ 0 ],
-										"NTM_channel_name" : [ "#0" ]
+										"NTM_channel_name" : [ "From JackTrip-2" ]
 									}
 ,
 									"text" : "autopattr",
@@ -8418,7 +8418,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 130.250292000000854, 50.404029724058034, 78.0, 22.0 ],
+									"patching_rect" : [ 130.250292000000854, 50.404029724058034, 79.0, 22.0 ],
 									"text" : "s #0-io_list"
 								}
 
@@ -8426,7 +8426,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -11461,7 +11461,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -11488,7 +11488,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1141-to-JackTrip_buffer",
+									"buffername" : "1006-to-JackTrip_buffer",
 									"id" : "obj-18",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -12613,7 +12613,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -13571,7 +13571,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -15311,7 +15311,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 216.416764000000285, 248.083157103767235, 263.0, 22.0 ],
+									"patching_rect" : [ 216.416764000000285, 248.083157103767235, 264.0, 22.0 ],
 									"text" : "r #0-from-JackTrip_buffer_playback_progress"
 								}
 
@@ -15323,14 +15323,14 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 2.416764000000285, 248.083157103767235, 222.0, 22.0 ],
+									"patching_rect" : [ 2.416764000000285, 248.083157103767235, 223.0, 22.0 ],
 									"text" : "loadmess set #0-from-JackTrip_buffer"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1144-from-JackTrip_buffer",
+									"buffername" : "1009-from-JackTrip_buffer",
 									"id" : "obj-18",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -16422,7 +16422,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 130.250292000000854, 50.404029724058034, 78.0, 22.0 ],
+									"patching_rect" : [ 130.250292000000854, 50.404029724058034, 79.0, 22.0 ],
 									"text" : "s #0-io_list"
 								}
 
@@ -16430,7 +16430,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -17212,7 +17212,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-245",
-					"items" : [ 1, ",", 2, ",", 3, ",", 4, ",", 5, ",", 6, ",", 7, ",", 8, ",", 9, ",", 10 ],
+					"items" : [ 1, ",", 2, ",", 3, ",", 4, ",", 5, ",", 6 ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -18705,7 +18705,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-344",
-					"items" : [ 20250.0, ",", 20625.0, ",", 21000.0, ",", 21375.0, ",", 21750.0, ",", 22125.0, ",", 22500.0, ",", 22875.0, ",", 23250.0, ",", 23625.0 ],
+					"items" : [ 20327.0, ",", 20671.53125, ",", 21016.0625, ",", 21360.59375, ",", 21705.125, ",", 22049.65625 ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -21278,7 +21278,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -21305,7 +21305,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1147-to-JackTrip_buffer",
+									"buffername" : "1012-to-JackTrip_buffer",
 									"id" : "obj-18",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -22051,8 +22051,8 @@
 						"Main_bpm_numbox[2]" : [ 1000.0 ],
 						"Main_bpm_numbox[3]" : [ 1000.0 ],
 						"Main_bpm_numbox[4]" : [ 10.0 ],
-						"Main_driver_menu" : [ 4 ],
-						"Main_metronome_output" : [ 4 ],
+						"Main_driver_menu" : [ 10 ],
+						"Main_metronome_output" : [ 0 ],
 						"Main_metronome_volume" : [ -60.0 ]
 					}
 ,
@@ -23187,7 +23187,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -24419,7 +24419,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"items" : [ "Off", ",", 1, "In1", ",", 2, "In2", ",", 3, "In3", ",", 4, "In4" ],
+									"items" : "Off",
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -25017,7 +25017,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"items" : [ "Off", ",", 1, "Out1", ",", 2, "Out2", ",", 3, "Out3", ",", 4, "Out4" ],
+					"items" : "Off",
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
