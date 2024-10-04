@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 459.0, -954.0, 213.0, 106.0 ],
+		"rect" : [ 381.0, -907.0, 418.0, 104.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -1616,7 +1616,7 @@
 			}
 , 			{
 				"box" : 				{
-					"buffername" : "from-JackTrip_buffer_#0",
+					"buffername" : "#0-from-JackTrip_buffer",
 					"id" : "obj-18",
 					"maxclass" : "waveform~",
 					"numinlets" : 5,
@@ -1722,7 +1722,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 414.0, -719.0, 269.0, 137.0 ],
+						"rect" : [ 396.0, -760.0, 269.0, 113.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1751,31 +1751,6 @@
 						"subpatcher_template" : "Default Max 7",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
-								"box" : 								{
-									"id" : "obj-4",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 139.000015000000019, 56.99999994811651, 70.0, 22.0 ],
-									"text" : "loadmess 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-1",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 2.000014999999998, 80.99999994811651, 156.0, 22.0 ],
-									"style" : "newobjYellow",
-									"text" : "pfft~ ngate~ 128 2"
-								}
-
-							}
-, 							{
 								"box" : 								{
 									"id" : "obj-142",
 									"maxclass" : "newobj",
@@ -2100,7 +2075,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 2.000014999999998, 104.99999994811651, 30.0, 30.0 ]
+									"patching_rect" : [ 2.000014999999998, 80.99999994811651, 30.0, 30.0 ]
 								}
 
 							}
@@ -2108,13 +2083,6 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-25", 0 ],
-									"source" : [ "obj-1", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
 									"source" : [ "obj-142", 0 ]
 								}
 
@@ -2123,13 +2091,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
 									"source" : [ "obj-21", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-1", 1 ],
-									"source" : [ "obj-4", 0 ]
 								}
 
 							}
@@ -2838,12 +2799,6 @@
 				"name" : "brickwall-crossover~.maxpat",
 				"bootpath" : "~/Desktop/Repos/Netronome/Netronome/MaxPatch",
 				"patcherrelativepath" : "..",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "ngate~.maxpat",
-				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "JSON",
 				"implicit" : 1
 			}
