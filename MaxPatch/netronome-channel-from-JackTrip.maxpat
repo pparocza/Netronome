@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 381.0, -907.0, 418.0, 104.0 ],
+		"rect" : [ 257.0, -982.0, 418.0, 104.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -1688,24 +1688,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 130.250292000000854, 2.404029724058034, 56.0, 22.0 ],
-					"restore" : 					{
-						"NTM_channel_input" : [ 0 ],
-						"NTM_channel_name" : [ "#0" ]
-					}
-,
-					"text" : "autopattr",
-					"varname" : "u922012346"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-29",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -2798,7 +2780,7 @@
 		"dependency_cache" : [ 			{
 				"name" : "brickwall-crossover~.maxpat",
 				"bootpath" : "~/Desktop/Repos/Netronome/Netronome/MaxPatch",
-				"patcherrelativepath" : "..",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}

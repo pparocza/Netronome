@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 363.0, -830.0, 443.0, 66.0 ],
+		"rect" : [ 0.0, -1029.0, 1920.0, 997.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -71,24 +71,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 181.416764000000285, 2.083157051883518, 30.0, 30.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 428.416764000000285, 2.083157051883518, 56.0, 22.0 ],
-					"restore" : 					{
-						"NTM_channel_input" : [ 0 ],
-						"NTM_channel_name" : [ "#0" ]
-					}
-,
-					"text" : "autopattr",
-					"varname" : "u922012346"
 				}
 
 			}
