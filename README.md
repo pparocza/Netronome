@@ -4,7 +4,7 @@
 
 ## Install JackTrip
 
-Download JackTrip here[url: https://www.jacktrip.com/download]
+[Download JackTrip](https://www.jacktrip.com/download)
 
 ### Loopback
 
@@ -22,4 +22,6 @@ https://jackaudio.org/downloads/
 
 https://rogueamoeba.com/loopback/
 
-## Latency Configuration
+## Latency Calibration
+
+## Routing
