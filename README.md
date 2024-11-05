@@ -10,15 +10,15 @@
 
 - In order to route audio between JackTrip and the Netronome, you will need either Jack Audio Router (Windows) or Rogue Amoeba's Loopback (Mac)
 
-#### Windows
+### Windows
 
-##### Jack Audio Router
+#### Jack Audio Router
 
 https://jackaudio.org/downloads/
 
-#### Mac
+### Mac
 
-##### Loopback
+#### Loopback
 
 https://rogueamoeba.com/loopback/
 
