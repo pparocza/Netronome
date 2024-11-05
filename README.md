@@ -1,4 +1,25 @@
-README for Netronome project
+# Netronome Setup
 
-https://github.com/pparocza/Netronome/assets/43162542/c4bc55bf-3647-44e2-8790-be4c04fb7386
+## Download Maxpatch
 
+## Install JackTrip
+
+Download JackTrip here[url: https://www.jacktrip.com/download]
+
+### Loopback
+
+- In order to route audio between JackTrip and the Netronome, you will need either Jack Audio Router (Windows) or Rogue Amoeba's Loopback (Mac)
+
+#### Windows
+
+##### Jack Audio Router
+
+https://jackaudio.org/downloads/
+
+#### Mac
+
+##### Loopback
+
+https://rogueamoeba.com/loopback/
+
+## Latency Configuration
