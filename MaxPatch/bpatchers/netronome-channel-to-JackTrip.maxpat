@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 417.0, -838.0, 399.0, 71.0 ],
+		"rect" : [ 408.0, -859.0, 628.0, 423.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -855,9 +855,10 @@
 					"numoutlets" : 2,
 					"orientation" : 1,
 					"outlettype" : [ "float", "int" ],
-					"patching_rect" : [ 2.416764000000285, 115.0, 132.0, 9.0 ],
+					"patching_rect" : [ 2.416764000000285, 115.0, 100.0, 5.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 7.333528000000683, 51.849782028295976, 199.0, 9.0 ]
+					"presentation_rect" : [ 7.333528000000683, 51.849782028295976, 200.0, 5.0 ],
+					"varname" : "NTM_channel_input_gain"
 				}
 
 			}
@@ -935,7 +936,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 320.416764000000285, 2.0, 69.0, 30.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 3.218932500000506, 0.849782028295976, 207.270808999999986, 67.146917286223697 ],
+					"presentation_rect" : [ 3.218932500000506, 0.849782028295976, 207.270808999999986, 61.146917286223697 ],
 					"proportion" : 0.5
 				}
 
