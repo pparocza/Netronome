@@ -1,6 +1,11 @@
 # Netronome Setup
 
-## Download Maxpatch
+## Download Netronome
+
+To download the Netronome, click the green `Code` button above, and select `Download Zip`
+
+![image](https://github.com/user-attachments/assets/621fa647-7cb9-4f7d-aa59-a9969c5b5bc2)
+
 
 ## Install JackTrip
 
