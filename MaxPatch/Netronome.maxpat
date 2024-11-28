@@ -170,74 +170,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -390,74 +322,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -1825,7 +1689,7 @@
 																					"patching_rect" : [ 178.0, 96.0, 150.0, 21.5 ],
 																					"presentation" : 1,
 																					"presentation_rect" : [ 4.4375, 23.26039463148544, 206.5625, 22.0 ],
-																					"text" : "my-second-preset",
+																					"text" : "new preset name",
 																					"textjustification" : 1,
 																					"varname" : "textedit"
 																				}
@@ -3713,74 +3577,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -3993,74 +3789,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -4195,74 +3923,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -4589,74 +4249,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -4767,74 +4359,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -5137,74 +4661,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -5339,74 +4795,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -5709,74 +5097,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -5911,74 +5231,6 @@
 													"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 													"data" : 													{
 														"NTM_routing_presets" : 														{
-															"my-second-preset" : 															{
-																"local_input" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"to-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 1
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 2
-																	}
-
-																}
-,
-																"from-JackTrip" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"local_output" : 																{
-																	"1" : 																	{
-																		"channel_Index" : 3
-																	}
-,
-																	"2" : 																	{
-																		"channel_Index" : 4
-																	}
-
-																}
-,
-																"latency_test" : 																{
-																	"local_output" : 																	{
-																		"adjusted" : 																		{
-																			"channel_index" : 6
-																		}
-,
-																		"direct" : 																		{
-																			"channel_index" : 6
-																		}
-
-																	}
-,
-																	"to-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-,
-																	"from-JackTrip" : 																	{
-																		"channel_index" : 6
-																	}
-
-																}
-
-															}
 
 														}
 
@@ -6399,74 +5651,6 @@
 									"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 									"data" : 									{
 										"NTM_routing_presets" : 										{
-											"my-second-preset" : 											{
-												"local_input" : 												{
-													"1" : 													{
-														"channel_Index" : 1
-													}
-,
-													"2" : 													{
-														"channel_Index" : 2
-													}
-
-												}
-,
-												"to-JackTrip" : 												{
-													"1" : 													{
-														"channel_Index" : 1
-													}
-,
-													"2" : 													{
-														"channel_Index" : 2
-													}
-
-												}
-,
-												"from-JackTrip" : 												{
-													"1" : 													{
-														"channel_Index" : 3
-													}
-,
-													"2" : 													{
-														"channel_Index" : 4
-													}
-
-												}
-,
-												"local_output" : 												{
-													"1" : 													{
-														"channel_Index" : 3
-													}
-,
-													"2" : 													{
-														"channel_Index" : 4
-													}
-
-												}
-,
-												"latency_test" : 												{
-													"local_output" : 													{
-														"adjusted" : 														{
-															"channel_index" : 6
-														}
-,
-														"direct" : 														{
-															"channel_index" : 6
-														}
-
-													}
-,
-													"to-JackTrip" : 													{
-														"channel_index" : 6
-													}
-,
-													"from-JackTrip" : 													{
-														"channel_index" : 6
-													}
-
-												}
-
-											}
 
 										}
 
@@ -6597,74 +5781,6 @@
 					"color" : [ 1.0, 0.537254901960784, 0.0, 1.0 ],
 					"data" : 					{
 						"NTM_routing_presets" : 						{
-							"my-second-preset" : 							{
-								"local_input" : 								{
-									"1" : 									{
-										"channel_Index" : 1
-									}
-,
-									"2" : 									{
-										"channel_Index" : 2
-									}
-
-								}
-,
-								"to-JackTrip" : 								{
-									"1" : 									{
-										"channel_Index" : 1
-									}
-,
-									"2" : 									{
-										"channel_Index" : 2
-									}
-
-								}
-,
-								"from-JackTrip" : 								{
-									"1" : 									{
-										"channel_Index" : 3
-									}
-,
-									"2" : 									{
-										"channel_Index" : 4
-									}
-
-								}
-,
-								"local_output" : 								{
-									"1" : 									{
-										"channel_Index" : 3
-									}
-,
-									"2" : 									{
-										"channel_Index" : 4
-									}
-
-								}
-,
-								"latency_test" : 								{
-									"local_output" : 									{
-										"adjusted" : 										{
-											"channel_index" : 6
-										}
-,
-										"direct" : 										{
-											"channel_index" : 6
-										}
-
-									}
-,
-									"to-JackTrip" : 									{
-										"channel_index" : 6
-									}
-,
-									"from-JackTrip" : 									{
-										"channel_index" : 6
-									}
-
-								}
-
-							}
 
 						}
 
@@ -6824,7 +5940,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-104",
-					"items" : "my-second-preset",
+					"items" : "<empty>",
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
