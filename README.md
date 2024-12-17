@@ -16,13 +16,27 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 ## Max Patch Setup
 
-### Routing
+### Windows
 
-#### Mac
+#### Routing
 
-#### Windows
+https://github.com/user-attachments/assets/2c135716-f1d0-4ee7-ba79-496d57339531
 
-### Latency Calibration
+#### Automatic Latency Calibration
+
+https://github.com/user-attachments/assets/5351da70-3164-4051-a3ca-239097040ef8
+
+#### Creating presets
+
+https://github.com/user-attachments/assets/13d96c98-2607-40ad-8da9-dc070f4525ee
+
+### Mac
+
+#### Routing
+
+#### Automatic Latency Calibration
+
+#### Creating presets
 
 ## Max For Live Setup
 
