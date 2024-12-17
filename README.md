@@ -46,6 +46,6 @@ https://github.com/user-attachments/assets/13d96c98-2607-40ad-8da9-dc070f4525ee
 
 #### Windows
 
-- In Ableton Live, Netronome functionality is managed using a pair of Max For Live Devices:
+#### Routing
 
-### Latency Calibration
+#### Automatic Latency Calibration
