@@ -162,13 +162,13 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 ### Routing
 
-#### Windows
+### Windows
 
 #### Routing
 
 #### Automatic Latency Calibration
 
-#### Mac
+### Mac
 
 #### Routing
 
