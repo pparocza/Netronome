@@ -26,7 +26,8 @@ To download the Netronome, click the green `Code` button above, and select `Down
 </details>
 
 <details>
-<summary>Step by Step</summary>
+<summary>Step by Step</summary><br>
+
 1. Open JACK Audio Router and click the `Start` button
 
 ![image](https://github.com/user-attachments/assets/acf8b0ac-fdca-47e7-9a8c-361733125753)
@@ -134,6 +135,31 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 <details>
   <summary>Step by Step</summary>
+  
+1. In the `LATENCY COMPENSATION` portion of the Max Patch, set the `To-JackTrip` menu to match one of the `To JackTrip-#` menus in the `TO JACKTRIP` portion of the patch.
+
+  ![image](https://github.com/user-attachments/assets/ef94fcd1-7193-45d2-a1d5-c05271aaaf29)
+
+2. Set the `From-JackTrip` menu to match one of the `From JackTrip-#` menus.
+
+![image](https://github.com/user-attachments/assets/e70c1e31-9efa-470c-a39d-3a0ae8ad1478)
+
+3. Set the `Local Output (Direct)` menu to match one of the `Local Output #` menus.
+
+![image](https://github.com/user-attachments/assets/b910c82e-1f6f-492e-b2ec-cb55902ca925)
+
+4. Set the `Local Output (Adjusted)` menu to match one of the `Local Output #` menus.
+
+![image](https://github.com/user-attachments/assets/fc8efe0c-b00d-46a3-909c-8f8d6969ac54)
+
+5. Click the `Send Latency Calibration Signal` button. (NOTE: In order for the signal to be measured correctly, all other members of your current JackTrip session must mute whatever audio they are sending to JackTrip. In the Max Patch, this can be done by clicking the `Mute JackTrip i/o` button)
+
+![image](https://github.com/user-attachments/assets/f00958a7-fd00-41c1-991b-281841cf011d)
+
+6. To apply the `Difference` value to your current latency setting, click the `Apply to Latency Value` button.
+
+![image](https://github.com/user-attachments/assets/d7897158-1dcb-4221-b83d-935ef274185d)
+
 </details>
 
 </details>
