@@ -21,7 +21,7 @@ To download the Netronome, click the green `Code` button above, and select `Down
 #### Routing
 
 <details>
-  <summary>Video</summary>
+  <summary>Video</summary><br>
     <video width = 320, height = 240, src="https://github.com/user-attachments/assets/2c135716-f1d0-4ee7-ba79-496d57339531" controls></video>
 </details>
 
@@ -129,12 +129,12 @@ To download the Netronome, click the green `Code` button above, and select `Down
 #### Automatic Latency Calibration
 
 <details>
-  <summary>Video</summary>
+  <summary>Video</summary><br>
   <video width = 320, height = 240, src="https://github.com/user-attachments/assets/5351da70-3164-4051-a3ca-239097040ef8" controls></video>
 </details>
 
 <details>
-  <summary>Step by Step</summary>
+  <summary>Step by Step</summary><br>
   
 1. In the `LATENCY COMPENSATION` portion of the Max Patch, set the `To-JackTrip` menu to match one of the `To JackTrip-#` menus in the `TO JACKTRIP` portion of the patch.
 
@@ -167,13 +167,28 @@ To download the Netronome, click the green `Code` button above, and select `Down
 #### Presets
 
 <details>
-  <summary>Video</summary>
+  <summary>Video</summary><br>
     <video width = 320, height = 240, src="https://github.com/user-attachments/assets/13d96c98-2607-40ad-8da9-dc070f4525ee" controls></video>
   <summary></summary>
 </details>
 
 <details>
-  <summary>Step By Step</summary>
+  <summary>Step By Step</summary><br>
+  
+1. To save the current routing configuration of the Max Patch as a preset, click the `Create` button in the `PRESETS` portion of the patch.
+  
+  ![image](https://github.com/user-attachments/assets/8be2a842-3987-4f38-96db-409aeb1fe984)
+
+2. In the pop-up window that appears, type in the name you'd like the preset to have (without spaces) and click the `save` button, or press `Enter` on your keyboard.
+
+![image](https://github.com/user-attachments/assets/20cc3c5c-02a8-4073-8556-9a547911fb52)
+
+3. The current routing configuration can then be restored at any time by selecting the preset name from the menu.
+
+![image](https://github.com/user-attachments/assets/963dd210-ea48-4ab9-ad7a-aa4a886fa82f)
+
+- NOTE: If you create, overwrite, or delete a preset, you will need to save the MaxPatch in order for the changes to persist after the patch is closed
+
 </details>
 
 ### Mac
