@@ -150,9 +150,10 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 4. Set the `Local Output (Adjusted)` menu to match one of the `Local Output #` menus.
 
-![image](https://github.com/user-attachments/assets/fc8efe0c-b00d-46a3-909c-8f8d6969ac54)
+![image](https://github.com/user-attachments/assets/d74acc44-d393-4232-97e2-427c609ab93b)
 
-5. Click the `Send Latency Calibration Signal` button. (NOTE: In order for the signal to be measured correctly, all other members of your current JackTrip session must mute whatever audio they are sending to JackTrip. In the Max Patch, this can be done by clicking the `Mute JackTrip i/o` button)
+5. Click the `Send Latency Calibration Signal` button.
+- NOTE: In order for the signal to be measured correctly, all other members of your current JackTrip session must mute whatever audio they are sending to JackTrip. In the Max Patch, this can be done by clicking the `Mute JackTrip i/o` button.
 
 ![image](https://github.com/user-attachments/assets/f00958a7-fd00-41c1-991b-281841cf011d)
 
