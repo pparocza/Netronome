@@ -161,7 +161,6 @@ To download the Netronome, click the green `Code` button above, and select `Down
 ![image](https://github.com/user-attachments/assets/d7897158-1dcb-4221-b83d-935ef274185d)
 
 </details>
-
 </details>
 
 #### Presets
@@ -169,7 +168,6 @@ To download the Netronome, click the green `Code` button above, and select `Down
 <details>
   <summary>Video</summary><br>
     <video width = 320, height = 240, src="https://github.com/user-attachments/assets/13d96c98-2607-40ad-8da9-dc070f4525ee" controls></video>
-  <summary></summary>
 </details>
 
 <details>
@@ -201,13 +199,31 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 ## Max For Live Setup
 
-### Routing
-
 ### Windows
 
 #### Routing
 
+<details>
+<summary>Video</summary>
+      <video width = 320, height = 240, src="https://github.com/user-attachments/assets/50d1c839-cd16-4983-8d07-364f41589593" controls></video>
+</details>
+
+<details>
+<summary>Step by Step</summary>
+</details>
+
 #### Automatic Latency Calibration
+
+<details>
+<summary>Video</summary>
+
+<video width = 320, height = 240, src="https://github.com/user-attachments/assets/95d85ae7-9e05-4a8d-8c2e-a7ac0e7116ae" controls></video>
+
+</details>
+
+<details>
+<summary>Step by Step</summary>
+</details>
 
 ### Mac
 
