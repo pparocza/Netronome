@@ -64,7 +64,7 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 ![image](https://github.com/user-attachments/assets/ea18086d-1f20-42d2-bba7-4883b0d9a5e5)
 
-10. In JACK Audio Router, connect desired system inputs to outputs by click-dragging from desired input to the desired output (In the example, a microphone connected to the first input of a Focusrite Scarlett 8i6 is connected to the interface's 1st and 2nd outputs).
+10. In JACK Audio Router, connect desired system inputs to outputs by click-dragging to and from the input and output nodes (In the example, a microphone connected to the first input of a Focusrite Scarlett 8i6 is connected to the interface's 1st and 2nd outputs).
 
 ![image](https://github.com/user-attachments/assets/6fe6e988-1c77-46be-b781-9d629f8c7f9a)
 
@@ -108,7 +108,7 @@ To download the Netronome, click the green `Code` button above, and select `Down
 
 ![image](https://github.com/user-attachments/assets/c333e40d-b0b9-4bff-ad54-ebd045ae585e)
 
-21. In Max, configure the `Local Output #` menus to match the connections set in setp 20.
+21. In Max, configure the `Local Output #` menus to match the connections set in step 20.
 
 ![image](https://github.com/user-attachments/assets/816ae977-d721-40d2-8d1a-9b575b62f147)
 
