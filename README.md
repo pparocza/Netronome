@@ -205,25 +205,112 @@ To download the Netronome, click the green `Code` button above, and select `Down
 #### Routing
 
 <details>
-<summary>Video</summary>
+<summary>Video</summary><br>
       <video width = 320, height = 240, src="https://github.com/user-attachments/assets/50d1c839-cd16-4983-8d07-364f41589593" controls></video>
 </details>
 
 <details>
-<summary>Step by Step</summary>
+<summary>Step by Step</summary><br>
+
+1. Open JACK Audio Router and click the `Start` button
+
+![image](https://github.com/user-attachments/assets/acf8b0ac-fdca-47e7-9a8c-361733125753)
+
+2. Click the `Graph` button to display audio devices
+
+![image](https://github.com/user-attachments/assets/5e17489c-36fd-42d0-b1b6-f3518ca82311)
+
+3. Open JackTrip, and click the `Settings` button
+
+![image](https://github.com/user-attachments/assets/8ca3561e-190a-4250-8777-98938795e5c7)
+
+4. In the Settings window, Click the `Advanced` tab
+
+![image](https://github.com/user-attachments/assets/48c490e3-b758-46b9-be24-20249b3dc4c7)
+
+5. From the `Audio Backend` menu in JackTrip, select "JACK" (JackTrip should then be visible in the JACK Audio Router Graph)
+
+![image](https://github.com/user-attachments/assets/4fa67678-7d5b-446b-9096-155721e12adf)
+
+6. In JackTrip, click the `Save` button
+
+![image](https://github.com/user-attachments/assets/86c95493-1132-4940-9a39-9984f5a5b2c1)
+
+7. Join a JackTrip studio from the "Your Studios" menu
+
+![image](https://github.com/user-attachments/assets/f7f0cfce-66ee-48eb-8262-a2bcbdcebdcd)
+
+8. Click `Connect to Session`
+
+![image](https://github.com/user-attachments/assets/7492950d-f56e-497c-9ce2-efc6f9d81ccb)
+
+9. Once you have connected to the studio in JackTrip, disconnect all connections to JackTrip In the JACK Audio Router Graph by clicking the JackTrip box, and pressing `Ctrl + D`
+
+![image](https://github.com/user-attachments/assets/ea18086d-1f20-42d2-bba7-4883b0d9a5e5)
+
+10. In the `Audio` tab of Ableton's `Preferences` window, set the Audio Device to "JackRouter" (Ableton should now appear in the JACK Audio Router Graph)
+
+![image](https://github.com/user-attachments/assets/df1a2849-e47f-4d86-9b9d-6a52af91f453)
+
+11. In the JACK Audio Router Graph, connect desired Ableton outputs to system outputs by click-dragging to and from the input and output nodes (In the example, a microphone connected to the first input of a Focusrite Scarlett 8i6 is connected to the interface's 1st and 2nd outputs).
+
+![image](https://github.com/user-attachments/assets/de33e96a-573a-4ebf-a9df-d12f8817b20b)
+
+12. Within the `Netronome-main` folder downloaded from the "Download Netronome" step above, open the `M4L` folder. In Ableton, create an Audio Track, and add the `M4L_Netronome_FromJackTrip.amxd` device to it.
+
+![image](https://github.com/user-attachments/assets/d04cfa5d-6bcb-4db5-86ec-ffecd36023f7)
+
+13. In the JACK Audio Router Graph, connect the JackTrip outputs to Ableton inputs 3 and 4.
+
+![image](https://github.com/user-attachments/assets/33d86b3d-74e6-4327-893e-3359b2a3d7a6)
+
+14. In Ableton, set the `Audio From` menus of the track with the `M4L_Netronome_FromJackTrip` device on it to `Ext. In` and `3/4`, and set the `Monitor` option to `In`
+
+![image](https://github.com/user-attachments/assets/0d0e1344-538b-4c6c-ba19-49d39a79d234)
+
+15. In Ableton, create a new Return track and add the `M4L_Netronome_ToJackTrip.amxd` device to it.
+
+![image](https://github.com/user-attachments/assets/8351816e-f2e8-4b9f-b621-2e246b1b8e92)
+
+16. 14. In Ableton, set the `Audio to` menus of the track with the `M4L_Netronome_ToJackTrip` device on it to `Ext. Out` and `3/4`.
+
+![image](https://github.com/user-attachments/assets/c3c4b1b6-f3a3-4494-8490-90a785b3f0bd)
+
+17. In the JACK Audio Router Graph, connect Ableton outputs 3 and 4 to JackTrip inputs 1 and 2.
+
+![image](https://github.com/user-attachments/assets/c56d2c8b-6505-4bd9-82ba-185b36efad59)
+
+18. Now, any audio sent to the return track containing the `M4L_Netronome_ToJackTrip.amxd` device will be sent to JackTrip.
+
+![image](https://github.com/user-attachments/assets/90254e5f-2bdb-4e9a-8902-dde3ebe6f6fe)
+
+19. In the `Latency` number box of the `M4L_Netronome_ToJackTrip` device, set the value to match the value displayed in JackTrip.
+  - 19a. The `-` and `+` buttons to the left and right of the number box will adjust the value by millisecond increments.
+  - 19b. Additional help with latency calibration can be found in the `Automatic Latency Calibration` section below.
+
+![image](https://github.com/user-attachments/assets/62ee9ccd-127d-4ca8-938f-c6fd6227c871)
+
 </details>
 
 #### Automatic Latency Calibration
 
 <details>
-<summary>Video</summary>
-
-<video width = 320, height = 240, src="https://github.com/user-attachments/assets/95d85ae7-9e05-4a8d-8c2e-a7ac0e7116ae" controls></video>
-
+<summary>Video</summary><br>
+  <video width = 320, height = 240, src="https://github.com/user-attachments/assets/95d85ae7-9e05-4a8d-8c2e-a7ac0e7116ae" controls></video>
 </details>
 
 <details>
-<summary>Step by Step</summary>
+<summary>Step by Step</summary><br>
+
+1. After setting up the routing described above, click the `Send Latency Calibration Signal` button in the `M4L_Netronome_ToJackTrip` device.
+- NOTE: In order for the signal to be measured correctly, all other members of your current JackTrip session must mute whatever audio they are sending to JackTrip. In the Max Patch, this can be done by clicking the `Mute JackTrip i/o` button.
+
+![image](https://github.com/user-attachments/assets/4b002996-2e3b-4d2b-833b-a1918ebe9919)
+
+2. To apply the `Difference` value to your current latency setting, click the `Apply to Latency Value` button.
+
+![image](https://github.com/user-attachments/assets/22ba5391-b466-437e-b53d-e60340866cf1)
+
 </details>
 
 ### Mac
