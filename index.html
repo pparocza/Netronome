@@ -2,14 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Netronome Transport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Client</title>   
+
+    <!-- add the cdn for socket.io and link to javascript file -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script defer src="web-client.js"></script> 
+
+    <style>
+
+        .bang {
+            width: 100px;
+        }
+        #recieveBang {
+            pointer-events: none;
+        }
+        #sendBang:active {
+            background-color: blue;
+        }
+
+        @media screen and (max-width: 500px) {
+            .bang {
+                width: 50%;
+                font-size: 1.5rem;    
+            }
+            #recieveBang {
+                float: left;
+            }
+        }
+
+    </style>
+
 </head>
 <body>
-    <p>Netronome Transport</p>
 
-    <label for="bpm">bpm: </label>
-    <input type="number" id="bpm" name="bpm" min="1" max="999" value="120" class="BPM">
-
-    <script src="./NTM_Transport/script.js"></script>
+    <input id="recieveBang" class="bang" type="button" value="recieve bang">
+    <input id="sendBang" class="bang" type="button" value="send bang">
+    
 </body>
 </html>
