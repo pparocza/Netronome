@@ -19,6 +19,7 @@ socket.on("bang", () =>
 socket.on("bpm", (value) =>
 {
     console.log("BPM!", value);
+    bpmInput.value = value;
 });
 
 // SEND
