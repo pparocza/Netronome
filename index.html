@@ -3,41 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Client</title>   
+    <title>Web Client</title>
 
-    <!-- add the cdn for socket.io and link to javascript file -->
+    <link rel="stylesheet" href="NTM_Transport/style.css">
+
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
-    <script defer src="NTM_Transport/web-client.js"></script>
-
-    <style>
-
-        .bang {
-            width: 100px;
-        }
-        #recieveBang {
-            pointer-events: none;
-        }
-        #sendBang:active {
-            background-color: blue;
-        }
-
-        @media screen and (max-width: 500px) {
-            .bang {
-                width: 50%;
-                font-size: 1.5rem;    
-            }
-            #recieveBang {
-                float: left;
-            }
-        }
-
-    </style>
+    <script defer src="NTM_Transport/script.js"></script>
 
 </head>
 <body>
 
     <input id="recieveBang" class="bang" type="button" value="recieve bang">
     <input id="sendBang" class="bang" type="button" value="send bang">
+
+    <p></p>
+    <label>BPM: </label>
+    <input id="bpm" class="bpm" type="number" value="120">
     
 </body>
 </html>
