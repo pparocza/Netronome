@@ -16,6 +16,11 @@ socket.on("bang", () =>
     setTimeout( () => document.getElementById("recieveBang").style.background="", 100);
 });
 
+socket.on("bpm", (value) =>
+{
+    console.log("BPM!", value);
+});
+
 // SEND
 
 document.querySelector("#sendBang").onclick = () =>
@@ -29,6 +34,5 @@ bpmInput.onclick = () =>
 {
     let bpmValue = bpmInput.value;
 
-    console.log("BPM:", bpmValue);
     socket.emit("bpm", bpmValue);
 }
