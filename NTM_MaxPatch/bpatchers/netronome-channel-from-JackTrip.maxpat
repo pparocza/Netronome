@@ -10,7 +10,11 @@
 		}
 ,
 		"classnamespace" : "box",
+<<<<<<<< HEAD:NTM_MaxPatch/bpatchers/netronome-channel-from-JackTrip.maxpat
 		"rect" : [ 137.0, -880.0, 435.0, 235.0 ],
+========
+		"rect" : [ 377.0, -784.0, 481.0, 87.0 ],
+>>>>>>>> 819f893 (Mute JackTrip i/o toggle):MaxPatch/bpatchers/netronome-channel-from-JackTrip.maxpat
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
