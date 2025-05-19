@@ -1,40 +1,33 @@
 const SERVER_URL = "wss://real-pear-meadow.glitch.me";
 
+const BPM_KEY = "bpm";
+
 // Client Initialization
 const socket = io(SERVER_URL);
 
 // SEND
-
-document.querySelector("#sendBang").onclick = () =>
-{
-    socket.emit("bang");
-};
-
 const bpmInput = document.querySelector(".bpm");
 
 bpmInput.onclick = () =>
 {
     let bpmValue = bpmInput.value;
-
-    socket.emit("bpm", bpmValue);
+    socket.emit(BPM_KEY, bpmValue);
+    maxOut(BPM_KEY, bpmValue);
 }
 
 // RECEIVE
-
 socket.on("connect", () =>
 {
      console.log("Connected to server!");
 });
 
-socket.on("bang", () =>
+socket.on(BPM_KEY, (value) =>
 {
-    document.getElementById("recieveBang").style.background="green";
-    setTimeout( () => document.getElementById("recieveBang").style.background="", 100);
+    bpmInput.value = value;
+    maxOut(BPM_KEY, value);
 });
 
-socket.on("bpm", (value) =>
+function maxOut(key, value)
 {
-    console.log("BPM!", value);
-    bpmInput.value = value;
-    window.max.outlet("bpm", value);
-});
+    window.max.outlet(key, value);
+}
