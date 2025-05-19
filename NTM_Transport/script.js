@@ -1,5 +1,6 @@
 const SERVER_URL = "wss://real-pear-meadow.glitch.me";
 
+const BPM_KEY = "bpm";
 // Client Initialization
 const socket = io(SERVER_URL);
 
