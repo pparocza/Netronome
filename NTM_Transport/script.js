@@ -18,26 +18,28 @@ socket.on("connect", () =>
 
 socket.on(BPM_KEY, (value) =>
 {
-    setBPM();
+    setBPM(value);
 });
 
 // SEND
 BPM_INPUT.onclick = () =>
 {
     let inputValue = BPM_INPUT.value;
+    setBPM(BPM_INPUT.value)
     socket.emit(BPM_KEY, inputValue);
-    BPM_VALUE = inputValue;
-    maxOut(BPM_KEY, BPM_VALUE);
 }
 
 function maxOut(key, value)
 {
-    window.max.outlet(key, value);
+    if(window.max)
+    {
+        window.max.outlet(key, value);
+    }
 }
 
 function setBPM(value)
 {
-    BPM_INPUT.value = value;
     BPM_VALUE = value;
+    BPM_INPUT.value = BPM_VALUE;
     maxOut(BPM_KEY, BPM_VALUE);
 }
