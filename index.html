@@ -21,14 +21,23 @@
             <input id="bpm" class="bpm" type="number">
             <br><br>
 
-                <label>Beat Value: </label>
-                <select name="beatValue" class="beatValue">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="8">8</option>
-                    <option value="16">16</option>
-                </select>
+            <fieldset class="beatValue">
+                <legend>Beat Value: </legend>
+                <div>
+                    <input type="radio" id="1" name="beatValue" value="1"/>
+                    <label for="1">1</label>
+                    <input type="radio" id="2" name="beatValue" value="2"/>
+                    <label for="2">2</label>
+                    <input type="radio" id="4" name="beatValue" value="4" checked/>
+                    <label for="4">4</label>
+                    <input type="radio" id="8" name="beatValue" value="8"/>
+                    <label for="8">8</label>
+                    <input type="radio" id="16" name="beatValue" value="16"/>
+                    <label for="16">16</label>
+                </div>
+            </fieldset>
+
+            <br>
                 Beat Length (ms): <span class="beatLength"></span>
             </div>
     </div>
