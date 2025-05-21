@@ -45,8 +45,6 @@ socket.on("initialize", (transportDictionary) =>
     setBPM(transportDictionary.BPM);
     setBeatValue(transportDictionary.BeatValue);
 
-    console.log(transportDictionary);
-
     updateBeatLength();
 });
 
@@ -65,7 +63,8 @@ function maxOut(key, value)
 function onBPMInputChanged()
 {
     let inputValue = BPM_INPUT.value;
-    setBPM(inputValue);
+    setBPM(BPM_INPUT.value)
+    socket.emit(BPM_KEY, inputValue);
 }
 
 function setBPM(value)
@@ -74,8 +73,6 @@ function setBPM(value)
     BPM_INPUT.value = BPM_VALUE;
 
     updateBeatLength();
-
-    socket.emit(BPM_KEY, BPM_VALUE);
 
     maxOut(BPM_KEY, BPM_VALUE);
 }
@@ -88,6 +85,7 @@ function onBeatValueChanged()
 {
     let beatValue = getBeatValue();
     setBeatValue(beatValue);
+    socket.emit(BEAT_VALUE_KEY, beatValue);
 }
 
 function setBeatValue(value)
@@ -98,7 +96,6 @@ function setBeatValue(value)
 
     updateBeatLength();
 
-    socket.emit(BEAT_VALUE_KEY, BEAT_VALUE);
     maxOut(BEAT_VALUE_KEY, BEAT_VALUE);
 }
 
