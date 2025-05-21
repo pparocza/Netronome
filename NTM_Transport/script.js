@@ -13,7 +13,6 @@ socket.on("connect", () =>
 {
     console.log("Connected to server!");
     maxOut(CONNECTION_STATUS, 1);
-    setBPM(socket.data.bpm);
 });
 
 socket.on(BPM_KEY, (value) =>
@@ -21,13 +20,13 @@ socket.on(BPM_KEY, (value) =>
     setBPM(value);
 });
 
-// SEND
-BPM_INPUT.onclick = () =>
+socket.on("initialize", (transportDictionary) =>
 {
-    let inputValue = BPM_INPUT.value;
-    setBPM(BPM_INPUT.value)
-    socket.emit(BPM_KEY, inputValue);
-}
+    setBPM(transportDictionary.BPM);
+});
+
+// SEND
+BPM_INPUT.onchange = onBPMInputChanged;
 
 function maxOut(key, value)
 {
@@ -35,6 +34,13 @@ function maxOut(key, value)
     {
         window.max.outlet(key, value);
     }
+}
+
+function onBPMInputChanged()
+{
+    let inputValue = BPM_INPUT.value;
+    setBPM(BPM_INPUT.value)
+    socket.emit(BPM_KEY, inputValue);
 }
 
 function setBPM(value)
