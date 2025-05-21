@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netronome Transport Client</title>
+    <title>Netronome Transport</title>
 
     <link rel="stylesheet" href="NTM_Transport/style.css">
 
@@ -12,7 +12,42 @@
 
 </head>
 <body>
-    <label>BPM: </label>
-    <input id="bpm" class="bpm" type="number">
+
+    <h3>Netronome Transport</h3>
+
+    <div class="TRANSPORT_CONTROL">
+        <div class="TRANSPORT_CONTROL_CONTENT">
+            <label>BPM: </label>
+            <input id="bpm" class="bpm" type="number">
+            <br><br>
+
+                <label>Beat Value: </label>
+                <select name="beatValue" class="beatValue">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="16">16</option>
+                </select>
+                Beat Length (ms): <span class="beatLength"></span>
+            </div>
+    </div>
+
+    <br>
+
+    <div class="UNIX_TRANSPORT">
+        <div class="UNIX_TRANSPORT_CONTENT">
+            <u>Unix Sync</u>
+            <br><br>
+            - Unix Time: <span class="unixTimeDisplay"></span>
+            <br>
+            - Time Until Next Unix Beat: <span class="timeUntilNextUnixBeatDisplay"></span>
+            <br>
+            - Error: <span class="errorDisplay"></span>
+            <br>
+            - Next Unix Beat Time: <span class="nextUnixBeatTimeDisplay"></span>
+        </div>
+    </div>
+
 </body>
 </html>
