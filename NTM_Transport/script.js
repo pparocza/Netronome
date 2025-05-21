@@ -20,15 +20,6 @@ const NEXT_UNIX_BEAT_TIME_DISPLAY = document.querySelector(".nextUnixBeatTimeDis
 const ERROR_DISPLAY = document.querySelector(".errorDisplay");
 const UNIX_BEAT_KEY = "unixBeat";
 
-/*
-based on the bpm and beat value, get the length in milliseconds of a beat:
-    - get timeUntilNextUnixBeat = (current Date.now() % (beatInMilliseconds)
-    - start Unix transport on next Unix beat
-    - count Unix transport based on beat value
-
-    - display Unix transport in page to compare to local Unix transport values
- */
-
 // Client Initialization
 const socket = io(SERVER_URL);
 
@@ -44,14 +35,23 @@ socket.on(BPM_KEY, (value) =>
     setBPM(value);
 });
 
+socket.on(BEAT_VALUE_KEY, (value) =>
+{
+    setBeatValue(value);
+})
+
 socket.on("initialize", (transportDictionary) =>
 {
     setBPM(transportDictionary.BPM);
+    setBeatValue(transportDictionary.BeatValue);
+
+    console.log(transportDictionary);
+
+    updateBeatLength();
 });
 
-// SEND
-
 // BPM
+
 BPM_INPUT.onchange = onBPMInputChanged;
 
 function maxOut(key, value)
@@ -65,8 +65,7 @@ function maxOut(key, value)
 function onBPMInputChanged()
 {
     let inputValue = BPM_INPUT.value;
-    setBPM(BPM_INPUT.value)
-    socket.emit(BPM_KEY, inputValue);
+    setBPM(inputValue);
 }
 
 function setBPM(value)
@@ -76,24 +75,75 @@ function setBPM(value)
 
     updateBeatLength();
 
+    socket.emit(BPM_KEY, BPM_VALUE);
+
     maxOut(BPM_KEY, BPM_VALUE);
 }
 
-// BEAT LENGTH
+// BEAT VALUE
 
-BEAT_VALUE_INPUT.oninput = onBeatLengthChanged;
+BEAT_VALUE_INPUT.oninput = onBeatValueChanged;
 
-function onBeatLengthChanged()
+function onBeatValueChanged()
 {
-    BEAT_VALUE = BEAT_VALUE_INPUT.value;
-    updateBeatLength();
+    let beatValue = getBeatValue();
+    setBeatValue(beatValue);
 }
+
+function setBeatValue(value)
+{
+    BEAT_VALUE = value;
+
+    setBeatValueDisplay(BEAT_VALUE);
+
+    updateBeatLength();
+
+    socket.emit(BEAT_VALUE_KEY, BEAT_VALUE);
+    maxOut(BEAT_VALUE_KEY, BEAT_VALUE);
+}
+
+function getBeatValue()
+{
+    let beatValueOptions = BEAT_VALUE_INPUT.elements;
+
+    for(let elementIndex = 0; elementIndex < beatValueOptions.length; elementIndex++)
+    {
+        let element = beatValueOptions[elementIndex];
+
+        if (element.checked)
+        {
+            return element.value;
+        }
+    }
+}
+
+function setBeatValueDisplay(value)
+{
+    let beatValueOptions = BEAT_VALUE_INPUT.elements;
+
+    for(let elementIndex = 0; elementIndex < beatValueOptions.length; elementIndex++)
+    {
+        let element = beatValueOptions[elementIndex];
+
+        if (element.value === value)
+        {
+            element.checked = true;
+        }
+    }
+}
+
+// BEAT LENGTH
 
 function updateBeatLength()
 {
     if(BPM_VALUE <= 0)
     {
         return;
+    }
+
+    if(!BEAT_VALUE)
+    {
+        BEAT_VALUE = getBeatValue();
     }
 
     BEAT_LENGTH_MS = (60000 * 4) / (BPM_VALUE * BEAT_VALUE);
@@ -103,11 +153,12 @@ function updateBeatLength()
     syncUnixTransport(true);
 }
 
+// UNIX TRANSPORT
+
 let ATTEMPTING_TIMER_SYNC;
 let TRANSPORT_INTERVAL;
 let TRANSPORT_START_TARGET = 0;
 
-// UNIX TRANSPORT
 function syncUnixTransport(resetInterval = false)
 {
     if(!ATTEMPTING_TIMER_SYNC)
@@ -131,7 +182,6 @@ function syncUnixTransport(resetInterval = false)
         ATTEMPTING_TIMER_SYNC = setInterval(tryStartUnixTransport, 1);
     }
 }
-
 
 function tryStartUnixTransport()
 {
