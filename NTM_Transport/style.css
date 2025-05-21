@@ -1,27 +1,23 @@
-.bang
+.TRANSPORT_CONTROL
 {
-    width: 100px;
+    width: 300px;
+    border-style: dashed;
+    border-width: 1px;
 }
 
-#recieveBang
+.TRANSPORT_CONTROL_CONTENT
 {
-    pointer-events: none;
+    margin: 10px;
 }
 
-#sendBang:active
+.UNIX_TRANSPORT
 {
-    background-color: blue;
+    width: 300px;
+    border-style: dashed;
+    border-width: 1px;
 }
 
-@media screen and (max-width: 500px)
+.UNIX_TRANSPORT_CONTENT
 {
-    .bang
-    {
-        width: 50%;
-        font-size: 1.5rem;
-    }
-    #recieveBang
-    {
-        float: left;
-    }
+    margin: 10px;
 }
