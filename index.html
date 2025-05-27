@@ -13,48 +13,36 @@
 </head>
 <body>
 
-    <h3>Netronome Transport</h3>
+    <div class="DISPLAY">
+        <div class="DISPLAY_CONTENT">
 
-    <div class="TRANSPORT_CONTROL">
-        <div class="TRANSPORT_CONTROL_CONTENT">
-            <label>BPM: </label>
-            <input id="bpm" class="bpm" type="number">
-            <br><br>
-
-            <fieldset class="beatValue">
-                <legend>Beat Value: </legend>
-                <div>
-                    <input type="radio" id="1" name="beatValue" value="1"/>
-                    <label for="1">1</label>
-                    <input type="radio" id="2" name="beatValue" value="2"/>
-                    <label for="2">2</label>
-                    <input type="radio" id="4" name="beatValue" value="4" checked/>
-                    <label for="4">4</label>
-                    <input type="radio" id="8" name="beatValue" value="8"/>
-                    <label for="8">8</label>
-                    <input type="radio" id="16" name="beatValue" value="16"/>
-                    <label for="16">16</label>
+        <h3>Netronome Transport</h3>
+            <div class="TRANSPORT_DISPLAY">
+                <div class="TRANSPORT_DISPLAY_CONTENT">
+                    <span><b>BPM:</b> <span class="BPM_DISPLAY"></span></span>
+                    <br>
+                    <span><b>Beat Value:</b> <span class="BEAT_VALUE_DISPLAY"></span></span>
+                    <br>
+                    <span><b>Beat Length (ms):</b> <span class="BEAT_LENGTH_DISPLAY"></span></span>
                 </div>
-            </fieldset>
-
-            <br>
-                Beat Length (ms): <span class="beatLength"></span>
             </div>
-    </div>
 
-    <br>
+            <br>
 
-    <div class="UNIX_TRANSPORT">
-        <div class="UNIX_TRANSPORT_CONTENT">
-            <u>Unix Sync</u>
-            <br><br>
-            - Unix Time: <span class="unixTimeDisplay"></span>
-            <br>
-            - Time Until Next Unix Beat: <span class="timeUntilNextUnixBeatDisplay"></span>
-            <br>
-            - Error: <span class="errorDisplay"></span>
-            <br>
-            - Next Unix Beat Time: <span class="nextUnixBeatTimeDisplay"></span>
+            <div class="UNIX_TRANSPORT">
+                <div class="UNIX_TRANSPORT_CONTENT">
+                    <u>Unix Sync</u>
+                    <br><br>
+                    - Unix Time: <span class="unixTimeDisplay"></span>
+                    <br>
+                    - Time Until Next Unix Beat: <span class="timeUntilNextUnixBeatDisplay"></span>
+                    <br>
+                    - Error: <span class="errorDisplay"></span>
+                    <br>
+                    - Next Unix Beat Time: <span class="nextUnixBeatTimeDisplay"></span>
+                </div>
+            </div>
+
         </div>
     </div>
 
