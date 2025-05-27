@@ -1,15 +1,16 @@
 const SERVER_URL = "wss://real-pear-meadow.glitch.me";
 const CONNECTION_STATUS = "connection_status";
 
-const BPM_INPUT = document.querySelector(".bpm");
 const BPM_KEY = "bpm";
-let BPM_VALUE = BPM_INPUT.value;
+const BPM_DISPLAY = document.querySelector(".BPM_DISPLAY");
 
-const BEAT_VALUE_INPUT = document.querySelector(".beatValue");
 const BEAT_VALUE_KEY = "beatValue";
-let BEAT_VALUE = BEAT_VALUE_INPUT.value;
+const BEAT_VALUE_DISPLAY = document.querySelector(".BEAT_VALUE_DISPLAY");
 
-const BEAT_LENGTH_DISPLAY = document.querySelector(".beatLength");
+let BPM_VALUE = 0;
+let BEAT_VALUE = 0;
+
+const BEAT_LENGTH_DISPLAY = document.querySelector(".BEAT_LENGTH_DISPLAY");
 let BEAT_LENGTH_VALUE = 0;
 
 let BEAT_LENGTH_MS = 0;
@@ -50,8 +51,6 @@ socket.on("initialize", (transportDictionary) =>
 
 // BPM
 
-BPM_INPUT.onchange = onBPMInputChanged;
-
 function maxOut(key, value)
 {
     if(window.max)
@@ -60,17 +59,18 @@ function maxOut(key, value)
     }
 }
 
-function onBPMInputChanged()
+// TODO: this is what will get BPM value in from Ableton
+function bpmInput(bpm)
 {
-    let inputValue = BPM_INPUT.value;
-    setBPM(BPM_INPUT.value)
-    socket.emit(BPM_KEY, inputValue);
+    setBPM(bpm)
+    socket.emit(BPM_KEY, bpm);
 }
 
 function setBPM(value)
 {
     BPM_VALUE = value;
-    BPM_INPUT.value = BPM_VALUE;
+
+    BPM_DISPLAY.innerHTML = BPM_VALUE;
 
     updateBeatLength();
 
@@ -78,12 +78,9 @@ function setBPM(value)
 }
 
 // BEAT VALUE
-
-BEAT_VALUE_INPUT.oninput = onBeatValueChanged;
-
-function onBeatValueChanged()
+// TODO: this is what will get the BEAT value in from Ableton
+function beatValueInput(beatValue)
 {
-    let beatValue = getBeatValue();
     setBeatValue(beatValue);
     socket.emit(BEAT_VALUE_KEY, beatValue);
 }
@@ -92,45 +89,14 @@ function setBeatValue(value)
 {
     BEAT_VALUE = value;
 
-    setBeatValueDisplay(BEAT_VALUE);
+    BEAT_VALUE_DISPLAY.innerHTML = value;
 
     updateBeatLength();
 
     maxOut(BEAT_VALUE_KEY, BEAT_VALUE);
 }
 
-function getBeatValue()
-{
-    let beatValueOptions = BEAT_VALUE_INPUT.elements;
-
-    for(let elementIndex = 0; elementIndex < beatValueOptions.length; elementIndex++)
-    {
-        let element = beatValueOptions[elementIndex];
-
-        if (element.checked)
-        {
-            return element.value;
-        }
-    }
-}
-
-function setBeatValueDisplay(value)
-{
-    let beatValueOptions = BEAT_VALUE_INPUT.elements;
-
-    for(let elementIndex = 0; elementIndex < beatValueOptions.length; elementIndex++)
-    {
-        let element = beatValueOptions[elementIndex];
-
-        if (element.value === value)
-        {
-            element.checked = true;
-        }
-    }
-}
-
 // BEAT LENGTH
-
 function updateBeatLength()
 {
     if(BPM_VALUE <= 0)
@@ -140,7 +106,7 @@ function updateBeatLength()
 
     if(!BEAT_VALUE)
     {
-        BEAT_VALUE = getBeatValue();
+        return;
     }
 
     BEAT_LENGTH_MS = (60000 * 4) / (BPM_VALUE * BEAT_VALUE);
@@ -151,7 +117,6 @@ function updateBeatLength()
 }
 
 // UNIX TRANSPORT
-
 let ATTEMPTING_TIMER_SYNC;
 let TRANSPORT_INTERVAL;
 let TRANSPORT_START_TARGET = 0;
@@ -218,3 +183,23 @@ function unixTransportBeat()
 
     maxOut(UNIX_BEAT_KEY, "bang");
 }
+
+function maxInlets()
+{
+    if(!window.max)
+    {
+        return;
+    }
+
+    window.max.bindInlet("set_bpm", function(bpm)
+    {
+        bpmInput(bpm);
+    });
+
+    window.max.bindInlet("set_signature_denominator", function(signatureDenominator)
+    {
+        beatValueInput(signatureDenominator);
+    });
+}
+
+maxInlets();
