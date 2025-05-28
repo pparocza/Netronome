@@ -1,5 +1,7 @@
 const SERVER_URL = "wss://real-pear-meadow.glitch.me";
 const CONNECTION_STATUS = "connection_status";
+const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
+const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
 
 const BPM_KEY = "bpm";
 const BPM_DISPLAY = document.querySelector(".BPM_DISPLAY");
@@ -15,11 +17,8 @@ let BEAT_LENGTH_VALUE = 0;
 
 let BEAT_LENGTH_MS = 0;
 
-const UNIX_TIME_DISPLAY = document.querySelector(".unixTimeDisplay");
-const TIME_UNTIL_NEXT_UNIX_BEAT_DISPLAY = document.querySelector(".timeUntilNextUnixBeatDisplay");
-const NEXT_UNIX_BEAT_TIME_DISPLAY = document.querySelector(".nextUnixBeatTimeDisplay");
-const ERROR_DISPLAY = document.querySelector(".errorDisplay");
 const UNIX_BEAT_KEY = "unixBeat";
+const UNIX_BEAT_DATA_KEY = "unixData";
 
 // Client Initialization
 const socket = io(SERVER_URL);
@@ -29,6 +28,8 @@ socket.on("connect", () =>
 {
     console.log("Connected to server!");
     maxOut(CONNECTION_STATUS, 1);
+    CONNECTED_DISPLAY.hidden = false;
+    CONNECTING_DISPLAY.hidden = true;
 });
 
 socket.on(BPM_KEY, (value) =>
@@ -50,16 +51,14 @@ socket.on("initialize", (transportDictionary) =>
 });
 
 // BPM
-
-function maxOut(key, value)
+function maxOut(key, args)
 {
     if(window.max)
     {
-        window.max.outlet(key, value);
+        window.max.outlet(key, ...args);
     }
 }
 
-// TODO: this is what will get BPM value in from Ableton
 function bpmInput(bpm)
 {
     setBPM(bpm)
@@ -78,7 +77,6 @@ function setBPM(value)
 }
 
 // BEAT VALUE
-// TODO: this is what will get the BEAT value in from Ableton
 function beatValueInput(beatValue)
 {
     setBeatValue(beatValue);
@@ -166,15 +164,10 @@ function updateUnixTransport()
     let nextUnixBeatTime = currentUnixTime + timeUntilNextUnixBeat;
     let errorLength = BEAT_LENGTH_VALUE - timeUntilNextUnixBeat;
 
-    UNIX_TIME_DISPLAY.innerHTML = currentUnixTime.toString();
-    TIME_UNTIL_NEXT_UNIX_BEAT_DISPLAY.innerHTML = timeUntilNextUnixBeat.toString();
-    NEXT_UNIX_BEAT_TIME_DISPLAY.innerHTML = nextUnixBeatTime.toString();
-    ERROR_DISPLAY.innerHTML = errorLength.toString();
-
-    unixTransportBeat();
+    unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
 }
 
-function unixTransportBeat()
+function unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength)
 {
     if(!window.max)
     {
@@ -182,6 +175,7 @@ function unixTransportBeat()
     }
 
     maxOut(UNIX_BEAT_KEY, "bang");
+    maxOut(UNIX_BEAT_DATA_KEY, currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
 }
 
 function maxInlets()
