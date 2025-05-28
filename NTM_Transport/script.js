@@ -152,10 +152,10 @@ function updateUnixTransport()
     let nextUnixBeatTime = currentUnixTime + timeUntilNextUnixBeat;
     let errorLength = BEAT_LENGTH_VALUE - timeUntilNextUnixBeat;
 
-    unixTransportBeat();
+    unixTransportBeat(timeUntilNextUnixBeat, errorLength);
 }
 
-function unixTransportBeat()
+function unixTransportBeat(timeUntilNextUnixBeat, errorLength)
 {
     if(!window.max)
     {
@@ -163,7 +163,7 @@ function unixTransportBeat()
     }
 
     toMax(UNIX_BEAT_KEY, "bang");
-    toMax(UNIX_BEAT_DATA_KEY, "data!");
+    toMax(UNIX_BEAT_DATA_KEY, timeUntilNextUnixBeat, errorLength);
 }
 
 // UTILITY
