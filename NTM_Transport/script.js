@@ -1,4 +1,4 @@
-const SERVER_URL = "wss://real-pear-meadow.glitch.me";
+const SERVER_URL = "wss://dust-curved-bearskin.glitch.me";
 const CONNECTION_STATUS = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
 const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
