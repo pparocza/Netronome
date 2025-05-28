@@ -1,35 +1,16 @@
-.TRANSPORT_DISPLAY
-{
-    width: 300px;
-    border-style: dashed;
-    border-width: 1px;
-}
-
 .TRANSPORT_DISPLAY_CONTENT
 {
-    margin: 10px;
-}
-
-.UNIX_TRANSPORT
-{
-    width: 300px;
-    border-style: dashed;
-    border-width: 1px;
-}
-
-.UNIX_TRANSPORT_CONTENT
-{
-    margin: 10px;
+    margin: 5px;
 }
 
 .DISPLAY
 {
-    width: 320px;
+    width: 190px;
     border-style: solid;
     border-width:  1px;
 }
 
-.DISPLAY_CONTENT
+.CONNECTED_DISPLAY_CONTENT
 {
-    margin: 10px;
+    margin: 5px;
 }
