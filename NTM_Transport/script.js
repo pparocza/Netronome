@@ -18,7 +18,7 @@ let BEAT_LENGTH_VALUE = 0;
 let BEAT_LENGTH_MS = 0;
 
 const UNIX_BEAT_KEY = "unixBeat";
-const UNIX_BEAT_DATA_KEY = "unixData";
+const UNIX_BEAT_DATA_KEY = "unixBeatData";
 
 // SOCKET
 const socket = io(SERVER_URL);
@@ -152,10 +152,10 @@ function updateUnixTransport()
     let nextUnixBeatTime = currentUnixTime + timeUntilNextUnixBeat;
     let errorLength = BEAT_LENGTH_VALUE - timeUntilNextUnixBeat;
 
-    unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
+    unixTransportBeat();
 }
 
-function unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength)
+function unixTransportBeat()
 {
     if(!window.max)
     {
@@ -163,7 +163,7 @@ function unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatT
     }
 
     toMax(UNIX_BEAT_KEY, "bang");
-    toMax(UNIX_BEAT_DATA_KEY, currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
+    toMax(UNIX_BEAT_DATA_KEY, "data!");
 }
 
 // UTILITY
@@ -184,7 +184,7 @@ function toMax(key, args)
         return;
     }
 
-    window.max.outlet(key, ...args);
+    window.max.outlet(key, args);
 }
 
 function configureMaxInlets()
