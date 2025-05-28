@@ -174,6 +174,9 @@ function handleClientConnected()
     CONNECTED_DISPLAY.hidden = false;
     CONNECTING_DISPLAY.hidden = true;
 
+    toMax(BPM_KEY, BPM_VALUE);
+    toMax(BEAT_VALUE_KEY, BEAT_VALUE);
+
     toMax(CONNECTION_STATUS, 1);
 }
 
