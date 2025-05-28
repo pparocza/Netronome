@@ -163,7 +163,7 @@ function unixTransportBeat(timeUntilNextUnixBeat, errorLength)
     }
 
     toMax(UNIX_BEAT_KEY, "bang");
-    toMax(UNIX_BEAT_DATA_KEY, timeUntilNextUnixBeat, errorLength);
+    toMax(UNIX_BEAT_DATA_KEY, timeUntilNextUnixBeat);
 }
 
 // UTILITY
