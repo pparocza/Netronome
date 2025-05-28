@@ -20,16 +20,12 @@ let BEAT_LENGTH_MS = 0;
 const UNIX_BEAT_KEY = "unixBeat";
 const UNIX_BEAT_DATA_KEY = "unixData";
 
-// Client Initialization
+// SOCKET
 const socket = io(SERVER_URL);
 
-// RECEIVE
 socket.on("connect", () =>
 {
-    console.log("Connected to server!");
-    maxOut(CONNECTION_STATUS, 1);
-    CONNECTED_DISPLAY.hidden = false;
-    CONNECTING_DISPLAY.hidden = true;
+    handleClientConnected();
 });
 
 socket.on(BPM_KEY, (value) =>
@@ -51,14 +47,6 @@ socket.on("initialize", (transportDictionary) =>
 });
 
 // BPM
-function maxOut(key, args)
-{
-    if(window.max)
-    {
-        window.max.outlet(key, ...args);
-    }
-}
-
 function bpmInput(bpm)
 {
     setBPM(bpm)
@@ -73,7 +61,7 @@ function setBPM(value)
 
     updateBeatLength();
 
-    maxOut(BPM_KEY, BPM_VALUE);
+    toMax(BPM_KEY, BPM_VALUE);
 }
 
 // BEAT VALUE
@@ -91,7 +79,7 @@ function setBeatValue(value)
 
     updateBeatLength();
 
-    maxOut(BEAT_VALUE_KEY, BEAT_VALUE);
+    toMax(BEAT_VALUE_KEY, BEAT_VALUE);
 }
 
 // BEAT LENGTH
@@ -174,11 +162,32 @@ function unixTransportBeat(currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatT
         return;
     }
 
-    maxOut(UNIX_BEAT_KEY, "bang");
-    maxOut(UNIX_BEAT_DATA_KEY, currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
+    toMax(UNIX_BEAT_KEY, "bang");
+    toMax(UNIX_BEAT_DATA_KEY, currentUnixTime, timeUntilNextUnixBeat, nextUnixBeatTime, errorLength);
 }
 
-function maxInlets()
+// UTILITY
+function handleClientConnected()
+{
+    console.log("Connected to server!");
+
+    CONNECTED_DISPLAY.hidden = false;
+    CONNECTING_DISPLAY.hidden = true;
+
+    toMax(CONNECTION_STATUS, 1);
+}
+
+function toMax(key, args)
+{
+    if(!window.max)
+    {
+        return;
+    }
+
+    window.max.outlet(key, ...args);
+}
+
+function configureMaxInlets()
 {
     if(!window.max)
     {
@@ -196,4 +205,4 @@ function maxInlets()
     });
 }
 
-maxInlets();
+configureMaxInlets();
