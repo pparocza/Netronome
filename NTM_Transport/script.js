@@ -1,27 +1,25 @@
 const SERVER_URL = "wss://dust-curved-bearskin.glitch.me";
-const CONNECTION_STATUS = "connection_status";
+const CONNECTION_STATUS_KEY = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
 const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
 
+let BPM_VALUE = 0;
 const BPM_KEY = "bpm";
 const BPM_DISPLAY = document.querySelector(".BPM_DISPLAY");
 
+let BEAT_VALUE = 0;
 const BEAT_VALUE_KEY = "beatValue";
 const BEAT_VALUE_DISPLAY = document.querySelector(".BEAT_VALUE_DISPLAY");
 
-let BPM_VALUE = 0;
-let BEAT_VALUE = 0;
-
-const BEAT_LENGTH_DISPLAY = document.querySelector(".BEAT_LENGTH_DISPLAY");
-let BEAT_LENGTH_VALUE = 0;
-
 let BEAT_LENGTH_MS = 0;
+const BEAT_LENGTH_MS_KEY = "ntmTransportBeatLength";
+const BEAT_LENGTH_MS_DISPLAY = document.querySelector(".BEAT_LENGTH_MS_DISPLAY");
 
-const UNIX_BEAT_KEY = "unixBeat";
 const CURRENT_UNIX_TIME_KEY = "currentUnixTime";
 const TIME_TO_NEXT_UNIX_BEAT_KEY = "timeToNextUnixBeat";
-const UNIX_BEAT_ERROR_KEY = "unixBeatError";
-const TRANSPORT_BEAT_LENGTH_KEY = "ntmTransportBeatLength"
+
+
+const IS_MAX_WINDOW = window.max;
 
 // SOCKET
 const socket = io(SERVER_URL);
@@ -99,9 +97,11 @@ function updateBeatLength()
     }
 
     BEAT_LENGTH_MS = (60000 * 4) / (BPM_VALUE * BEAT_VALUE);
-    BEAT_LENGTH_VALUE = parseInt(BEAT_LENGTH_MS);
-    BEAT_LENGTH_DISPLAY.innerHTML = BEAT_LENGTH_VALUE;
+    BEAT_LENGTH_MS = parseInt(BEAT_LENGTH_MS);
+    BEAT_LENGTH_MS_DISPLAY.innerHTML = BEAT_LENGTH_MS;
 
+    toMax(BEAT_LENGTH_MS_KEY, BEAT_LENGTH_MS);
+    
     syncUnixTransport(true);
 }
 
@@ -117,7 +117,7 @@ function syncUnixTransport(resetInterval = false)
 {
     if(!ATTEMPTING_TIMER_SYNC)
     {
-        updateUnixTransport();
+        timeToNextUnixBeatToMax();
     }
 
     if(resetInterval)
@@ -132,7 +132,7 @@ function syncUnixTransport(resetInterval = false)
             clearInterval(TRANSPORT_INTERVAL);
         }
 
-        TRANSPORT_START_TARGET = BEAT_LENGTH_VALUE - (Date.now() % BEAT_LENGTH_VALUE);
+        TRANSPORT_START_TARGET = BEAT_LENGTH_MS - (Date.now() % BEAT_LENGTH_MS);
         ATTEMPTING_TIMER_SYNC = setInterval(tryStartUnixTransport, 1);
     }
 }
@@ -144,34 +144,21 @@ function tryStartUnixTransport()
         syncUnixTransport(true);
     }
 
-    if(Date.now() % BEAT_LENGTH_VALUE === 0)
+    if(Date.now() % BEAT_LENGTH_MS === 0)
     {
         clearInterval(ATTEMPTING_TIMER_SYNC);
-        TRANSPORT_INTERVAL = setInterval(updateUnixTransport, BEAT_LENGTH_VALUE);
+        TRANSPORT_INTERVAL = setInterval(timeToNextUnixBeatToMax, BEAT_LENGTH_MS);
     }
 }
 
-function updateUnixTransport()
+function timeToNextUnixBeatToMax()
 {
-    let currentUnixTime = Date.now();
-    let errorLength = currentUnixTime % BEAT_LENGTH_VALUE;
-    let timeUntilNextUnixBeat = BEAT_LENGTH_VALUE - (currentUnixTime % BEAT_LENGTH_VALUE);
-    let nextUnixBeatTime = currentUnixTime + timeUntilNextUnixBeat;
-
-    unixTransportBeat(timeUntilNextUnixBeat, errorLength);
-}
-
-function unixTransportBeat(timeUntilNextUnixBeat, errorLength)
-{
-    if(!window.max)
+    if(!IS_MAX_WINDOW)
     {
         return;
     }
 
-    toMax(UNIX_BEAT_KEY, "bang");
-    toMax(TIME_TO_NEXT_UNIX_BEAT_KEY, timeUntilNextUnixBeat);
-    toMax(TRANSPORT_BEAT_LENGTH_KEY, BEAT_LENGTH_MS);
-    toMax(UNIX_BEAT_ERROR_KEY, errorLength);
+    toMax(TIME_TO_NEXT_UNIX_BEAT_KEY, BEAT_LENGTH_MS - (Date.now() % BEAT_LENGTH_MS));
 }
 
 // UTILITY
@@ -185,12 +172,12 @@ function handleClientConnected()
     toMax(BPM_KEY, BPM_VALUE);
     toMax(BEAT_VALUE_KEY, BEAT_VALUE);
 
-    toMax(CONNECTION_STATUS, 1);
+    toMax(CONNECTION_STATUS_KEY, 1);
 }
 
 function toMax(key, args)
 {
-    if(!window.max)
+    if(!IS_MAX_WINDOW)
     {
         return;
     }
@@ -200,7 +187,7 @@ function toMax(key, args)
 
 function configureMaxInlets()
 {
-    if(!window.max)
+    if(!IS_MAX_WINDOW)
     {
         return;
     }
