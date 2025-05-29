@@ -18,7 +18,10 @@ let BEAT_LENGTH_VALUE = 0;
 let BEAT_LENGTH_MS = 0;
 
 const UNIX_BEAT_KEY = "unixBeat";
-const UNIX_BEAT_DATA_KEY = "unixBeatData";
+const CURRENT_UNIX_TIME_KEY = "currentUnixTime";
+const TIME_TO_NEXT_UNIX_BEAT_KEY = "timeToNextUnixBeat";
+const UNIX_BEAT_ERROR_KEY = "unixBeatError";
+const TRANSPORT_BEAT_LENGTH_KEY = "ntmTransportBeatLength"
 
 // SOCKET
 const socket = io(SERVER_URL);
@@ -107,6 +110,9 @@ let ATTEMPTING_TIMER_SYNC;
 let TRANSPORT_INTERVAL;
 let TRANSPORT_START_TARGET = 0;
 
+// TODO: eventually get rid of this, and handle all polling and sync from Max, only using
+//  using this to get the current value of Date.now() to compare against the [metro] object
+//  in Max
 function syncUnixTransport(resetInterval = false)
 {
     if(!ATTEMPTING_TIMER_SYNC)
@@ -148,9 +154,9 @@ function tryStartUnixTransport()
 function updateUnixTransport()
 {
     let currentUnixTime = Date.now();
+    let errorLength = currentUnixTime % BEAT_LENGTH_VALUE;
     let timeUntilNextUnixBeat = BEAT_LENGTH_VALUE - (currentUnixTime % BEAT_LENGTH_VALUE);
     let nextUnixBeatTime = currentUnixTime + timeUntilNextUnixBeat;
-    let errorLength = BEAT_LENGTH_VALUE - timeUntilNextUnixBeat;
 
     unixTransportBeat(timeUntilNextUnixBeat, errorLength);
 }
@@ -163,7 +169,9 @@ function unixTransportBeat(timeUntilNextUnixBeat, errorLength)
     }
 
     toMax(UNIX_BEAT_KEY, "bang");
-    toMax(UNIX_BEAT_DATA_KEY, timeUntilNextUnixBeat);
+    toMax(TIME_TO_NEXT_UNIX_BEAT_KEY, timeUntilNextUnixBeat);
+    toMax(TRANSPORT_BEAT_LENGTH_KEY, BEAT_LENGTH_MS);
+    toMax(UNIX_BEAT_ERROR_KEY, errorLength);
 }
 
 // UTILITY
@@ -205,6 +213,11 @@ function configureMaxInlets()
     window.max.bindInlet("set_signature_denominator", function(signatureDenominator)
     {
         beatValueInput(signatureDenominator);
+    });
+
+    windw.max.bindInlet("get_unix_time", function ()
+    {
+        toMax(CURRENT_UNIX_TIME_KEY, Date.now());
     });
 }
 
