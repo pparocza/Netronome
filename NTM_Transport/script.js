@@ -217,11 +217,18 @@ function configureMaxInlets()
 
     window.max.bindInlet("get_unix_time", function ()
     {
+        unixTimeToMax();
         toMax(CURRENT_UNIX_TIME_KEY, "Unix Time!");
-        toMax(CURRENT_UNIX_TIME_KEY, Date.now());
-        toMax(CURRENT_UNIX_TIME_KEY, Date.now() * 0.0001);
-        toMax(CURRENT_UNIX_TIME_KEY, Date.now().toString());
+        // toMax(CURRENT_UNIX_TIME_KEY, Date.now());
+        // toMax(CURRENT_UNIX_TIME_KEY, Date.now() * 0.0001);
+        // toMax(CURRENT_UNIX_TIME_KEY, Date.now().toString());
     });
+}
+
+function unixTimeToMax()
+{
+    toMax(CURRENT_UNIX_TIME_KEY, 1);
+    toMax(CURRENT_UNIX_TIME_KEY, "Unix Time!");
 }
 
 configureMaxInlets();
