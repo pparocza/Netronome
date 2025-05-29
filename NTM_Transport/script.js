@@ -215,7 +215,7 @@ function configureMaxInlets()
         beatValueInput(signatureDenominator);
     });
 
-    windw.max.bindInlet("get_unix_time", function ()
+    window.max.bindInlet("get_unix_time", function ()
     {
         toMax(CURRENT_UNIX_TIME_KEY, "Unix Time!");
         toMax(CURRENT_UNIX_TIME_KEY, Date.now());
