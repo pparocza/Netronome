@@ -110,6 +110,9 @@ let ATTEMPTING_TIMER_SYNC;
 let TRANSPORT_INTERVAL;
 let TRANSPORT_START_TARGET = 0;
 
+// TODO: eventually get rid of this, and handle all polling and sync from Max, only using
+//  using this to get the current value of Date.now() to compare against the [metro] object
+//  in Max
 function syncUnixTransport(resetInterval = false)
 {
     if(!ATTEMPTING_TIMER_SYNC)
