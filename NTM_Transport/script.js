@@ -2,6 +2,10 @@ const SERVER_URL = "wss://dust-curved-bearskin.glitch.me";
 const CONNECTION_STATUS_KEY = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
 const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
+const LATENCY_MEASUREMENT_STATUS_DISPLAY = document.querySelector
+(
+    ".LATENCY_MEASUREMENT_STATUS_DISPLAY"
+);
 
 let BPM_VALUE = 0;
 const BPM_KEY = "bpm";
@@ -18,8 +22,15 @@ const BEAT_LENGTH_MS_DISPLAY = document.querySelector(".BEAT_LENGTH_MS_DISPLAY")
 const CURRENT_UNIX_TIME_KEY = "currentUnixTime";
 const TIME_TO_NEXT_UNIX_BEAT_KEY = "timeToNextUnixBeat";
 
+const REQUEST_START_LATENCY_MEASUREMENT_KEY = "requestStartLatencyMeasurement";
+const START_LATENCY_MEASUREMENT_KEY = "startLatencyMeasurement";
+const REQUEST_END_LATENCY_MEASUREMENT_KEY = "requestEndLatencyMeasurement";
+const LATENCY_MEASUREMENT_STATUS_KEY = "latencyMeasurementStatus";
+const LATENCY_MEASUREMENT_COMPLETE_KEY = "latencyMeasurementComplete";
 
 const IS_MAX_WINDOW = window.max;
+
+const CLIENT_ID = Math.round(Math.random() * 1000000);
 
 // SOCKET
 const socket = io(SERVER_URL);
@@ -27,6 +38,14 @@ const socket = io(SERVER_URL);
 socket.on("connect", () =>
 {
     handleClientConnected();
+});
+
+socket.on("initialize", (transportDictionary) =>
+{
+    setBPM(transportDictionary.BPM);
+    setBeatValue(transportDictionary.BeatValue);
+
+    updateBeatLength();
 });
 
 socket.on(BPM_KEY, (value) =>
@@ -37,14 +56,21 @@ socket.on(BPM_KEY, (value) =>
 socket.on(BEAT_VALUE_KEY, (value) =>
 {
     setBeatValue(value);
-})
+});
 
-socket.on("initialize", (transportDictionary) =>
+socket.on(START_LATENCY_MEASUREMENT_KEY, (clientId) =>
 {
-    setBPM(transportDictionary.BPM);
-    setBeatValue(transportDictionary.BeatValue);
+    updateLatencyMeasurementStatus(1);
 
-    updateBeatLength();
+    if(clientId === CLIENT_ID)
+    {
+        startLatencyMeasurement();
+    }
+});
+
+socket.on(LATENCY_MEASUREMENT_COMPLETE_KEY, () =>
+{
+   updateLatencyMeasurementStatus(0);
 });
 
 // BPM
@@ -175,6 +201,7 @@ function handleClientConnected()
     toMax(CONNECTION_STATUS_KEY, 1);
 }
 
+// MAX
 function toMax(key, args)
 {
     if(!IS_MAX_WINDOW)
@@ -192,20 +219,52 @@ function configureMaxInlets()
         return;
     }
 
-    window.max.bindInlet("set_bpm", function(bpm)
+    window.max.bindInlet("set_bpm", (bpm) =>
     {
         bpmInput(bpm);
     });
 
-    window.max.bindInlet("set_signature_denominator", function(signatureDenominator)
+    window.max.bindInlet("set_signature_denominator", (signatureDenominator) =>
     {
         beatValueInput(signatureDenominator);
     });
 
-    window.max.bindInlet("get_unix_time", function ()
+    window.max.bindInlet("get_unix_time", () =>
     {
         toMax(CURRENT_UNIX_TIME_KEY, Date.now().toString());
     });
+
+    window.max.bindInlet("request_jacktrip_latency_measurement", () =>
+    {
+        requestJackTripLatencyMeasurement();
+    });
+
+    window.max.bindInlet("request_end_jacktrip_latency_measurement", () =>
+    {
+        requestEndJackTripLatencyMeasurement();
+    });
 }
+
+function requestJackTripLatencyMeasurement()
+{
+    socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
+};
+
+function startLatencyMeasurement()
+{
+    toMax(START_LATENCY_MEASUREMENT_KEY, 1);
+};
+
+function requestEndJackTripLatencyMeasurement()
+{
+    socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
+};
+
+function updateLatencyMeasurementStatus(status)
+{
+    toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
+
+    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status === 1;
+};
 
 configureMaxInlets();
