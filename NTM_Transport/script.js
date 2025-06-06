@@ -234,7 +234,7 @@ function configureMaxInlets()
         toMax(CURRENT_UNIX_TIME_KEY, Date.now().toString());
     });
 
-    window.max.bindInlet("request_jacktrip_latency_measurement", () =>
+    window.max.bindInlet("request_start_jacktrip_latency_measurement", () =>
     {
         requestStartJackTripLatencyMeasurement();
     });
@@ -264,7 +264,7 @@ function updateLatencyMeasurementStatus(status)
 {
     toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
 
-    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status === 1;
+    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status !== 1;
 };
 
 configureMaxInlets();
