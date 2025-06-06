@@ -262,9 +262,9 @@ function requestEndJackTripLatencyMeasurement()
 
 function updateLatencyMeasurementStatus(status)
 {
-    toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
-
     LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status !== 1;
+
+    toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
 };
 
 configureMaxInlets();
