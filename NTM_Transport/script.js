@@ -247,7 +247,7 @@ function configureMaxInlets()
 
 function requestJackTripLatencyMeasurement()
 {
-    socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
+    socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
 };
 
 function startLatencyMeasurement()
@@ -257,7 +257,7 @@ function startLatencyMeasurement()
 
 function requestEndJackTripLatencyMeasurement()
 {
-    socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
+    socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
 };
 
 function updateLatencyMeasurementStatus(status)
