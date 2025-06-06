@@ -236,7 +236,7 @@ function configureMaxInlets()
 
     window.max.bindInlet("request_jacktrip_latency_measurement", () =>
     {
-        requestJackTripLatencyMeasurement();
+        requestStartJackTripLatencyMeasurement();
     });
 
     window.max.bindInlet("request_end_jacktrip_latency_measurement", () =>
@@ -245,7 +245,7 @@ function configureMaxInlets()
     });
 }
 
-function requestJackTripLatencyMeasurement()
+function requestStartJackTripLatencyMeasurement()
 {
     socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
 };
