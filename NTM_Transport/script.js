@@ -44,6 +44,7 @@ socket.on("initialize", (transportDictionary) =>
 {
     setBPM(transportDictionary.BPM);
     setBeatValue(transportDictionary.BeatValue);
+    updateLatencyMeasurementStatus(transportDictionary.LatencyMeasurementStatus);
 
     updateBeatLength();
 });
@@ -60,7 +61,7 @@ socket.on(BEAT_VALUE_KEY, (value) =>
 
 socket.on(START_LATENCY_MEASUREMENT_KEY, (clientId) =>
 {
-    updateLatencyMeasurementStatus(1);
+    updateLatencyMeasurementStatus(true);
 
     if(clientId === CLIENT_ID)
     {
@@ -70,7 +71,7 @@ socket.on(START_LATENCY_MEASUREMENT_KEY, (clientId) =>
 
 socket.on(LATENCY_MEASUREMENT_COMPLETE_KEY, () =>
 {
-   updateLatencyMeasurementStatus(0);
+   updateLatencyMeasurementStatus(false);
 });
 
 // BPM
@@ -190,8 +191,6 @@ function timeToNextUnixBeatToMax()
 // UTILITY
 function handleClientConnected()
 {
-    console.log("Connected to server!");
-
     CONNECTED_DISPLAY.hidden = false;
     CONNECTING_DISPLAY.hidden = true;
 
@@ -262,9 +261,12 @@ function requestEndJackTripLatencyMeasurement()
 
 function updateLatencyMeasurementStatus(status)
 {
-    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status !== 1;
 
-    toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
+    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = !status;
+
+    let statusInt = status ? 1 : 0;
+
+    toMax(LATENCY_MEASUREMENT_STATUS_KEY, statusInt);
 };
 
 configureMaxInlets();

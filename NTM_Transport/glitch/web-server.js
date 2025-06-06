@@ -3,9 +3,9 @@ import { Server } from "socket.io";
 
 const BPM_KEY = "bpm";
 const BEAT_VALUE_KEY = "beatValue";
-const LATENCY_MEASUREMENT_REQUEST_KEY = "latencyMeasurementRequest";
+const REQUEST_START_LATENCY_MEASUREMENT_KEY = "requestStartLatencyMeasurement";
 const START_LATENCY_MEASUREMENT_KEY = "startLatencyMeasurement";
-const END_LATENCY_MEASUREMENT_KEY = "endLatencyMeasurement";
+const REQUEST_END_LATENCY_MEASUREMENT_KEY = "requestEndLatencyMeasurement";
 const LATENCY_MEASUREMENT_COMPLETE_KEY = "latencyMeasurementComplete";
 
 let BPM = 120;
@@ -59,7 +59,7 @@ io.on("connection", (socket) =>
         transportData.BeatValue = value;
     });
 
-    socket.on(LATENCY_MEASUREMENT_REQUEST_KEY, (clientId) =>
+    socket.on(REQUEST_START_LATENCY_MEASUREMENT_KEY, (clientId) =>
     {
         // Don't allow requests if one is in progress
         if(transportData.LatencyMeasurementStatus)
@@ -69,16 +69,21 @@ io.on("connection", (socket) =>
 
         transportData.LatencyMeasurementStatus = true;
         transportData.LatencyMeasurementClientId = clientId;
+
+        // TODO: sort out the difference between .emit and broadcast.emit
         socket.broadcast.emit(START_LATENCY_MEASUREMENT_KEY, clientId);
+        socket.emit(START_LATENCY_MEASUREMENT_KEY, clientId);
     });
 
-    socket.on(END_LATENCY_MEASUREMENT_KEY, (clientId) =>
+    socket.on(REQUEST_END_LATENCY_MEASUREMENT_KEY, (clientId) =>
     {
         if(clientId === transportData.LatencyMeasurementClientId)
         {
-            socket.broadcast.emit(LATENCY_MEASUREMENT_COMPLETE_KEY);
             transportData.LatencyMeasurementStatus = false;
             transportData.LatencyMeasurementClientId = null;
+
+            socket.emit(LATENCY_MEASUREMENT_COMPLETE_KEY);
+            socket.broadcast.emit(LATENCY_MEASUREMENT_COMPLETE_KEY);
         }
     });
 });
