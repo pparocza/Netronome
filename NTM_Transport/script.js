@@ -190,8 +190,6 @@ function timeToNextUnixBeatToMax()
 // UTILITY
 function handleClientConnected()
 {
-    console.log("Connected to server!");
-
     CONNECTED_DISPLAY.hidden = false;
     CONNECTING_DISPLAY.hidden = true;
 
