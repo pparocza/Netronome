@@ -45,6 +45,10 @@ socket.on("initialize", (transportDictionary) =>
     setBPM(transportDictionary.BPM);
     setBeatValue(transportDictionary.BeatValue);
 
+    let latencyMeasurementStatus = transportDictionary.LatencyMeasurementStatus ? 1 : 0;
+
+    updateLatencyMeasurementStatus(latencyMeasurementStatus);
+
     updateBeatLength();
 });
 
