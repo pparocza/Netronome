@@ -44,11 +44,6 @@ socket.on("initialize", (transportDictionary) =>
 {
     setBPM(transportDictionary.BPM);
     setBeatValue(transportDictionary.BeatValue);
-    updateLatencyMeasurementStatus(transportDictionary.LatencyMeasurementStatus);
-
-    let latencyMeasurementStatus = transportDictionary.LatencyMeasurementStatus ? 1 : 0;
-
-    updateLatencyMeasurementStatus(latencyMeasurementStatus);
 
     updateBeatLength();
 });
@@ -65,7 +60,7 @@ socket.on(BEAT_VALUE_KEY, (value) =>
 
 socket.on(START_LATENCY_MEASUREMENT_KEY, (clientId) =>
 {
-    updateLatencyMeasurementStatus(true);
+    updateLatencyMeasurementStatus(1);
 
     if(clientId === CLIENT_ID)
     {
@@ -75,7 +70,7 @@ socket.on(START_LATENCY_MEASUREMENT_KEY, (clientId) =>
 
 socket.on(LATENCY_MEASUREMENT_COMPLETE_KEY, () =>
 {
-   updateLatencyMeasurementStatus(false);
+   updateLatencyMeasurementStatus(0);
 });
 
 // BPM
@@ -195,6 +190,8 @@ function timeToNextUnixBeatToMax()
 // UTILITY
 function handleClientConnected()
 {
+    console.log("Connected to server!");
+
     CONNECTED_DISPLAY.hidden = false;
     CONNECTING_DISPLAY.hidden = true;
 
@@ -237,9 +234,9 @@ function configureMaxInlets()
         toMax(CURRENT_UNIX_TIME_KEY, Date.now().toString());
     });
 
-    window.max.bindInlet("request_start_jacktrip_latency_measurement", () =>
+    window.max.bindInlet("request_jacktrip_latency_measurement", () =>
     {
-        requestStartJackTripLatencyMeasurement();
+        requestJackTripLatencyMeasurement();
     });
 
     window.max.bindInlet("request_end_jacktrip_latency_measurement", () =>
@@ -248,9 +245,9 @@ function configureMaxInlets()
     });
 }
 
-function requestStartJackTripLatencyMeasurement()
+function requestJackTripLatencyMeasurement()
 {
-    socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
+    socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
 };
 
 function startLatencyMeasurement()
@@ -260,17 +257,14 @@ function startLatencyMeasurement()
 
 function requestEndJackTripLatencyMeasurement()
 {
-    socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
+    socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, (CLIENT_ID));
 };
 
 function updateLatencyMeasurementStatus(status)
 {
+    toMax(LATENCY_MEASUREMENT_STATUS_KEY, status);
 
-    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = !status;
-
-    let statusInt = status ? 1 : 0;
-
-    toMax(LATENCY_MEASUREMENT_STATUS_KEY, statusInt);
+    LATENCY_MEASUREMENT_STATUS_DISPLAY.hidden = status === 1;
 };
 
 configureMaxInlets();
