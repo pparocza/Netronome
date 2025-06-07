@@ -1,7 +1,4 @@
-const DEV_SERVER = "wss://fresh-ionized-teeth.glitch.me";
-const MAIN_SERVER = "wss://dust-curved-bearskin.glitch.me";
-
-const SERVER_URL = DEV_SERVER;
+const SERVER_URL = "wss://dust-curved-bearskin.glitch.me";
 
 const CONNECTION_STATUS_KEY = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
