@@ -23,6 +23,7 @@ const BEAT_LENGTH_MS_DISPLAY = document.querySelector(".BEAT_LENGTH_MS_DISPLAY")
 const CURRENT_UNIX_TIME_KEY = "currentUnixTime";
 const TIME_TO_NEXT_UNIX_BEAT_KEY = "timeToNextUnixBeat";
 
+// TODO: Keys are sent down by the server (in transportDictionary) on initialize
 const REQUEST_START_LATENCY_MEASUREMENT_KEY = "requestStartLatencyMeasurement";
 const START_LATENCY_MEASUREMENT_KEY = "startLatencyMeasurement";
 const REQUEST_END_LATENCY_MEASUREMENT_KEY = "requestEndLatencyMeasurement";
