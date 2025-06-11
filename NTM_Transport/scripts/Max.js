@@ -103,8 +103,6 @@ const MAX =
 	}
 }
 
-MAX.configureMaxInlets();
-
 // TODO: instead of Max.out(key, args) as above, just use a setter that does that
 class MaxValue
 {

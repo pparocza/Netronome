@@ -1,3 +1,6 @@
+MAX.configureMaxInlets();
+SOCKET.initialize(SERVER_DATA.url.main);
+
 // BPM
 function setBPM(value)
 {
