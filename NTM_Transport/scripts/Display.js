@@ -30,7 +30,7 @@ const DISPLAY =
 	get connected() { return this._element.connected; },
 	set connected(value) { this.setInnerHtml(this._element.connected, value); },
 
-	set latencyMeasurementStatus(value) { this._element.latencyMeasurementStatus.hidden = value; },
+	set latencyMeasurementStatus(value) { this._element.latencyMeasurementStatus.hidden = !value; },
 
 	set bpm(value) { this.setInnerHtml(this._element.bpm, value); },
 	set beatValue(value) { this.setInnerHtml(this._element.beatValue, value); },
