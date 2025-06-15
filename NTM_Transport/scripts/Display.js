@@ -18,8 +18,13 @@ const DISPLAY =
 			beatValue: document.querySelector(".BEAT_VALUE_DISPLAY"),
 			beatLengthMs: document.querySelector(".BEAT_LENGTH_MS_DISPLAY"),
 
-			unixTime: document.querySelector(".UNIX_TIME_DISPLAY"),
-			serverRoundTrip: document.querySelector(".SERVER_ROUNDTRIP_DISPLAY"),
+			serverTime: document.querySelector(".SERVER_TIME_DISPLAY"),
+			predictedServerTime: document.querySelector(".PREDICTED_SERVER_TIME_DISPLAY"),
+			predictionErrorTime: document.querySelector(".PREDICTION_ERROR_DISPLAY"),
+
+			roundTripTime: document.querySelector(".ROUNDTRIP_TIME_DISPLAY"),
+			upTime: document.querySelector(".UPTIME_DISPLAY"),
+			downTime: document.querySelector(".DOWNTIME_DISPLAY"),
 
 			latencyMeasurementStatus: document.querySelector(".LATENCY_MEASUREMENT_STATUS_DISPLAY"),
 		},
@@ -36,8 +41,13 @@ const DISPLAY =
 	set beatValue(value) { this.setInnerHtml(this._element.beatValue, value); },
 	set beatLengthMs(value) { this.setInnerHtml(this._element.beatLengthMs, value); },
 
-	set unixTime(value) { this.setInnerHtml(this._element.unixTime, value); },
-	set serverRoundTrip(value) { this.setInnerHtml(this._element.serverRoundTrip, value); },
+	set serverTime(value) { this.setInnerHtml(this._element.serverTime, value); },
+	set predictedServerTime(value) { this.setInnerHtml(this._element.predictedServerTime, value); },
+	set predictionErrorTime(value) { this.setInnerHtml(this._element.predictionErrorTime, value); },
+
+	set roundTripTime(value) { this.setInnerHtml(this._element.roundTripTime, value); },
+	set upTime(value) { this.setInnerHtml(this._element.upTime, value); },
+	set downTime(value) { this.setInnerHtml(this._element.downTime, value); },
 
 	get nameDiv() { return this._element.nameDiv; },
 	set nameDisplay(value) { this.setInnerHtml(this._element.name, value); },

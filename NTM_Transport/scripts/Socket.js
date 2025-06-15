@@ -5,14 +5,25 @@ const SOCKET =
 {
 	_socket: null,
 	_id: null,
+	_serverKey: null,
 	_serverRoundTripStart: 0,
 
+	_previousServerTime: null,
+	_predictedServerTime: null,
+	_previousPredictedUpTime: null,
+
+	_realTimeErrorThreshold: 10,
+	_calibrationErrorThreshold: 1,
+	_calibrationComplete: false,
+
+	_checkPredictionIntervalDivision: 4,
+	_checkCount: 0,
+
+	// TODO: underscores to all private methods
 	initialize(serverUrl)
 	{
 		this._socket = io(serverUrl);
 		this.createConnectionListener();
-		this.createServerDataListener();
-		this.createDisconnectionListener();
 	},
 
 	createConnectionListener()
@@ -37,6 +48,9 @@ const SOCKET =
 		DISPLAY.connecting.hidden = true;
 
 		MAX.out(MAX.key.connectionStatus, 1);
+
+		this.createServerDataListener();
+		this.createDisconnectionListener();
 	},
 
 	createServerDataListener()
@@ -44,7 +58,6 @@ const SOCKET =
 		this._socket.on("initialize", serverData =>
 		{
 			this.getServerData(serverData);
-			updateBeatLength();
 			this.createListeners();
 		});
 	},
@@ -62,6 +75,9 @@ const SOCKET =
 
 		setBPM(SERVER_DATA.transport.bpm);
 		setBeatValue(SERVER_DATA.transport.beatValue);
+		setBeatLength(SERVER_DATA.transport.beatLengthMs);
+
+		this.requestCurrentTime();
 	},
 
 	createListeners()
@@ -74,6 +90,11 @@ const SOCKET =
 		this._socket.on(SERVER_DATA.key.beatValue, (value) =>
 		{
 			setBeatValue(value);
+		});
+
+		this._socket.on(SERVER_DATA.key.beatLengthMs, (value) =>
+		{
+			setBeatLength(value);
 		});
 
 		this._socket.on(SERVER_DATA.key.startLatencyMeasurement, (clientId) =>
@@ -91,14 +112,14 @@ const SOCKET =
 			this.displayUserList(clientList);
 		});
 
-		this._socket.on(SERVER_DATA.key.currentUnixTime, (time) =>
+		this._socket.on(SERVER_DATA.key.currentTime, (clientId, serverTime) =>
 		{
-			this.handleCurrentServerUnixTime(time);
-		});
+			if(clientId !== this._id)
+			{
+				return;
+			}
 
-		this._socket.on(SERVER_DATA.key.serverRoundTrip, (clientId) =>
-		{
-			this.finishServerRoundTrip(clientId);
+			this.finishServerRoundTrip(serverTime);
 		});
 	},
 
@@ -142,35 +163,106 @@ const SOCKET =
 		this.emit(SERVER_DATA.key.requestEndLatencyMeasurement, this._id);
 	},
 
-	requestServerRoundTrip()
+	requestCurrentTime()
 	{
 		this._serverRoundTripStart = performance.now();
-		this.emit(SERVER_DATA.key.requestServerRoundTrip, this._id);
+		this.emit(SERVER_DATA.key.requestCurrentTime, this._id);
 	},
 
-	// TODO: what data to store on the server regarding roundtrips?
-	//  Maybe the server should be sending out pings, measuring roundtrips,
-	//  and sending times accordingly? (probably not)
-	finishServerRoundTrip(clientId)
+	finishServerRoundTrip(serverTime)
 	{
-		if(clientId !== this._id)
-		{
-			return;
-		}
-
 		let roundTripTime = performance.now() - this._serverRoundTripStart;
 
-		DISPLAY.serverRoundTrip = roundTripTime.toString();
+		this.predictServerTime(serverTime, roundTripTime);
 	},
 
-	handleCurrentServerUnixTime(time)
+	predictServerTime(latestServerTime, latestRoundTripTime)
 	{
-		DISPLAY.unixTime = time;
+		let predictionError = latestServerTime - this._predictedServerTime;
+		let errorThreshold = this._calibrationComplete
+			? this._realTimeErrorThreshold : this._calibrationErrorThreshold;
 
-		// TODO: figure out the correct flow for this
-		//  client send unix time requests, and handle the difference between
-		//  the current Unix value and their measured roundtrip
-		this.requestServerRoundTrip();
+		if(Math.abs(predictionError) < errorThreshold)
+		{
+			this.handleAcceptablePrediction(latestServerTime, latestRoundTripTime, predictionError);
+		}
+		else
+		{
+			this._calibrationComplete = false;
+
+			this.attemptNewPrediction(latestRoundTripTime, predictionError, latestServerTime);
+		}
+	},
+
+	handleAcceptablePrediction(latestServerTime, latestRoundTripTime, predictionError)
+	{
+		let checkInterval = SERVER_DATA.transport.beatLengthMs / this._checkPredictionIntervalDivision;
+		let timeToNextCheck = checkInterval - latestRoundTripTime + predictionError;
+		
+		this._predictedServerTime = latestServerTime + timeToNextCheck + this._previousPredictedUpTime;
+
+		this._calibrationComplete = true;
+
+		// TODO: Instead of this, do setTimeout where the time out adjusts to the error
+		setTimeout(() =>
+		{
+			this.requestCurrentTime();
+		}, timeToNextCheck);
+
+		this._checkCount++;
+
+		if(this._checkCount % this._checkPredictionIntervalDivision === 0)
+		{
+			this.updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime);
+			this.updateUpDownDisplay(latestRoundTripTime);
+			this._checkCount = 0;
+		}
+	},
+
+	attemptNewPrediction(latestRoundTripTime, predictionError, latestServerTime)
+	{
+		let upTimePrediction = 0;
+
+		if(!this._previousPredictedUpTime)
+		{
+			// start by guessing the upTime is half of the round trip time
+			upTimePrediction = latestRoundTripTime * 0.5;
+		}
+		else
+		{
+			// prediction is too early (actual uptime is longer than predicted)
+			if (predictionError > 0)
+			{
+				upTimePrediction = ++this._previousPredictedUpTime;
+			}
+			// prediction too late (actual uptime is shorter than predicted)
+			else if (predictionError < 0)
+			{
+				upTimePrediction = --this._previousPredictedUpTime;
+			}
+		}
+
+		this._predictedServerTime = latestServerTime + upTimePrediction;
+
+		this._previousPredictedUpTime = upTimePrediction;
+		this._previousServerTime = latestServerTime;
+
+		this.requestCurrentTime();
+		this.updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime);
+	},
+
+	updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime)
+	{
+		DISPLAY.serverTime = Math.round(latestServerTime);
+		DISPLAY.predictedServerTime = Math.round(this._predictedServerTime);
+		DISPLAY.predictionErrorTime = Math.round(predictionError);
+		DISPLAY.roundTripTime = Math.round(latestRoundTripTime);
+	},
+
+	updateUpDownDisplay(roundTrip)
+	{
+		DISPLAY.upTime = Math.round(this._previousPredictedUpTime);
+		DISPLAY.downTime = Math.round(roundTrip - this._previousPredictedUpTime);
 	},
 
 	emit(key, value)
