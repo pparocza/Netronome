@@ -6,6 +6,7 @@ const SOCKET =
 	_socket: null,
 	_id: null,
 	_serverKey: null,
+	_serverKey: null,
 	_serverRoundTripStart: 0,
 
 	_previousServerTime: null,
@@ -113,6 +114,11 @@ const SOCKET =
 			setBeatValue(value);
 		});
 
+		this._socket.on(SERVER_DATA.key.beatLengthMs, (value) =>
+		{
+			setBeatLength(value);
+		});
+
 		this._socket.on(SERVER_DATA.keys.beatLengthMs, (value) =>
 		{
 			setBeatLength(value);
@@ -135,7 +141,7 @@ const SOCKET =
 
 		this._socket.on(SERVER_DATA.keys.currentTime, (clientId, serverTime) =>
 		{
-			if(clientId !== this._id)
+			if (clientId !== this._id)
 			{
 				return;
 			}

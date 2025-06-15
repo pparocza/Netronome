@@ -5,40 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netronome Transport</title>
 
-    <link rel="stylesheet" href="NTM_Transport/style.css">
+    <link rel="stylesheet" href="./NTM_Transport/style.css">
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
-    <script defer src="NTM_Transport/script.js"></script>
+    <script defer src="./NTM_Transport/scripts/Display.js"></script>
+    <script defer src="./NTM_Transport/scripts/ServerData.js"></script>
+    <script defer src="./NTM_Transport/scripts/Socket.js"></script>
+    <script defer src="./NTM_Transport/scripts/Max.js"></script>
+    <script defer src="./NTM_Transport/scripts/UnixTransport.js"></script>
+    <script defer src="./NTM_Transport/script.js"></script>
 
 </head>
 <body>
 
-    <div class="DISPLAY">
-        <div class="CONNECTING_DISPLAY_CONTENT">
-            <p align="center">
+<!-- TODO: Break everything below here out into a separate "display" file be injected so that you don't have
+        to keep copying this to the NTM_Transport_Client.html -->
+
+<div class="DISPLAY">
+    <div class="CONNECTING_DISPLAY_CONTENT">
+        <p align="center">
             ...Connecting to Netronome Transport...
-            </p>
-        </div>
+        </p>
+    </div>
 
-        <div class="CONNECTED_DISPLAY_CONTENT" hidden="hidden">
+    <div class="CONNECTED_DISPLAY_CONTENT" hidden="hidden">
 
-            <div class="TRANSPORT_DISPLAY">
-                <div class="TRANSPORT_DISPLAY_CONTENT">
-                    <span><b>BPM:</b> <span class="BPM_DISPLAY"></span></span>
-                    <br>
-                    <span><b>Beat Value:</b> <span class="BEAT_VALUE_DISPLAY"></span></span>
-                    <br>
-                    <span><b>Beat Length (ms):</b> <span class="BEAT_LENGTH_MS_DISPLAY"></span></span>
-                </div>
+        <div class="TRANSPORT_DISPLAY">
+            <div class="TRANSPORT_DISPLAY_CONTENT">
+                <span><b>BPM:</b> <span class="BPM_DISPLAY"></span></span>
+                <br>
+                <span><b>Beat Value:</b> <span class="BEAT_VALUE_DISPLAY"></span></span>
+                <br>
+                <span><b>Beat Length (ms):</b> <span class="BEAT_LENGTH_MS_DISPLAY"></span></span>
             </div>
-
         </div>
 
     </div>
+</div>
 
-    <div class="LATENCY_MEASUREMENT_STATUS_DISPLAY" style="color:red" hidden>
-        ...Latency Measurement in Progress...
-    </div>
+<div class="LATENCY_MEASUREMENT_STATUS_DISPLAY" style="color:red" hidden>
+    ...Latency Measurement in Progress...
+</div>
+
+<br>
+
+<div class="NAME_DIV" hidden>
+    <b>Name: </b> <span class="NAME_DISPLAY"></span>
+</div>
+
+<br>
+
+<div>
+    <b>Server Time:</b> <span class="SERVER_TIME_DISPLAY"></span><br>
+    <b>Predicted Server Time:</b> <span class="PREDICTED_SERVER_TIME_DISPLAY"></span><br>
+    <b>Error:</b> <span class="PREDICTION_ERROR_DISPLAY"></span><br>
+</div>
+
+<br>
+
+<div>
+    <b>Round Trip:</b> <span class="ROUNDTRIP_TIME_DISPLAY"></span><br>
+    <b>Up:</b> <span class="UPTIME_DISPLAY"></span> ||
+    <b>Down:</b> <span class="DOWNTIME_DISPLAY"></span>
+</div>
+
+<div class="USER_LIST_DIV">
+    <p><b>Users: </b> <span class="USER_LIST_DISPLAY"></span></p>
+</div>
 
 </body>
 </html>

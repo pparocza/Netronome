@@ -27,7 +27,7 @@ let transportData =
     get BeatValue() { return BEAT_VALUE; },
 
     set LatencyMeasurementStatus(value) { LATENCY_MEASUREMENT_STATUS = value; },
-    get LatencyMeasuremenetStatus() { return LATENCY_MEASUREMENT_STATUS; },
+    get LatencyMeasurementStatus() { return LATENCY_MEASUREMENT_STATUS; },
 
     set LatencyMeasurementClientId(value) { LATENCY_MEASUREMENT_CLIENT_ID = value; },
     get LatencyMeasurementClientId() { return LATENCY_MEASUREMENT_CLIENT_ID; }
