@@ -10,6 +10,7 @@ const SOCKET =
 
 	_previousServerTime: null,
 	_predictedServerTime: null,
+	_previousPredictedServerTime: null,
 	_previousPredictedUpTime: null,
 
 	_realTimeErrorThreshold: 10,
@@ -198,12 +199,12 @@ const SOCKET =
 	{
 		let checkInterval = SERVER_DATA.transport.beatLengthMs / this._checkPredictionIntervalDivision;
 		let timeToNextCheck = checkInterval - latestRoundTripTime + predictionError;
-		
+
+		this._previousPredictedServerTime = this._predictedServerTime;
 		this._predictedServerTime = latestServerTime + timeToNextCheck + this._previousPredictedUpTime;
 
 		this._calibrationComplete = true;
 
-		// TODO: Instead of this, do setTimeout where the time out adjusts to the error
 		setTimeout(() =>
 		{
 			this.requestCurrentTime();
@@ -233,6 +234,8 @@ const SOCKET =
 			// prediction is too early (actual uptime is longer than predicted)
 			if (predictionError > 0)
 			{
+				// TODO: update this based on error or half the error instead of millisecond nudge, then get
+				//   smaller once approaching threshold so that you don't just constantly overshoot
 				upTimePrediction = ++this._previousPredictedUpTime;
 			}
 			// prediction too late (actual uptime is shorter than predicted)
@@ -242,6 +245,7 @@ const SOCKET =
 			}
 		}
 
+		this._previousPredictedServerTime = this._predictedServerTime;
 		this._predictedServerTime = latestServerTime + upTimePrediction;
 
 		this._previousPredictedUpTime = upTimePrediction;
@@ -254,7 +258,7 @@ const SOCKET =
 	updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime)
 	{
 		DISPLAY.serverTime = Math.round(latestServerTime);
-		DISPLAY.predictedServerTime = Math.round(this._predictedServerTime);
+		DISPLAY.predictedServerTime = Math.round(this._previousPredictedServerTime);
 		DISPLAY.predictionErrorTime = Math.round(predictionError);
 		DISPLAY.roundTripTime = Math.round(latestRoundTripTime);
 	},
