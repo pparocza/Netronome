@@ -19,8 +19,6 @@ function setBeatLength(beatLengthMs)
 {
     DISPLAY.beatLengthMs = beatLengthMs;
     MAX.out(MAX.key.beatLengthMs, beatLengthMs);
-
-    UNIX_TRANSPORT.sync(beatLengthMs, true);
 }
 
 function updateLatencyMeasurementStatus(status)
