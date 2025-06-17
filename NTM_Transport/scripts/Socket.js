@@ -13,12 +13,13 @@ const SOCKET =
 	_previousPredictedServerTime: null,
 	_previousPredictedUpTime: null,
 
-	_realTimeErrorThreshold: 10,
+	_realTimeErrorThreshold: 15,
 	_calibrationErrorThreshold: 1,
+	_calibrationNudgeThreshold: 25,
 	_calibrationComplete: false,
 
-	_checkPredictionIntervalDivision: 4,
-	_checkCount: 0,
+	_checkPredictionIntervalDivision: 1,
+	_checkCount: this._checkPredictionIntervalDivision,
 
 	// TODO: underscores to all private methods
 	initialize(serverUrl)
@@ -179,7 +180,7 @@ const SOCKET =
 
 	predictServerTime(latestServerTime, latestRoundTripTime)
 	{
-		let predictionError = latestServerTime - this._predictedServerTime;
+		let predictionError = this._predictedServerTime - latestServerTime;
 		let errorThreshold = this._calibrationComplete
 			? this._realTimeErrorThreshold : this._calibrationErrorThreshold;
 
@@ -190,6 +191,7 @@ const SOCKET =
 		else
 		{
 			this._calibrationComplete = false;
+			this._checkCount = this._checkPredictionIntervalDivision;
 
 			this.attemptNewPrediction(latestRoundTripTime, predictionError, latestServerTime);
 		}
@@ -198,10 +200,14 @@ const SOCKET =
 	handleAcceptablePrediction(latestServerTime, latestRoundTripTime, predictionError)
 	{
 		let checkInterval = SERVER_DATA.transport.beatLengthMs / this._checkPredictionIntervalDivision;
-		let timeToNextCheck = checkInterval - latestRoundTripTime + predictionError;
+		// TODO: Should this be an average latest round trip, since it's possible that the next roundtrip
+		//  will be longer?
+		let timeToNextCheck = checkInterval - latestRoundTripTime;
+
+		let upTimePrediction = this._previousPredictedUpTime - predictionError;
 
 		this._previousPredictedServerTime = this._predictedServerTime;
-		this._predictedServerTime = latestServerTime + timeToNextCheck + this._previousPredictedUpTime;
+		this._predictedServerTime = latestServerTime + timeToNextCheck + upTimePrediction;
 
 		this._calibrationComplete = true;
 
@@ -210,14 +216,16 @@ const SOCKET =
 			this.requestCurrentTime();
 		}, timeToNextCheck);
 
-		this._checkCount++;
-
 		if(this._checkCount % this._checkPredictionIntervalDivision === 0)
 		{
 			this.updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime);
-			this.updateUpDownDisplay(latestRoundTripTime);
+			this.updateUpDownDisplay(latestRoundTripTime, upTimePrediction);
 			this._checkCount = 0;
 		}
+
+		this._previousPredictedUpTime = upTimePrediction;
+
+		this._checkCount++;
 	},
 
 	attemptNewPrediction(latestRoundTripTime, predictionError, latestServerTime)
@@ -231,17 +239,14 @@ const SOCKET =
 		}
 		else
 		{
-			// prediction is too early (actual uptime is longer than predicted)
-			if (predictionError > 0)
+			if(Math.abs(predictionError) > this._calibrationNudgeThreshold)
 			{
-				// TODO: update this based on error or half the error instead of millisecond nudge, then get
-				//   smaller once approaching threshold so that you don't just constantly overshoot
-				upTimePrediction = ++this._previousPredictedUpTime;
+				upTimePrediction = this._previousPredictedUpTime - predictionError;
 			}
-			// prediction too late (actual uptime is shorter than predicted)
-			else if (predictionError < 0)
+			else
 			{
-				upTimePrediction = --this._previousPredictedUpTime;
+				upTimePrediction = predictionError < 0 ?
+					++this._previousPredictedUpTime : -- this._previousPredictedUpTime;
 			}
 		}
 
@@ -257,16 +262,20 @@ const SOCKET =
 
 	updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime)
 	{
-		DISPLAY.serverTime = Math.round(latestServerTime);
-		DISPLAY.predictedServerTime = Math.round(this._previousPredictedServerTime);
-		DISPLAY.predictionErrorTime = Math.round(predictionError);
+		let latestServerInt = Math.round(latestServerTime);
+		let previousServerInt = Math.round(this._previousPredictedServerTime);
+		let errorInt = previousServerInt - latestServerInt;
+
+		DISPLAY.serverTime = latestServerInt;
+		DISPLAY.predictedServerTime = previousServerInt;
+		DISPLAY.predictionErrorTime = errorInt;
 		DISPLAY.roundTripTime = Math.round(latestRoundTripTime);
 	},
 
-	updateUpDownDisplay(roundTrip)
+	updateUpDownDisplay(roundTrip, upTimePrediction)
 	{
-		DISPLAY.upTime = Math.round(this._previousPredictedUpTime);
-		DISPLAY.downTime = Math.round(roundTrip - this._previousPredictedUpTime);
+		DISPLAY.upTime = Math.round(upTimePrediction);
+		DISPLAY.downTime = Math.round(roundTrip - upTimePrediction);
 	},
 
 	emit(key, value)
