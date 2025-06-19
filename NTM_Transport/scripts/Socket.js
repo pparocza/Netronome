@@ -260,22 +260,15 @@ const SOCKET =
 		this.updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime);
 	},
 
-	updateTimeDisplays(latestServerTime, predictionError, latestRoundTripTime)
+	updateTimeDisplays(latestServerTime, latestRoundTripTime, previousPredictedServerTime)
 	{
-		let latestServerInt = Math.round(latestServerTime);
-		let previousServerInt = Math.round(this._previousPredictedServerTime);
-		let errorInt = previousServerInt - latestServerInt;
-
-		DISPLAY.serverTime = latestServerInt;
-		DISPLAY.predictedServerTime = previousServerInt;
-		DISPLAY.predictionErrorTime = errorInt;
-		DISPLAY.roundTripTime = Math.round(latestRoundTripTime);
+		DISPLAY.updateTimeDisplays(latestServerTime, previousPredictedServerTime, latestRoundTripTime);
 	},
 
-	updateUpDownDisplay(roundTrip, upTimePrediction)
+	updateUpDownDisplay(previousUpTimePrediction, predictionError)
 	{
-		DISPLAY.upTime = Math.round(upTimePrediction);
-		DISPLAY.downTime = Math.round(roundTrip - upTimePrediction);
+		let measuredUpTime = previousUpTimePrediction - predictionError;
+		DISPLAY.updateUpDownDisplay(measuredUpTime);
 	},
 
 	emit(key, value)

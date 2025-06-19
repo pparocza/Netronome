@@ -54,6 +54,26 @@ const DISPLAY =
 
 	set userList(value) { this.setInnerHtml(this._element.userList, value); },
 
+	updateTimeDisplays(latestServerTime, predictedServerTime, latestRoundTripTime)
+	{
+		let latestServerInt = Math.round(latestServerTime);
+		let previousServerInt = Math.round(predictedServerTime);
+
+		let errorInt = previousServerInt - latestServerInt;
+
+		this.serverTime = latestServerInt;
+		this.predictedServerTime = previousServerInt;
+		this.predictionErrorTime = errorInt;
+
+		this.roundTripTime = Math.round(latestRoundTripTime);
+	},
+
+	updateUpDownDisplay(measuredUpTime)
+	{
+		this.upTime = Math.round(measuredUpTime);
+		this.downTime = Math.round(0);
+	},
+
 	setInnerHtml(element, value)
 	{
 		element.innerHTML = value.toString();
