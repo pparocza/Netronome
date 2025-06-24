@@ -1,19 +1,39 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { TransportServer } from "./TransportServer.js";
-import { TransportClient } from "./TransportClient.js";
 
-const KEYS = TransportServer.key;
-const TRANSPORT = TransportServer.transport;
+const BPM_KEY = "bpm";
+const BEAT_VALUE_KEY = "beatValue";
+const REQUEST_START_LATENCY_MEASUREMENT_KEY = "requestStartLatencyMeasurement";
+const START_LATENCY_MEASUREMENT_KEY = "startLatencyMeasurement";
+const REQUEST_END_LATENCY_MEASUREMENT_KEY = "requestEndLatencyMeasurement";
+const LATENCY_MEASUREMENT_COMPLETE_KEY = "latencyMeasurementComplete";
+
+let BPM = 120;
+let BEAT_VALUE = 4;
+let LATENCY_MEASUREMENT_STATUS = false;
+let LATENCY_MEASUREMENT_CLIENT_ID = null;
+
+let transportData =
+    {
+        set BPM(value) { BPM = value; },
+        get BPM() { return BPM; },
+
+        set BeatValue(value) { BEAT_VALUE = value; },
+        get BeatValue() { return BEAT_VALUE; },
+
+        set LatencyMeasurementStatus(value) { LATENCY_MEASUREMENT_STATUS = value; },
+        get LatencyMeasuremenetStatus() { return LATENCY_MEASUREMENT_STATUS; },
+
+        set LatencyMeasurementClientId(value) { LATENCY_MEASUREMENT_CLIENT_ID = value; },
+        get LatencyMeasurementClientId() { return LATENCY_MEASUREMENT_CLIENT_ID; }
+    }
+
 
 const httpServer = createServer((req, res) =>
 {
-    TransportServer.clients = null;
     res.writeHead(200, {"Content-Type": "text/plain"});
     res.write("Netronome Transport Server Active!");
-
-    // TODO: Add listeners to the response so that you can update the server display?
-
+    console.log("Server Starting!");
     res.end();
 });
 
@@ -25,81 +45,47 @@ const io = new Server(httpServer,
 
 io.on("connection", (socket) =>
 {
-    // TODO: figure out disconnection
+    socket.emit("initialize", transportData);
 
-    let client = new TransportClient();
-    TransportServer.addClient(client);
-
-    // TODO: make use of the existing socket.id
-    let serverData =
-        {
-            server: TransportServer,
-            clientId: client.id
-        };
-
-    socket.emit("initialize", serverData);
-    socket.emit("update")
-
-    socket.on(KEYS.bpm, (value) =>
+    socket.on(BPM_KEY, (value) =>
     {
-        socket.broadcast.emit(KEYS.bpm, value);
-        TRANSPORT.bpm = value;
+        socket.broadcast.emit(BPM_KEY, value);
+        transportData.BPM = value;
     });
 
-    socket.on(TRANSPORT.beatValue, (value) =>
+    socket.on(BEAT_VALUE_KEY, (value) =>
     {
-        socket.broadcast.emit(TRANSPORT.beatValue, value);
-        TRANSPORT.beatValue = value;
+        socket.broadcast.emit(BEAT_VALUE_KEY, value);
+        transportData.BeatValue = value;
     });
 
-    socket.on(KEYS.requestStartLatencyMeasurement, (clientId) =>
+    socket.on(REQUEST_START_LATENCY_MEASUREMENT_KEY, (clientId) =>
     {
         // Don't allow requests if one is in progress
-        if(TRANSPORT.latencyMeasurementStatus)
+        if(transportData.LatencyMeasurementStatus)
         {
             return;
         }
 
-        TRANSPORT.latencyMeasurementStatus = true;
-        TRANSPORT.latencyMeasurementClientId = clientId;
+        transportData.LatencyMeasurementStatus = true;
+        transportData.LatencyMeasurementClientId = clientId;
 
         // TODO: sort out the difference between .emit and broadcast.emit
-        socket.broadcast.emit(KEYS.startLatencyMeasurement, clientId);
-        socket.emit(KEYS.startLatencyMeasurement, clientId);
+        socket.broadcast.emit(START_LATENCY_MEASUREMENT_KEY, clientId);
+        socket.emit(START_LATENCY_MEASUREMENT_KEY, clientId);
     });
 
-    socket.on(KEYS.requestEndLatencyMeasurement, (clientId) =>
+    socket.on(REQUEST_END_LATENCY_MEASUREMENT_KEY, (clientId) =>
     {
-        if(clientId === TRANSPORT.latencyMeasurementClientId)
+        if(clientId === transportData.LatencyMeasurementClientId)
         {
-            TRANSPORT.latencyMeasurementStatus = false;
-            TRANSPORT.latencyMeasurementClientId = null;
+            transportData.LatencyMeasurementStatus = false;
+            transportData.LatencyMeasurementClientId = null;
 
-            socket.emit(KEYS.latencyMeasurementComplete);
-            socket.broadcast.emit(KEYS.latencyMeasurementComplete);
+            socket.emit(LATENCY_MEASUREMENT_COMPLETE_KEY);
+            socket.broadcast.emit(LATENCY_MEASUREMENT_COMPLETE_KEY);
         }
     });
-
-    socket.on(KEYS.removeClient, (transportClientId) =>
-    {
-        TransportServer.removeClient(transportClientId);
-        socket.emit(KEYS.updateClientLists, TransportServer.clients);
-    });
-
-    socket.on(KEYS.requestServerRoundTrip, (clientId) =>
-    {
-        socket.emit(KEYS.serverRoundTrip, clientId);
-    });
-
-    socket.broadcast.emit(KEYS.updateClientList, TransportServer.clients);
-
-    // TODO: How to have this send the same value to every client?
-    //  currently starts a separate interval for each one
-    setInterval(() =>
-    {
-        socket.emit(KEYS.currentUnixTime, Date.now());
-    }, 1000);
-
 });
 
 
