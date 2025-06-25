@@ -1,5 +1,5 @@
 MAX.configureMaxInlets();
-SOCKET.initialize(SERVER_DATA.url.main);
+SOCKET.initialize(SERVER_DATA.url.dev);
 
 // BPM
 function setBPM(bpm)
@@ -17,6 +17,7 @@ function setBeatValue(beatValue)
 // BEAT LENGTH
 function setBeatLength(beatLengthMs)
 {
+    SOCKET.beatLengthMs = beatLengthMs;
     DISPLAY.beatLengthMs = beatLengthMs;
     MAX.out(MAX.key.beatLengthMs, beatLengthMs);
 }
