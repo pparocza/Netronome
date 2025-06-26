@@ -4,30 +4,30 @@
 const DISPLAY =
 {
 	_element:
-		{
-			connecting: document.querySelector(".CONNECTING_DISPLAY_CONTENT"),
-			connected: document.querySelector(".CONNECTED_DISPLAY_CONTENT"),
+	{
+		connecting: document.querySelector(".CONNECTING_DISPLAY_CONTENT"),
+		connected: document.querySelector(".CONNECTED_DISPLAY_CONTENT"),
 
-			name: document.querySelector(".NAME_DISPLAY"),
-			nameDiv: document.querySelector(".NAME_DIV"),
+		name: document.querySelector(".NAME_DISPLAY"),
+		nameDiv: document.querySelector(".NAME_DIV"),
 
-			userList: document.querySelector(".USER_LIST_DISPLAY"),
-			userListDiv: document.querySelector(".USER_LIST_DIV"),
+		userList: document.querySelector(".USER_LIST_DISPLAY"),
+		userListDiv: document.querySelector(".USER_LIST_DIV"),
 
-			bpm: document.querySelector(".BPM_DISPLAY"),
-			beatValue: document.querySelector(".BEAT_VALUE_DISPLAY"),
-			beatLengthMs: document.querySelector(".BEAT_LENGTH_MS_DISPLAY"),
+		bpm: document.querySelector(".BPM_DISPLAY"),
+		beatValue: document.querySelector(".BEAT_VALUE_DISPLAY"),
+		beatLengthMs: document.querySelector(".BEAT_LENGTH_MS_DISPLAY"),
 
-			serverTime: document.querySelector(".SERVER_TIME_DISPLAY"),
-			predictedServerTime: document.querySelector(".PREDICTED_SERVER_TIME_DISPLAY"),
-			predictionErrorTime: document.querySelector(".PREDICTION_ERROR_DISPLAY"),
+		serverTime: document.querySelector(".SERVER_TIME_DISPLAY"),
+		predictedServerTime: document.querySelector(".PREDICTED_SERVER_TIME_DISPLAY"),
+		predictionErrorTime: document.querySelector(".PREDICTION_ERROR_DISPLAY"),
 
-			roundTripTime: document.querySelector(".ROUNDTRIP_TIME_DISPLAY"),
-			upTime: document.querySelector(".UPTIME_DISPLAY"),
-			downTime: document.querySelector(".DOWNTIME_DISPLAY"),
+		roundTripTime: document.querySelector(".ROUNDTRIP_TIME_DISPLAY"),
+		upTime: document.querySelector(".UPTIME_DISPLAY"),
+		downTime: document.querySelector(".DOWNTIME_DISPLAY"),
 
-			latencyMeasurementStatus: document.querySelector(".LATENCY_MEASUREMENT_STATUS_DISPLAY"),
-		},
+		latencyMeasurementStatus: document.querySelector(".LATENCY_MEASUREMENT_STATUS_DISPLAY"),
+	},
 
 	get connecting() { return this._element.connecting; },
 	set connecting(value) { this.setInnerHtml(this._element.connecting, value); },

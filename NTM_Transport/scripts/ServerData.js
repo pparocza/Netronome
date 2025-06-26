@@ -5,8 +5,8 @@ const SERVER_DATA =
 {
 	url:
 	{
-		main: "wss://dust-curved-bearskin.glitch.me",
-		dev: "wss://navy-chiseled-bacon.glitch.me"
+		main: "wss://netronome.onrender.com",
+		dev: "wss://netronome.onrender.com"
 	},
 
 	transportServer: null,
