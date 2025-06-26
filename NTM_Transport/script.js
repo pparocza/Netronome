@@ -1,4 +1,4 @@
-const SERVER_URL = "wss://dust-curved-bearskin.glitch.me";
+const SERVER_URL = "wss://netronome.onrender.com";
 const CONNECTION_STATUS_KEY = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
 const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
@@ -251,17 +251,17 @@ function configureMaxInlets()
 function requestStartJackTripLatencyMeasurement()
 {
     socket.emit(REQUEST_START_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
-};
+}
 
 function startLatencyMeasurement()
 {
     toMax(START_LATENCY_MEASUREMENT_KEY, 1);
-};
+}
 
 function requestEndJackTripLatencyMeasurement()
 {
     socket.emit(REQUEST_END_LATENCY_MEASUREMENT_KEY, CLIENT_ID);
-};
+}
 
 function updateLatencyMeasurementStatus(status)
 {
@@ -271,6 +271,6 @@ function updateLatencyMeasurementStatus(status)
     let statusInt = status ? 1 : 0;
 
     toMax(LATENCY_MEASUREMENT_STATUS_KEY, statusInt);
-};
+}
 
 configureMaxInlets();

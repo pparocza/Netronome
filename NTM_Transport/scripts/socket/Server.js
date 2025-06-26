@@ -14,19 +14,19 @@ let LATENCY_MEASUREMENT_STATUS = false;
 let LATENCY_MEASUREMENT_CLIENT_ID = null;
 
 let transportData =
-    {
-        set BPM(value) { BPM = value; },
-        get BPM() { return BPM; },
+{
+    set BPM(value) { BPM = value; },
+    get BPM() { return BPM; },
 
-        set BeatValue(value) { BEAT_VALUE = value; },
-        get BeatValue() { return BEAT_VALUE; },
+    set BeatValue(value) { BEAT_VALUE = value; },
+    get BeatValue() { return BEAT_VALUE; },
 
-        set LatencyMeasurementStatus(value) { LATENCY_MEASUREMENT_STATUS = value; },
-        get LatencyMeasuremenetStatus() { return LATENCY_MEASUREMENT_STATUS; },
+    set LatencyMeasurementStatus(value) { LATENCY_MEASUREMENT_STATUS = value; },
+    get LatencyMeasuremenetStatus() { return LATENCY_MEASUREMENT_STATUS; },
 
-        set LatencyMeasurementClientId(value) { LATENCY_MEASUREMENT_CLIENT_ID = value; },
-        get LatencyMeasurementClientId() { return LATENCY_MEASUREMENT_CLIENT_ID; }
-    }
+    set LatencyMeasurementClientId(value) { LATENCY_MEASUREMENT_CLIENT_ID = value; },
+    get LatencyMeasurementClientId() { return LATENCY_MEASUREMENT_CLIENT_ID; }
+}
 
 
 const httpServer = createServer((req, res) =>
@@ -38,9 +38,9 @@ const httpServer = createServer((req, res) =>
 });
 
 const io = new Server(httpServer,
-    {
-        cors: { origin: "*" }
-    });
+{
+    cors: { origin: "*" }
+});
 
 
 io.on("connection", (socket) =>
