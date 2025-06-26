@@ -13,6 +13,8 @@ export const TransportServer =
 			set beatValue(value) { BEAT_VALUE = value; },
 			get beatValue() { return BEAT_VALUE; },
 
+			get beatLengthMs() { return 240000 / (BPM * BEAT_VALUE); },
+
 			set latencyMeasurementStatus(value) { LATENCY_MEASUREMENT_STATUS = value; },
 			get latencyMeasurementStatus() { return LATENCY_MEASUREMENT_STATUS; },
 
@@ -24,10 +26,10 @@ export const TransportServer =
 		{
 			bpm: "bpm",
 			beatValue: "beatValue",
+			beatLengthMs: "beatLengthMs",
 
-			currentUnixTime: "currentUnixTime",
-			requestServerRoundTrip: "requestServerRoundTrip",
-			serverRoundTrip: "serverRoundTrip",
+			requestCurrentTime: "requestCurrentTime",
+			currentTime: "curentTime",
 
 			requestStartLatencyMeasurement: "requestStartLatencyMeasurement",
 			startLatencyMeasurement: "startLatencyMeasurement",

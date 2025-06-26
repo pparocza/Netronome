@@ -6,26 +6,28 @@ const MAX =
 	_socket: null,
 
 	key:
+	{
+		beatLengthMs: "ntmTransportBeatLength",
+		connectionStatus: "connection_status",
+
+		// initialized from Transport Server
+		bpm: null,
+		beatValue: null,
+		startLatencyMeasurement: null,
+
+		latestServerTime: "latest_server_time",
+		predictedServerTime: "predicted_server_time",
+		predictionError: "prediction_error",
+
+		inlet:
 		{
-			beatLengthMs: "ntmTransportBeatLength",
-			connectionStatus: "connection_status",
-			currentUnixTime: "currentUnixTime",
-			timeToNextUnixBeat: "timeToNextUnixBeat",
-
-			// initialized from Transport Server
-			bpm: null,
-			beatValue: null,
-			startLatencyMeasurement: null,
-
-			inlet:
-			{
-				setBpm: "set_bpm",
-				setSignatureDenominator: "set_signature_denominator",
-				getUnixTime: "get_unix_time",
-				requestStartJackTripLatencyMeasurement: "request_start_jacktrip_latency_measurement",
-				requestEndJackTripLatencyMeasurement: "request_end_jacktrip_latency_measurement"
-			}
-		},
+			setBpm: "set_bpm",
+			setSignatureDenominator: "set_signature_denominator",
+			getUnixTime: "get_unix_time",
+			requestStartJackTripLatencyMeasurement: "request_start_jacktrip_latency_measurement",
+			requestEndJackTripLatencyMeasurement: "request_end_jacktrip_latency_measurement"
+		}
+	},
 
 	getServerKeys(transportServer)
 	{
@@ -60,13 +62,24 @@ const MAX =
 	bpmInput(bpm)
 	{
 		setBPM(bpm);
-		SOCKET.emit(SERVER_DATA.key.bpm, bpm);
+		SOCKET.emit(SERVER_DATA.keys.bpm, bpm);
 	},
 
 	beatValueInput(beatValue)
 	{
 		setBeatValue(beatValue);
-		SOCKET.emit(SERVER_DATA.key.beatValue, beatValue);
+		SOCKET.emit(SERVER_DATA.keys.beatValue, beatValue);
+	},
+
+	handleBeat(latestServerTime, predictedServerTime, predictionError)
+	{
+		let latestServerTimeString = latestServerTime.toString();
+		let predictedServerTimeString = predictedServerTime.toString();
+		let predictionErrorString = predictionError.toString();
+
+		this.out(this.key.latestServerTime, latestServerTimeString);
+		this.out(this.key.predictedServerTime, predictedServerTimeString);
+		this.out(this.key.predictionError, predictionErrorString);
 	},
 
 	configureMaxInlets()
@@ -84,11 +97,6 @@ const MAX =
 		window.max.bindInlet(this.key.inlet.setSignatureDenominator, (signatureDenominator) =>
 		{
 			this.beatValueInput(signatureDenominator);
-		});
-
-		window.max.bindInlet(this.key.inlet.getUnixTime, () =>
-		{
-			this.out(this.key.currentUnixTime, Date.now().toString());
 		});
 
 		window.max.bindInlet(this.key.inlet.requestStartJackTripLatencyMeasurement, () =>
