@@ -3,7 +3,7 @@ let BEAT_VALUE = 4;
 let LATENCY_MEASUREMENT_STATUS = false;
 let LATENCY_MEASUREMENT_CLIENT_ID = null;
 
-export const TransportServer =
+export const TransportServerData =
 {
 	transport:
 		{
