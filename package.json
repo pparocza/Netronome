@@ -13,6 +13,6 @@
   },
   "type": "module",
   "dependencies": {
-    "socket.io": "^8.11.0"
+    "socket.io": "^4.8.1"
   }
 }
