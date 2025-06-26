@@ -1,11 +1,11 @@
-import { TransportServer } from "./TransportServer.js";
+import { TransportServerData } from "./TransportServerData.js";
 
-export class TransportClient
+export class TransportClientData
 {
 	constructor()
 	{
 		this._id = Math.round(Math.random() * 1000000);
-		this._name = "Transport Client #" + TransportServer.nClients.toString();
+		this._name = "Transport Client #" + TransportServerData.nClients.toString();
 	}
 
 	get id() { return this._id; }

@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "web-server.js",
+  "main": "NTM_Transport/scripts/socket/Server.js",
   "engines": {
     "node": ">=16.x",
     "npm": ">=7.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node web-server.js"
+    "start": "node NTM_Transport/scripts/socket/Server.js"
   },
   "type": "module",
   "dependencies": {
