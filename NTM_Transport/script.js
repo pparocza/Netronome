@@ -1,4 +1,4 @@
-const SERVER_URL = "wss://netronome.onrender.com";
+const SERVER_URL = "wss://netronome-1.onrender.com";
 const CONNECTION_STATUS_KEY = "connection_status";
 const CONNECTING_DISPLAY = document.querySelector(".CONNECTING_DISPLAY_CONTENT");
 const CONNECTED_DISPLAY = document.querySelector(".CONNECTED_DISPLAY_CONTENT");
