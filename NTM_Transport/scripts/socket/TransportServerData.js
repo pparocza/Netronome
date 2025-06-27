@@ -29,7 +29,7 @@ export const TransportServerData =
 		beatLengthMs: "beatLengthMs",
 
 		requestCurrentTime: "requestCurrentTime",
-		currentTime: "curentTime",
+		currentTime: "currentTime",
 
 		requestStartLatencyMeasurement: "requestStartLatencyMeasurement",
 		startLatencyMeasurement: "startLatencyMeasurement",
