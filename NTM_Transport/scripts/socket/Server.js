@@ -1,5 +1,10 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+const cron = require('node-cron');
+
+cron.schedule('*/10 * * * *', () =>{
+    console.log('Keeping server awake');
+});
 
 const BPM_KEY = "bpm";
 const BEAT_VALUE_KEY = "beatValue";
