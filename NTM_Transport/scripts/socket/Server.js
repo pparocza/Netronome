@@ -1,5 +1,9 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const cron = require('node-cron');
 
 cron.schedule('*/10 * * * *', () =>{
