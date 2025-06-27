@@ -1,13 +1,9 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import cron from 'node-cron';
 
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-const cron = require('node-cron');
-
-cron.schedule('*/10 * * * *', () =>{
-    console.log('Keeping server awake');
+cron.schedule('*/10 * * * *', () => {
+    console.log('Keep Render Server Awake');
 });
 
 const BPM_KEY = "bpm";
