@@ -6,6 +6,15 @@ cron.schedule('*/10 * * * *', () =>{
     console.log('Keeping server awake');
 });
 
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+const cron = require('node-cron');
+
+cron.schedule('*/10 * * * *', () =>{
+    console.log('Keeping server awake');
+});
+
 const BPM_KEY = "bpm";
 const BEAT_VALUE_KEY = "beatValue";
 const REQUEST_START_LATENCY_MEASUREMENT_KEY = "requestStartLatencyMeasurement";
