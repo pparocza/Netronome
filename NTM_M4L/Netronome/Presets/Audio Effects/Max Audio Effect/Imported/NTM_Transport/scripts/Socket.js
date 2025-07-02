@@ -235,7 +235,7 @@ const SOCKET =
 		TIME_TO_NEXT_CHECK = timeToNextCheck;
 
 		// TODO: This is a bit better, but you're still getting ups that are greater than round trips
-		requestAnimationFrame(COUNTDOWN_TO_NEXT_TIME_REQUEST);
+		// requestAnimationFrame(COUNTDOWN_TO_NEXT_TIME_REQUEST);
 
 		// new upTimePrediction compensates for the previous prediction error only if greater than a threshold
 		let predictionAdjustment = Math.abs(predictionError) > this._errorAdjustmentThreshold ?
@@ -294,7 +294,7 @@ const SOCKET =
 		this._previousUpTimePrediction = upTimePrediction;
 		this._previousServerTime = latestServerTime;
 
-		this.requestCurrentTime();
+		// this.requestCurrentTime();
 
 		this.updateTimeDisplays(latestServerTime, latestRoundTripTime, this._previousServerTimePrediction);
 	},
