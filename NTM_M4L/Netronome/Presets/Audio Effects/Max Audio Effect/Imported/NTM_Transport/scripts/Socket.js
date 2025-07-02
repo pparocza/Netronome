@@ -78,7 +78,6 @@ const SOCKET =
 	{
 		this._socket.on("initialize", serverData =>
 		{
-			console.log(serverData);
 			this.getServerData(serverData);
 			this.createListeners();
 		});
@@ -141,7 +140,7 @@ const SOCKET =
 				return;
 			}
 
-			this.finishServerRoundTrip(serverTime);
+			this.handleReceivedServerTime(serverTime);
 		});
 	},
 
@@ -191,7 +190,7 @@ const SOCKET =
 		this.emit(SERVER_DATA.keys.requestCurrentTime, this._id);
 	},
 
-	finishServerRoundTrip(latestServerTime)
+	handleReceivedServerTime(latestServerTime)
 	{
 		// latestServerTime = most recent time received from the server
 		// latestRoundTripTime = time since last .requestCurrentTime()
