@@ -78,6 +78,7 @@ const SOCKET =
 	{
 		this._socket.on("initialize", serverData =>
 		{
+			console.log(serverData);
 			this.getServerData(serverData);
 			this.createListeners();
 		});

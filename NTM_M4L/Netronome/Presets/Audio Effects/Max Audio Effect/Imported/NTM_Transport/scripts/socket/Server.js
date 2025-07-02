@@ -6,16 +6,18 @@ import { TransportClientData } from "./TransportClientData.js";
 const KEYS = TransportServerData.key;
 const TRANSPORT = TransportServerData.transport;
 
-const httpServer = createServer((req, res) =>
-{
-    TransportServerData.clients = null;
-    res.writeHead(200, {"Content-Type": "text/plain"});
-    res.write("Netronome Transport Server Active!");
+const httpServer = createServer
+((req, res) =>
+    {
+        TransportServerData.clients = null;
+        res.writeHead(200, {"Content-Type": "text/plain"});
+        res.write("Netronome Transport Server Active!");
 
-    // TODO: Add listeners to the response so that you can update the server display?
+        // TODO: Add listeners to the response so that you can update the server display?
 
-    res.end();
-});
+        res.end();
+    }
+);
 
 const io = new Server(httpServer,
     {
