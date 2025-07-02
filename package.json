@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "NTM_Transport/scripts/socket/Server.js",
+  "main": "NTM_M4L/Netronome/Presets/Audio Effects/Max Audio Effect/Imported/NTM_Transport/scripts/socket/Server.js",
   "engines": {
     "node": ">=16.x",
     "npm": ">=7.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node NTM_Transport/scripts/socket/Server.js"
+    "start": "node NTM_M4L/Netronome/Presets/Audio Effects/Max Audio Effect/Imported/NTM_Transport/scripts/socket/Server.js"
   },
   "type": "module",
   "dependencies": {
