@@ -61,7 +61,7 @@ io.on("connection", (socket) =>
         handleRemoveClient(socket, transportClientId);
     });
 
-    socket.broadcast.emit(KEYS.updateClientList, TransportServerData._clients);
+    socket.broadcast.emit(KEYS.updateClientList, TransportServerData.clients);
 });
 
 function handleBPM(socket, value)
@@ -107,7 +107,7 @@ function handleEndLatencyMeasurementRequest(socket, clientId)
 function handleRemoveClient(socket, transportClientId)
 {
     TransportServerData.removeClient(transportClientId);
-    socket.emit(KEYS.currentTime, TransportServerData._clients);
+    socket.emit(KEYS.currentTime, TransportServerData.clients);
 }
 
 // Launch server
