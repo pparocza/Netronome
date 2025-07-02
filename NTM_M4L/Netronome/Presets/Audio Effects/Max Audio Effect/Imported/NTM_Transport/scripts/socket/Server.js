@@ -85,7 +85,7 @@ function handleBeatValue(socket, value)
 }
 
 function handleCurrentTimeRequest(socket, clientId)
-{d
+{
     socket.emit(KEYS.currentTime, clientId, performance.now());
 }
 
