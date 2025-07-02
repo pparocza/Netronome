@@ -3,6 +3,12 @@ import { Server } from "socket.io";
 import { TransportServerData } from "./TransportServerData.js";
 import { TransportClientData } from "./TransportClientData.js";
 
+import cron from 'node-cron';
+
+cron.schedule('*/10 * * * *', () => {
+    console.log('Keep Render Server Awake');
+});
+
 const KEYS = TransportServerData.key;
 const TRANSPORT = TransportServerData.transport;
 
