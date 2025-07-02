@@ -49,7 +49,10 @@ io.on("connection", (socket) =>
 
     socket.on(KEYS.bpm, (value) => { handleBPM(socket, value); });
     socket.on(KEYS.beatValue, (value) => { handleBeatValue(socket, value); });
-    socket.on(KEYS.requestCurrentTime, (clientId) => { socket.emit(KEYS.currentTime, clientId); });
+    socket.on(KEYS.requestCurrentTime, (clientId) =>
+    {
+        handleCurrentTimeRequest(socket, clientId);
+    });
 
     socket.on(KEYS.requestStartLatencyMeasurement, (clientId) =>
     {
@@ -79,6 +82,11 @@ function handleBeatValue(socket, value)
 {
     socket.broadcast.emit(TRANSPORT.beatValue, value);
     TRANSPORT.beatValue = value;
+}
+
+function handleCurrentTimeRequest(socket, clientId)
+{d
+    socket.emit(KEYS.currentTime, clientId, performance.now());
 }
 
 function handleLatencyMeasurementRequest(socket, clientId)

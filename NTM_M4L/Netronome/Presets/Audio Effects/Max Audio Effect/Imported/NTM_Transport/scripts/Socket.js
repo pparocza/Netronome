@@ -140,6 +140,8 @@ const SOCKET =
 				return;
 			}
 
+			console.log(clientId, serverTime);
+
 			this.handleReceivedServerTime(serverTime);
 		});
 	},
