@@ -36,6 +36,7 @@ io.on("connection", (socket) =>
     // TODO: figure out disconnection
 
     let client = new TransportClientData();
+    console.log(client);
     TransportServerData.addClient(client);
 
     // TODO: make use of the existing socket.id

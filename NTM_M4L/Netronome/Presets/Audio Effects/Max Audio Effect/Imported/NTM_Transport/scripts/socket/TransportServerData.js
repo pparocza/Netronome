@@ -45,6 +45,7 @@ export const TransportServerData =
 
 	addClient(transportClient)
 	{
+		console.log(this._clients, transportClient);
 		this._clients[transportClient.id.toString()] = transportClient;
 	},
 
