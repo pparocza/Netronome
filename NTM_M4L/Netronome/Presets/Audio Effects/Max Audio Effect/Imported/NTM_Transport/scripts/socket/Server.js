@@ -15,7 +15,6 @@ const TRANSPORT = TransportServerData.transport;
 const httpServer = createServer
 ((req, res) =>
     {
-        TransportServerData._clients = null;
         res.writeHead(200, {"Content-Type": "text/plain"});
         res.write("Netronome Transport Server Active!");
 
@@ -36,7 +35,6 @@ io.on("connection", (socket) =>
     // TODO: figure out disconnection
 
     let client = new TransportClientData();
-    console.log(client);
     TransportServerData.addClient(client);
 
     // TODO: make use of the existing socket.id

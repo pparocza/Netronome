@@ -40,12 +40,11 @@ export const TransportServerData =
 		removeClient: "removeClient"
 	},
 
-	_clients:{},
+	_clients: {},
 	get clients() { return this._clients; },
 
 	addClient(transportClient)
 	{
-		console.log(this._clients, transportClient);
 		this._clients[transportClient.id.toString()] = transportClient;
 	},
 
@@ -54,5 +53,5 @@ export const TransportServerData =
 		delete this._clients[transportClientId];
 	},
 
-	nClients() { return Object.keys(this._clients).length; }
+	nClients() { return Object.keys(this.clients).length; }
 }
