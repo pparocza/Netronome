@@ -49,10 +49,7 @@ io.on("connection", (socket) =>
 
     socket.on(KEYS.bpm, (value) => { handleBPM(socket, value); });
     socket.on(KEYS.beatValue, (value) => { handleBeatValue(socket, value); });
-    socket.on(KEYS.requestCurrentTime, (clientId) =>
-    {
-        handleCurrentTimeRequest(socket, clientId);
-    });
+    socket.on(KEYS.requestCurrentTime, (clientId) => { handleCurrentTimeRequest(socket, clientId); });
 
     socket.on(KEYS.requestStartLatencyMeasurement, (clientId) =>
     {

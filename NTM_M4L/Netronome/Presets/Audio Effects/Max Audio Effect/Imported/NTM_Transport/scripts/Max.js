@@ -16,6 +16,7 @@ const MAX =
 		startLatencyMeasurement: null,
 
 		latestServerTime: "latest_server_time",
+		latestRoundTripTime: "latest_round_trip_time",
 		predictedServerTime: "predicted_server_time",
 		predictionError: "prediction_error",
 
@@ -23,7 +24,7 @@ const MAX =
 		{
 			setBpm: "set_bpm",
 			setSignatureDenominator: "set_signature_denominator",
-			getUnixTime: "get_unix_time",
+			requestCurrentServerTime: "request_current_server_time",
 			requestStartJackTripLatencyMeasurement: "request_start_jacktrip_latency_measurement",
 			requestEndJackTripLatencyMeasurement: "request_end_jacktrip_latency_measurement"
 		}
@@ -62,13 +63,13 @@ const MAX =
 	bpmInput(bpm)
 	{
 		setBPM(bpm);
-		SOCKET.emit(SERVER_DATA.keys.bpm, bpm);
+		SOCKET.setServerBpm(bpm);
 	},
 
 	beatValueInput(beatValue)
 	{
 		setBeatValue(beatValue);
-		SOCKET.emit(SERVER_DATA.keys.beatValue, beatValue);
+		SOCKET.setServerBeatValue(beatValue);
 	},
 
 	handleBeat(latestServerTime, predictedServerTime, predictionError)
@@ -80,6 +81,18 @@ const MAX =
 		this.out(this.key.latestServerTime, latestServerTimeString);
 		this.out(this.key.predictedServerTime, predictedServerTimeString);
 		this.out(this.key.predictionError, predictionErrorString);
+	},
+
+	handleReceivedServerTime(latestServerTime)
+	{
+		let latestServerTimeString = latestServerTime.toString();
+
+		this.out(this.key.latestServerTime, latestServerTimeString);
+	},
+
+	requestCurrentServerTime()
+	{
+		SOCKET.requestCurrentServerTime();
 	},
 
 	configureMaxInlets()
@@ -97,6 +110,11 @@ const MAX =
 		window.max.bindInlet(this.key.inlet.setSignatureDenominator, (signatureDenominator) =>
 		{
 			this.beatValueInput(signatureDenominator);
+		});
+
+		window.max.bindInlet(this.key.inlet.requestCurrentServerTime, () =>
+		{
+			this.requestCurrentServerTime();
 		});
 
 		window.max.bindInlet(this.key.inlet.requestStartJackTripLatencyMeasurement, () =>

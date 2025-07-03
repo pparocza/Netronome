@@ -10,9 +10,10 @@ const SOCKET =
 
 	_previousServerTime: null,
 	// What time it will be on the server when a time request reaches the server
-	_serverTimePrediction: null,
+	_serverTimePrediction: 0,
 	_previousServerTimePrediction: null,
 	_previousUpTimePrediction: null,
+	_isFirstPrediction: true,
 
 	// TODO: Target time is a factor of the beat length (you can be running predictions in the background,
 	// 	and then have the target time be it's own layer, so that it can be independent of error checking,
@@ -98,7 +99,7 @@ const SOCKET =
 		setBeatValue(SERVER_DATA.transportData.beatValue);
 		setBeatLength(SERVER_DATA.transportData.beatLengthMs);
 
-		this.requestCurrentTime();
+		this.requestCurrentServerTime();
 	},
 
 	createListeners()
@@ -140,10 +141,18 @@ const SOCKET =
 				return;
 			}
 
-			console.log(clientId, serverTime);
-
 			this.handleReceivedServerTime(serverTime);
 		});
+	},
+
+	setServerBpm(bpm)
+	{
+		this.emit(SERVER_DATA.keys.bpm, bpm);
+	},
+
+	setServerBeatValue(beatValue)
+	{
+		this.emit(SERVER_DATA.keys.beatValue, beatValue);
 	},
 
 	startLatencyMeasurement(clientId)
@@ -186,7 +195,7 @@ const SOCKET =
 		this.emit(SERVER_DATA.keys.requestEndLatencyMeasurement, this._id);
 	},
 
-	requestCurrentTime()
+	requestCurrentServerTime()
 	{
 		this._serverRoundTripStart = performance.now();
 		this.emit(SERVER_DATA.keys.requestCurrentTime, this._id);
@@ -194,15 +203,16 @@ const SOCKET =
 
 	handleReceivedServerTime(latestServerTime)
 	{
-		// latestServerTime = most recent time received from the server
-		// latestRoundTripTime = time since last .requestCurrentTime()
-		this.predictServerTime
-		(
-			latestServerTime,
-			performance.now() - this._serverRoundTripStart
-		);
+		let latestRoundTripTime = performance.now() - this._serverRoundTripStart;
+		// this.predictServerTime(latestServerTime, latestRoundTripTime);
+
+		MAX.handleReceivedServerTime(latestServerTime);
 	},
 
+	/**
+	 * Predict the time that the next request will reach the server
+	 * @param latestServerTime most recent time received from the server
+	 */
 	predictServerTime(latestServerTime, latestRoundTripTime)
 	{
 		// error of the *previous* upTime prediction
@@ -233,11 +243,6 @@ const SOCKET =
 		// TODO: Should this be an average latest round trip, since it's possible that the next roundtrip
 		//  will be longer?
 		let timeToNextCheck = checkInterval - latestRoundTripTime;
-		TIME_AT_LAST_ACCEPTABLE_COMPLETION = null;
-		TIME_TO_NEXT_CHECK = timeToNextCheck;
-
-		// TODO: This is a bit better, but you're still getting ups that are greater than round trips
-		// requestAnimationFrame(COUNTDOWN_TO_NEXT_TIME_REQUEST);
 
 		// new upTimePrediction compensates for the previous prediction error only if greater than a threshold
 		let predictionAdjustment = Math.abs(predictionError) > this._errorAdjustmentThreshold ?
@@ -270,10 +275,12 @@ const SOCKET =
 	{
 		let upTimePrediction = 0;
 
-		if(!this._previousUpTimePrediction)
+		if(this._isFirstPrediction)
 		{
 			// start by guessing the upTime is the round trip time
 			upTimePrediction = latestRoundTripTime;
+			predictionError = 0;
+			this._isFirstPrediction = false;
 		}
 		else
 		{
@@ -284,14 +291,16 @@ const SOCKET =
 			else
 			{
 				upTimePrediction = predictionError < 0 ?
-					++this._previousUpTimePrediction : -- this._previousUpTimePrediction;
+					++this._previousUpTimePrediction : --this._previousUpTimePrediction;
 			}
 		}
+
+		let previousDownTime = latestRoundTripTime - (this._previousUpTimePrediction - predictionError);
 
 		this._previousServerTimePrediction = this._serverTimePrediction;
 		// TODO: This is not quite right considering that at this point the latest server time is now in the past?
 		//  this should actually be the latestServerTime + previousDownTimePrediction + upTimePrediction
-		this._serverTimePrediction = latestServerTime + upTimePrediction;
+		this._serverTimePrediction = latestServerTime + previousDownTime + upTimePrediction;
 
 		this._previousUpTimePrediction = upTimePrediction;
 		this._previousServerTime = latestServerTime;
@@ -299,6 +308,7 @@ const SOCKET =
 		// this.requestCurrentTime();
 
 		this.updateTimeDisplays(latestServerTime, latestRoundTripTime, this._previousServerTimePrediction);
+		this.updateUpDownDisplay(upTimePrediction, previousDownTime);
 	},
 
 	updateTimeDisplays(latestServerTime, latestRoundTripTime, previousPredictedServerTime)
@@ -306,37 +316,13 @@ const SOCKET =
 		DISPLAY.updateTimeDisplays(latestServerTime, previousPredictedServerTime, latestRoundTripTime);
 	},
 
-	updateUpDownDisplay(previousUpTimePrediction, predictionError)
+	updateUpDownDisplay(previousUpTimePrediction, previousDownTimePrediction)
 	{
-		let measuredUpTime = previousUpTimePrediction - predictionError;
-		DISPLAY.updateUpDownDisplay(measuredUpTime);
+		DISPLAY.updateUpDownDisplay(previousUpTimePrediction, previousDownTimePrediction);
 	},
 
 	emit(key, value)
 	{
 		this._socket.emit(key, value)
-	}
-}
-
-// TODO: Can you do this with a webworker, or are you gonna get screwed by M4L?
-let TIME_AT_LAST_ACCEPTABLE_COMPLETION = null;
-let TIME_TO_NEXT_CHECK = null;
-
-const COUNTDOWN_TO_NEXT_TIME_REQUEST = (timestamp) =>
-{
-	if(!TIME_AT_LAST_ACCEPTABLE_COMPLETION)
-	{
-		TIME_AT_LAST_ACCEPTABLE_COMPLETION = timestamp;
-	}
-
-	const elapsed = timestamp - TIME_AT_LAST_ACCEPTABLE_COMPLETION;
-
-	if(elapsed >= TIME_TO_NEXT_CHECK)
-	{
-		SOCKET.requestCurrentTime();
-	}
-	else
-	{
-		requestAnimationFrame(COUNTDOWN_TO_NEXT_TIME_REQUEST);
 	}
 }
