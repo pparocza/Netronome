@@ -31,6 +31,9 @@ export const TransportServerData =
 		requestCurrentTime: "requestCurrentTime",
 		currentTime: "currentTime",
 
+		requestBeatValidation: "requestBeatValidation",
+		beatValidation: "beatValidation",
+
 		requestStartLatencyMeasurement: "requestStartLatencyMeasurement",
 		startLatencyMeasurement: "startLatencyMeasurement",
 		requestEndLatencyMeasurement: "requestEndLatencyMeasurement",

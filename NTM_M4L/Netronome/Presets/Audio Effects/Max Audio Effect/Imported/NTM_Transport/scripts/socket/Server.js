@@ -50,6 +50,7 @@ io.on("connection", (socket) =>
     socket.on(KEYS.bpm, (value) => { handleBPM(socket, value); });
     socket.on(KEYS.beatValue, (value) => { handleBeatValue(socket, value); });
     socket.on(KEYS.requestCurrentTime, (clientId) => { handleCurrentTimeRequest(socket, clientId); });
+    socket.on(KEYS.requestBeatValidation, (clientId) => { handleBeatValidationRequest(socket, clientId); });
 
     socket.on(KEYS.requestStartLatencyMeasurement, (clientId) =>
     {
@@ -84,6 +85,11 @@ function handleBeatValue(socket, value)
 function handleCurrentTimeRequest(socket, clientId)
 {
     socket.emit(KEYS.currentTime, clientId, performance.now());
+}
+
+function handleBeatValidationRequest(socket, clientId)
+{
+    socket.emit(KEYS.beatValidation, clientId, performance.now());
 }
 
 function handleLatencyMeasurementRequest(socket, clientId)

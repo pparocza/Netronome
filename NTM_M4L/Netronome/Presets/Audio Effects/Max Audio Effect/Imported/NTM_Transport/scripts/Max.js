@@ -16,15 +16,14 @@ const MAX =
 		startLatencyMeasurement: null,
 
 		latestServerTime: "latest_server_time",
-		latestRoundTripTime: "latest_round_trip_time",
-		predictedServerTime: "predicted_server_time",
-		predictionError: "prediction_error",
+		beatValidation: "beat_validation",
 
 		inlet:
 		{
 			setBpm: "set_bpm",
 			setSignatureDenominator: "set_signature_denominator",
 			requestCurrentServerTime: "request_current_server_time",
+			requestBeatValidation: "request_beat_validation",
 			requestStartJackTripLatencyMeasurement: "request_start_jacktrip_latency_measurement",
 			requestEndJackTripLatencyMeasurement: "request_end_jacktrip_latency_measurement"
 		}
@@ -72,22 +71,18 @@ const MAX =
 		SOCKET.setServerBeatValue(beatValue);
 	},
 
-	handleBeat(latestServerTime, predictedServerTime, predictionError)
-	{
-		let latestServerTimeString = latestServerTime.toString();
-		let predictedServerTimeString = predictedServerTime.toString();
-		let predictionErrorString = predictionError.toString();
-
-		this.out(this.key.latestServerTime, latestServerTimeString);
-		this.out(this.key.predictedServerTime, predictedServerTimeString);
-		this.out(this.key.predictionError, predictionErrorString);
-	},
-
 	handleReceivedServerTime(latestServerTime)
 	{
 		let latestServerTimeString = latestServerTime.toString();
 
 		this.out(this.key.latestServerTime, latestServerTimeString);
+	},
+
+	handleReceivedBeatValidation(latestServerTime)
+	{
+		let latestServerTimeString = latestServerTime.toString();
+
+		this.out(this.key.beatValidation, latestServerTimeString);
 	},
 
 	requestCurrentServerTime()
