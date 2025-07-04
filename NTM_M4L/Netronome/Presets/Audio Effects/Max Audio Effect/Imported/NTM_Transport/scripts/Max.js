@@ -90,6 +90,21 @@ const MAX =
 		SOCKET.requestCurrentServerTime();
 	},
 
+	requestBeatValidation()
+	{
+		SOCKET.requestBeatValidation();
+	},
+
+	requestStartJackTripLatencyMeasurement()
+	{
+		SOCKET.requestStartJackTripLatencyMeasurement();
+	},
+
+	requestEndJackTripLatencyMeasurement()
+	{
+		SOCKET.requestEndJackTripLatencyMeasurement();
+	},
+
 	configureMaxInlets()
 	{
 		if(!window.max)
@@ -112,14 +127,19 @@ const MAX =
 			this.requestCurrentServerTime();
 		});
 
+		window.max.bindInlet(this.key.inlet.requestBeatValidation, () =>
+		{
+			this.requestBeatValidation();
+		});
+
 		window.max.bindInlet(this.key.inlet.requestStartJackTripLatencyMeasurement, () =>
 		{
-			SOCKET.requestStartJackTripLatencyMeasurement();
+			this.requestStartJackTripLatencyMeasurement();
 		});
 
 		window.max.bindInlet(this.key.inlet.requestEndJackTripLatencyMeasurement, () =>
 		{
-			SOCKET.requestEndJackTripLatencyMeasurement();
+			this.requestEndJackTripLatencyMeasurement();
 		});
 	}
 }
