@@ -196,8 +196,8 @@ const SOCKET =
 		MAX.handleReceivedBeatValidation(latestServerTime);
 	},
 
-	emit(key, value)
+	emit(key, ...values)
 	{
-		this._socket.emit(key, value)
+		this._socket.emit(key, ...values)
 	}
 }

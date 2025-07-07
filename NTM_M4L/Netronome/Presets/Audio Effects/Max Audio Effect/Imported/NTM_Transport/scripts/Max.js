@@ -44,14 +44,14 @@ const MAX =
 		this.out(this.key.bpm, this._bpm);
 	},
 
-	out(key, args)
+	out(key, ...args)
 	{
 		if(!window.max)
 		{
 			return;
 		}
 
-		window.max.outlet(key, args);
+		window.max.outlet(key, ...args);
 	},
 
 	startLatencyMeasurement()
@@ -82,7 +82,7 @@ const MAX =
 	{
 		let latestServerTimeString = latestServerTime.toString();
 
-		this.out(this.key.beatValidation, latestServerTimeString);
+		this.out(this.key.beatValidation, latestServerTimeString, this._serverTimePrediction);
 	},
 
 	requestCurrentServerTime()
@@ -127,8 +127,9 @@ const MAX =
 			this.requestCurrentServerTime();
 		});
 
-		window.max.bindInlet(this.key.inlet.requestBeatValidation, () =>
+		window.max.bindInlet(this.key.inlet.requestBeatValidation, (serverTimePrediction) =>
 		{
+			this._serverTimePrediction = serverTimePrediction;
 			this.requestBeatValidation();
 		});
 
