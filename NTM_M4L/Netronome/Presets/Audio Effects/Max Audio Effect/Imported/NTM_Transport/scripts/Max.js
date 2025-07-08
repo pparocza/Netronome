@@ -82,7 +82,7 @@ const MAX =
 	{
 		let latestServerTimeString = latestServerTime.toString();
 
-		this.out(this.key.beatValidation, latestServerTimeString, this._serverTimePrediction);
+		this.out(this.key.beatValidation, latestServerTimeString, this._previousServerTimePrediction);
 	},
 
 	requestCurrentServerTime()
@@ -129,8 +129,8 @@ const MAX =
 
 		window.max.bindInlet(this.key.inlet.requestBeatValidation, (serverTimePrediction) =>
 		{
-			this._serverTimePrediction = serverTimePrediction;
 			this.requestBeatValidation();
+			this._previousServerTimePrediction = serverTimePrediction;
 		});
 
 		window.max.bindInlet(this.key.inlet.requestStartJackTripLatencyMeasurement, () =>
