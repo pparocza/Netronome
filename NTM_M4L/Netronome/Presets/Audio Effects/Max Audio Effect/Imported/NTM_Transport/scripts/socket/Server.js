@@ -89,7 +89,6 @@ function handleCurrentTimeRequest(socket, clientId)
 
 function handleBeatValidationRequest(socket, clientId)
 {
-    console.log("Beat Validation Received At: ", performance.now());
     socket.emit(KEYS.beatValidation, clientId, performance.now());
 }
 
