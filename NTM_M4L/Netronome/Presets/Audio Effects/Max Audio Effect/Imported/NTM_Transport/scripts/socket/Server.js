@@ -78,7 +78,7 @@ function handleBPM(socket, value)
 
 function handleBeatValue(socket, value)
 {
-    socket.broadcast.emit(TRANSPORT.beatValue, value);
+    socket.broadcast.emit(KEYS.beatValue, value);
     TRANSPORT.beatValue = value;
 }
 

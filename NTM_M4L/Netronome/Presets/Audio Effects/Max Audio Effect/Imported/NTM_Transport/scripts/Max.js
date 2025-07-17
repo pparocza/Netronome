@@ -7,7 +7,7 @@ const MAX =
 
 	key:
 	{
-		beatLengthMs: "ntmTransportBeatLength",
+		beatLengthMs: "beatLengthMs",
 		connectionStatus: "connection_status",
 
 		// initialized from Transport Server

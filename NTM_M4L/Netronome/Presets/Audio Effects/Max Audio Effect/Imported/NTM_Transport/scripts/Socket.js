@@ -84,6 +84,7 @@ const SOCKET =
 			setBeatValue(value);
 		});
 
+		// TODO: Pretty sure this isn't updating when bpm or beatValue change
 		this._socket.on(SERVER_DATA.keys.beatLengthMs, (value) =>
 		{
 			setBeatLength(value);
