@@ -68,10 +68,10 @@ const DISPLAY =
 		this.roundTripTime = Math.round(latestRoundTripTime);
 	},
 
-	updateUpDownDisplay(measuredUpTime)
+	updateUpDownDisplay(measuredUpTime, measuredDownTime)
 	{
 		this.upTime = Math.round(measuredUpTime);
-		this.downTime = Math.round(0);
+		this.downTime = Math.round(measuredDownTime);
 	},
 
 	setInnerHtml(element, value)

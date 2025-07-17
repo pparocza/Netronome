@@ -7,7 +7,7 @@ const MAX =
 
 	key:
 	{
-		beatLengthMs: "ntmTransportBeatLength",
+		beatLengthMs: "beatLengthMs",
 		connectionStatus: "connection_status",
 
 		// initialized from Transport Server
@@ -16,14 +16,14 @@ const MAX =
 		startLatencyMeasurement: null,
 
 		latestServerTime: "latest_server_time",
-		predictedServerTime: "predicted_server_time",
-		predictionError: "prediction_error",
+		beatValidation: "beat_validation",
 
 		inlet:
 		{
 			setBpm: "set_bpm",
 			setSignatureDenominator: "set_signature_denominator",
-			getUnixTime: "get_unix_time",
+			requestCurrentServerTime: "request_current_server_time",
+			requestBeatValidation: "request_beat_validation",
 			requestStartJackTripLatencyMeasurement: "request_start_jacktrip_latency_measurement",
 			requestEndJackTripLatencyMeasurement: "request_end_jacktrip_latency_measurement"
 		}
@@ -44,14 +44,14 @@ const MAX =
 		this.out(this.key.bpm, this._bpm);
 	},
 
-	out(key, args)
+	out(key, ...args)
 	{
 		if(!window.max)
 		{
 			return;
 		}
 
-		window.max.outlet(key, args);
+		window.max.outlet(key, ...args);
 	},
 
 	startLatencyMeasurement()
@@ -62,24 +62,47 @@ const MAX =
 	bpmInput(bpm)
 	{
 		setBPM(bpm);
-		SOCKET.emit(SERVER_DATA.keys.bpm, bpm);
+		SOCKET.setServerBpm(bpm);
 	},
 
 	beatValueInput(beatValue)
 	{
 		setBeatValue(beatValue);
-		SOCKET.emit(SERVER_DATA.keys.beatValue, beatValue);
+		SOCKET.setServerBeatValue(beatValue);
 	},
 
-	handleBeat(latestServerTime, predictedServerTime, predictionError)
+	handleReceivedServerTime(latestServerTime)
 	{
 		let latestServerTimeString = latestServerTime.toString();
-		let predictedServerTimeString = predictedServerTime.toString();
-		let predictionErrorString = predictionError.toString();
 
 		this.out(this.key.latestServerTime, latestServerTimeString);
-		this.out(this.key.predictedServerTime, predictedServerTimeString);
-		this.out(this.key.predictionError, predictionErrorString);
+	},
+
+	handleReceivedBeatValidation(latestServerTime)
+	{
+		let latestServerTimeString = latestServerTime.toString();
+
+		this.out(this.key.beatValidation, latestServerTimeString, this._previousServerTimePrediction);
+	},
+
+	requestCurrentServerTime()
+	{
+		SOCKET.requestCurrentServerTime();
+	},
+
+	requestBeatValidation()
+	{
+		SOCKET.requestBeatValidation();
+	},
+
+	requestStartJackTripLatencyMeasurement()
+	{
+		SOCKET.requestStartJackTripLatencyMeasurement();
+	},
+
+	requestEndJackTripLatencyMeasurement()
+	{
+		SOCKET.requestEndJackTripLatencyMeasurement();
 	},
 
 	configureMaxInlets()
@@ -99,14 +122,25 @@ const MAX =
 			this.beatValueInput(signatureDenominator);
 		});
 
+		window.max.bindInlet(this.key.inlet.requestCurrentServerTime, () =>
+		{
+			this.requestCurrentServerTime();
+		});
+
+		window.max.bindInlet(this.key.inlet.requestBeatValidation, (serverTimePrediction) =>
+		{
+			this.requestBeatValidation();
+			this._previousServerTimePrediction = serverTimePrediction;
+		});
+
 		window.max.bindInlet(this.key.inlet.requestStartJackTripLatencyMeasurement, () =>
 		{
-			SOCKET.requestStartJackTripLatencyMeasurement();
+			this.requestStartJackTripLatencyMeasurement();
 		});
 
 		window.max.bindInlet(this.key.inlet.requestEndJackTripLatencyMeasurement, () =>
 		{
-			SOCKET.requestEndJackTripLatencyMeasurement();
+			this.requestEndJackTripLatencyMeasurement();
 		});
 	}
 }
