@@ -36,6 +36,15 @@ const MAX =
 		this.key.startLatencyMeasurement = transportServer.key.startLatencyMeasurement;
 	},
 
+	_connectionStatus: false,
+	get connectionStatus() { return this._connectionStatus; },
+	set connectionStatus(isConnected)
+	{
+		let isConnectedInt = isConnected ? 1 : 0;
+
+		this.out(MAX.key.connectionStatus, isConnectedInt);
+	},
+
 	// TODO: consolidate all this into a single "MaxValue" class
 	_bpm: 0,
 	set bpm(value)

@@ -39,7 +39,7 @@ const SOCKET =
 		DISPLAY.connected.hidden = false;
 		DISPLAY.connecting.hidden = true;
 
-		MAX.out(MAX.key.connectionStatus, 1);
+		MAX.connectionStatus = true;
 
 		this.createServerDataListener();
 		this.createDisconnectionListener();
