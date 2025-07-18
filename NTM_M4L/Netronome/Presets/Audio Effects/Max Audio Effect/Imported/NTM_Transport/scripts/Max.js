@@ -18,6 +18,9 @@ const MAX =
 		latestServerTime: "latest_server_time",
 		beatValidation: "beat_validation",
 
+		// TODO: It would be nice to generate this code based on the server code, so that
+		//  you could import this as a packge or something and just have access to these methods
+		//  as a class
 		inlet:
 		{
 			setBpm: "set_bpm",
@@ -29,11 +32,11 @@ const MAX =
 		}
 	},
 
-	getServerKeys(transportServer)
+	getServerKeys(transportServerData)
 	{
-		this.key.bpm = transportServer.key.bpm;
-		this.key.beatValue = transportServer.key.beatValue;
-		this.key.startLatencyMeasurement = transportServer.key.startLatencyMeasurement;
+		this.key.bpm = transportServerData.key.bpm;
+		this.key.beatValue = transportServerDat.key.beatValue;
+		this.key.startLatencyMeasurement = transportServerData.key.startLatencyMeasurement;
 	},
 
 	// TODO: consolidate all this into a single "MaxValue" class
