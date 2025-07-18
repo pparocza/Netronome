@@ -7,7 +7,7 @@ const MAX =
 
 	key:
 	{
-		beatLengthMs: "beatLengthMs",
+		beatLengthMs: "beat_length_ms",
 		connectionStatus: "connection_status",
 
 		// initialized from Transport Server
