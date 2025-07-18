@@ -35,7 +35,7 @@ const MAX =
 	getServerKeys(transportServerData)
 	{
 		this.key.bpm = transportServerData.key.bpm;
-		this.key.beatValue = transportServerDat.key.beatValue;
+		this.key.beatValue = transportServerData.key.beatValue;
 		this.key.startLatencyMeasurement = transportServerData.key.startLatencyMeasurement;
 	},
 
