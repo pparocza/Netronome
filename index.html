@@ -8,17 +8,15 @@
     <link rel="stylesheet" href="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/style.css">
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
     <script defer src="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/scripts/Display.js"></script>
     <script defer src="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/scripts/ServerData.js"></script>
     <script defer src="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/scripts/Socket.js"></script>
     <script defer src="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/scripts/Max.js"></script>
+
     <script defer src="NTM_M4L/Netronome/Presets/Audio%20Effects/Max%20Audio%20Effect/Imported/NTM_Transport/script.js"></script>
 
 </head>
-<!-- COPY FROM HERE... -->
-
-<!-- TODO: Break everything below here out into a separate "display" file be injected so that you don't have
-        to keep copying this to the NTM_Transport_Client.html -->
 
 <body>
 <div class="DISPLAY">
@@ -55,24 +53,9 @@
     <br>
 </div>
 
-<div hidden>
-    <b>Server Time:</b> <span class="SERVER_TIME_DISPLAY"></span><br>
-    <b>Predicted Server Time:</b> <span class="PREDICTED_SERVER_TIME_DISPLAY"></span><br>
-    <b>Error:</b> <span class="PREDICTION_ERROR_DISPLAY"></span><br>
-
-    <br>
-</div>
-
-<div hidden>
-    <b>Round Trip:</b> <span class="ROUNDTRIP_TIME_DISPLAY"></span><br>
-    <b>Up:</b> <span class="UPTIME_DISPLAY"></span> ||
-    <b>Down:</b> <span class="DOWNTIME_DISPLAY"></span>
-</div>
-
 <div class="USER_LIST_DIV">
     <p><b>Users: </b> <span class="USER_LIST_DISPLAY"></span></p>
 </div>
 
 </body>
 </html>
-<!-- ...TO HERE -->

@@ -39,7 +39,7 @@ const SOCKET =
 		DISPLAY.connected.hidden = false;
 		DISPLAY.connecting.hidden = true;
 
-		MAX.out(MAX.key.connectionStatus, 1);
+		MAX.connectionStatus = true;
 
 		this.createServerDataListener();
 		this.createDisconnectionListener();
@@ -67,7 +67,6 @@ const SOCKET =
 
 		setBPM(SERVER_DATA.transportData.bpm);
 		setBeatValue(SERVER_DATA.transportData.beatValue);
-		setBeatLength(SERVER_DATA.transportData.beatLengthMs);
 
 		this.requestCurrentServerTime();
 	},
@@ -82,12 +81,6 @@ const SOCKET =
 		this._socket.on(SERVER_DATA.keys.beatValue, (value) =>
 		{
 			setBeatValue(value);
-		});
-
-		// TODO: Pretty sure this isn't updating when bpm or beatValue change
-		this._socket.on(SERVER_DATA.keys.beatLengthMs, (value) =>
-		{
-			setBeatLength(value);
 		});
 
 		this._socket.on(SERVER_DATA.keys.startLatencyMeasurement, (clientId) =>

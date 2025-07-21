@@ -1,17 +1,39 @@
 MAX.configureMaxInlets();
 SOCKET.initialize(SERVER_DATA.url.dev);
 
+let BPM = null;
+let BEAT_VALUE = null;
+
+function calculateBeatLengthMS()
+{
+    if(BPM && BEAT_VALUE)
+    {
+        return 240000 / (BPM * BEAT_VALUE);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 // BPM
 function setBPM(bpm)
 {
-    DISPLAY.bpm = bpm;
+    BPM = bpm;
+    DISPLAY.bpm = BPM;
+
+    setBeatLength(calculateBeatLengthMS());
 }
 
 // BEAT VALUE
 function setBeatValue(beatValue)
 {
+    BEAT_VALUE = beatValue;
+
     DISPLAY.beatValue = beatValue ? beatValue : 0;
     MAX.out(MAX.key.beatValue, beatValue);
+
+    setBeatLength(calculateBeatLengthMS());
 }
 
 // BEAT LENGTH

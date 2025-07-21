@@ -18,14 +18,6 @@ const DISPLAY =
 		beatValue: document.querySelector(".BEAT_VALUE_DISPLAY"),
 		beatLengthMs: document.querySelector(".BEAT_LENGTH_MS_DISPLAY"),
 
-		serverTime: document.querySelector(".SERVER_TIME_DISPLAY"),
-		predictedServerTime: document.querySelector(".PREDICTED_SERVER_TIME_DISPLAY"),
-		predictionErrorTime: document.querySelector(".PREDICTION_ERROR_DISPLAY"),
-
-		roundTripTime: document.querySelector(".ROUNDTRIP_TIME_DISPLAY"),
-		upTime: document.querySelector(".UPTIME_DISPLAY"),
-		downTime: document.querySelector(".DOWNTIME_DISPLAY"),
-
 		latencyMeasurementStatus: document.querySelector(".LATENCY_MEASUREMENT_STATUS_DISPLAY"),
 	},
 
@@ -41,38 +33,10 @@ const DISPLAY =
 	set beatValue(value) { this.setInnerHtml(this._element.beatValue, value); },
 	set beatLengthMs(value) { this.setInnerHtml(this._element.beatLengthMs, value); },
 
-	set serverTime(value) { this.setInnerHtml(this._element.serverTime, value); },
-	set predictedServerTime(value) { this.setInnerHtml(this._element.predictedServerTime, value); },
-	set predictionErrorTime(value) { this.setInnerHtml(this._element.predictionErrorTime, value); },
-
-	set roundTripTime(value) { this.setInnerHtml(this._element.roundTripTime, value); },
-	set upTime(value) { this.setInnerHtml(this._element.upTime, value); },
-	set downTime(value) { this.setInnerHtml(this._element.downTime, value); },
-
 	get nameDiv() { return this._element.nameDiv; },
 	set nameDisplay(value) { this.setInnerHtml(this._element.name, value); },
 
 	set userList(value) { this.setInnerHtml(this._element.userList, value); },
-
-	updateTimeDisplays(latestServerTime, predictedServerTime, latestRoundTripTime)
-	{
-		let latestServerInt = Math.round(latestServerTime);
-		let previousServerInt = Math.round(predictedServerTime);
-
-		let errorInt = previousServerInt - latestServerInt;
-
-		this.serverTime = latestServerInt;
-		this.predictedServerTime = previousServerInt;
-		this.predictionErrorTime = errorInt;
-
-		this.roundTripTime = Math.round(latestRoundTripTime);
-	},
-
-	updateUpDownDisplay(measuredUpTime, measuredDownTime)
-	{
-		this.upTime = Math.round(measuredUpTime);
-		this.downTime = Math.round(measuredDownTime);
-	},
 
 	setInnerHtml(element, value)
 	{
