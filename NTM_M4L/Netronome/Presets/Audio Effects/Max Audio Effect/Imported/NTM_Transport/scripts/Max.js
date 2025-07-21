@@ -97,6 +97,12 @@ const MAX =
 		this.out(this.key.beatValidation, latestServerTimeString, this._previousServerTimePrediction);
 	},
 
+	// TODO: initializes index based on server
+	initializeJweb(serverUrl)
+	{
+		this.out("server_url", serverUrl);
+	},
+
 	requestCurrentServerTime()
 	{
 		SOCKET.requestCurrentServerTime();

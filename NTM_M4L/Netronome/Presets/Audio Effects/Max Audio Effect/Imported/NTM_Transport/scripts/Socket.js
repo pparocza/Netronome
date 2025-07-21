@@ -16,6 +16,7 @@ const SOCKET =
 	{
 		this._socket = io(serverUrl);
 		this.createConnectionListener();
+		MAX.initializeJweb(serverUrl);
 	},
 
 	createConnectionListener()
