@@ -67,7 +67,7 @@ const SOCKET =
 
 		setBPM(SERVER_DATA.transportData.bpm);
 		setBeatValue(SERVER_DATA.transportData.beatValue);
-		setBeatLength(SERVER_DATA.transportData.beatLengthMs);
+		// setBeatLength(SERVER_DATA.transportData.beatLengthMs);
 
 		this.requestCurrentServerTime();
 	},
