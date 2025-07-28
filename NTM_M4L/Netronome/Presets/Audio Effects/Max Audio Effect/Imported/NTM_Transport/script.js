@@ -1,5 +1,5 @@
 MAX.configureMaxInlets();
-SOCKET.initialize(SERVER_DATA.url.dev_paul);
+SOCKET.initialize(SERVER_DATA.url.dev);
 
 let BPM = null;
 let BEAT_VALUE = null;
