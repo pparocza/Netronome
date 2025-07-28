@@ -20,7 +20,9 @@ function calculateBeatLengthMS()
 function setBPM(bpm)
 {
     BPM = bpm;
+
     DISPLAY.bpm = BPM;
+    MAX.out(MAX.key.bpm, bpm);
 
     setBeatLength(calculateBeatLengthMS());
 }

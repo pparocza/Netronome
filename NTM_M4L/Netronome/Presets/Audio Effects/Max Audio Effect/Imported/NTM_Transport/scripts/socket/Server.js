@@ -45,7 +45,7 @@ io.on("connection", (socket) =>
     };
 
     socket.emit("initialize", serverData);
-    socket.emit("update")
+    socket.emit("update");
 
     socket.on(KEYS.bpm, (value) => { handleBPM(socket, value); });
     socket.on(KEYS.beatValue, (value) => { handleBeatValue(socket, value); });
