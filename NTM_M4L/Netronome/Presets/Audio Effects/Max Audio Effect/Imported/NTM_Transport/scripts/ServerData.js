@@ -6,7 +6,9 @@ const SERVER_DATA =
 	url:
 	{
 		main: "wss://netronome-1.onrender.com",
-		dev: "wss://netronome-1.onrender.com"
+		dev: "wss://netronome-dev.onrender.com",
+		dev_paul: "wss://netronome-dev-paul.onrender.com",
+		localhost: "localhost:3000"
 	},
 
 	transportServer: null,
